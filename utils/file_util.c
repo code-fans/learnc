@@ -83,6 +83,7 @@ void releaseIntArray(int **intArray)
     {
         free(intArray[i]);
     }
+    // 这个会报错 程序接收信号 SIGTRAP、跟踪/断点陷阱; 不知道什么原因 
     //free(intArray);
 }
 
