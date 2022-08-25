@@ -76,11 +76,14 @@ void releaseIntArray(int **intArray)
     {
         return;
     }
-    for (int i = 0; i < intArray[0][0] + 1; i++)
+    
+    int n =  intArray[0][0] + 1;
+	 
+    for (int i = 0; i < n; i++)
     {
         free(intArray[i]);
     }
-    free(intArray);
+    //free(intArray);
 }
 
 int **readIntMatrixFromFile(const char *fileName, int lines, int columns)
@@ -136,7 +139,7 @@ void releaseIntMatrix(int **intMAtrix, int lines)
     {
         free(intMAtrix[i]);
     }
-    free(intMAtrix);
+    //free(intMAtrix);
 }
 
 void printIntMatrix(int **intMAtrix, int lines, int columns)
