@@ -90,6 +90,19 @@ void printIntArray(int **intArray)
     }
 }
 
+void releaseIntArray(int **intArray)
+{
+    if (intArray == NULL)
+    {
+        return;
+    }
+    for (int i = 0; i < intArray[0][0] + 1; i++)
+    {
+        free(intArray[i]);
+    }
+    free(intArray);
+}
+
 int **readIntMatrixFromFile(const char *fileName, int lines, int columns)
 {
     FILE *fpRead = fopen(fileName, "r");
@@ -146,7 +159,6 @@ void releaseIntMatrix(int **intMAtrix, int lines)
         intMAtrix[i]= NULL;
     }
     free(intMAtrix);
-    intMAtrix = NULL;
 }
 
 void printIntMatrix(int **intMAtrix, int lines, int columns)
