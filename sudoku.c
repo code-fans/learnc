@@ -435,7 +435,7 @@ int violenceSolution(int **sudoku, int matrix, int row, int col)
         if (nRes == 1)
         {
             releaseIntMatrix(copySudoku, matrix);
-            // return 1;
+            return 1;
         }
         //»Ö¸´Êý¶À
         copyIntMatrix(sudoku, copySudoku, matrix, matrix);
@@ -481,6 +481,8 @@ void sudokuSolution(const char *filename, int matrix, int row, int col)
 int main()
 {
     sudokuSolution("./test/sudoku.txt", 6, 2, 3);
+    int i;
+    scanf("%d", &i);  
     return 0;
 }
 */
