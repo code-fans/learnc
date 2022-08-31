@@ -1,7 +1,7 @@
 #include "file_util.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <cstring>
 /**
  * 读取文本文件中的 整形数组
  * 第一行 存储 数组的行 和 列的数量
