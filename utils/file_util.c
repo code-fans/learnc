@@ -193,18 +193,21 @@ void printIntArray(int **intArray)
     }
 }
 
-void printIntArrayAsLine(int **intArray)
+void printIntArrayAsLine(int **intArray, int writeInfo)
 {
     if (intArray == NULL)
     {
         return;
     }
 
-    for (int i = 0; i < intArray[0][0] + 1; i++)
+    if (writeInfo == 1)
     {
-        printf("%d ", intArray[0][i]);
+        for (int i = 0; i < intArray[0][0] + 1; i++)
+        {
+            printf("%d ", intArray[0][i]);
+        }
+        printf("\n");
     }
-    printf("\n");
 
     for (int i = 1; i < intArray[0][0] + 1; i++)
     {

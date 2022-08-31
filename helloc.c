@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "./utils/math.h"
 #include "./utils/file_util.h"
 
@@ -24,10 +25,10 @@ int testReadIntInLine()
     // fielachian(8);
     // printf("\r\n");
     int **res = readIntArrayAsLineFromFile("./test/input.txt");
-    printIntArrayAsLine(res);
+    system("color f2");
+    printIntArrayAsLine(res, 0);
     releaseIntArrayAsLine(res);
-    int i;
-    scanf("%d", &i);
+    system("pause");
     return 0;
 }
 

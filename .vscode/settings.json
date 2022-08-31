@@ -9,7 +9,8 @@
         "algorithm": "cpp",
         "__config": "cpp",
         "type_traits": "cpp",
-        "math.h": "c"
+        "math.h": "c",
+        "cstring": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

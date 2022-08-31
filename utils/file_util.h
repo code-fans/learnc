@@ -9,7 +9,6 @@ int **readIntArrayFromFile(const char *fileName);
 
 void releaseIntArray(int **intArray);
 
-
 void writeIntArrayToFile(const char *fileName, int **intArray);
 
 void printIntArray(int **intArray);
@@ -22,7 +21,7 @@ int **readIntArrayAsLineFromFile(const char *fileName);
 
 void releaseIntArrayAsLine(int **intArray);
 
-void printIntArrayAsLine(int **intArray);
+void printIntArrayAsLine(int **intArray, int writeInfo);
 
 int **readIntMatrixFromFile(const char *fileName, int lines, int columns);
 
@@ -33,4 +32,5 @@ int **allocateMatrix(int lines, int columns);
 void copyIntMatrix(int **destArray, int **sourArray, int lines, int columns);
 
 void releaseIntMatrix(int **intMAtrix, int lines);
+
 #endif // _FILE_UTI_

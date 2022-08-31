@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "./utils/file_util.h"
 
 /**
@@ -481,8 +482,7 @@ void sudokuSolution(const char *filename, int matrix, int row, int col)
 int main()
 {
     sudokuSolution("./test/sudoku.txt", 6, 2, 3);
-    int i;
-    scanf("%d", &i);  
+    system("pause"); 
     return 0;
 }
 */
