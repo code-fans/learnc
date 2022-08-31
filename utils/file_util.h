@@ -7,11 +7,22 @@
  */
 int **readIntArrayFromFile(const char *fileName);
 
+void releaseIntArray(int **intArray);
+
+
 void writeIntArrayToFile(const char *fileName, int **intArray);
 
 void printIntArray(int **intArray);
 
-void releaseIntArray(int **intArray);
+/**
+ * 读取每一行，每一行 分割成一个数组;一行不能超过8192个字符
+ * 第一行 的 第一个 数字为一共多少行， 后面的数字为 每一行多少个数字
+ */
+int **readIntArrayAsLineFromFile(const char *fileName);
+
+void releaseIntArrayAsLine(int **intArray);
+
+void printIntArrayAsLine(int **intArray);
 
 int **readIntMatrixFromFile(const char *fileName, int lines, int columns);
 
