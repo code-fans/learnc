@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./utils/math.h"
-#include "./utils/file_util.h"
+#include "./utils/math_utils.h"
+#include "./utils/file_utils.h"
 
 int testSort()
 {
