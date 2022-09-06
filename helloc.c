@@ -31,8 +31,9 @@ int testReadIntInLine()
     system("pause");
     return 0;
 }
-
+/* 
 int main()
 {
     return testReadIntInLine();
 }
+*/
