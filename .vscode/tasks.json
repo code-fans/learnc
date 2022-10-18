@@ -27,7 +27,8 @@
                 "/Fe:",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "${file}",
-                "${fileDirname}\\utils\\*.c"
+                "${fileDirname}\\utils\\*.c",
+                "${fileDirname}\\sqlite3\\*.c"
             ],
             "options": {
                 "cwd": "${fileDirname}"

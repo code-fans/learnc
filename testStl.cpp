@@ -2,6 +2,10 @@
 #include <iostream>
 #include <stdlib.h>
 
+#include "./sqlite3/sqlite3.h"
+#include "./sqlite3/sqlite3ext.h"
+#include <stdlib.h>
+
 using namespace std;
 
 void display(int a)

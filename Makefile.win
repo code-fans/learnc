@@ -1,17 +1,17 @@
 # Project: studyc
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe -D__DEBUG__
-CC       = gcc.exe -D__DEBUG__
+CPP      = g++.exe
+CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o
-LINKOBJ  = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+OBJ      = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o sqlite3/shell.o sqlite3/sqlite3.o
+LINKOBJ  = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o sqlite3/shell.o sqlite3/sqlite3.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = studyc.exe
-CXXFLAGS = $(CXXINCS) -g3
-CFLAGS   = $(INCS) -g3
+CXXFLAGS = $(CXXINCS) -fpermissive
+CFLAGS   = $(INCS) -fpermissive
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -38,3 +38,9 @@ utils/file_utils.o: utils/file_utils.c
 
 utils/math_utils.o: utils/math_utils.c
 	$(CPP) -c utils/math_utils.c -o utils/math_utils.o $(CXXFLAGS)
+
+sqlite3/shell.o: sqlite3/shell.c
+	$(CPP) -c sqlite3/shell.c -o sqlite3/shell.o $(CXXFLAGS)
+
+sqlite3/sqlite3.o: sqlite3/sqlite3.c
+	$(CPP) -c sqlite3/sqlite3.c -o sqlite3/sqlite3.o $(CXXFLAGS)
