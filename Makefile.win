@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o sqlite3/shell.o sqlite3/sqlite3.o
-LINKOBJ  = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o sqlite3/shell.o sqlite3/sqlite3.o
+OBJ      = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o
+LINKOBJ  = helloc.o sudoku.o testStl.o utils/file_utils.o utils/math_utils.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -38,9 +38,3 @@ utils/file_utils.o: utils/file_utils.c
 
 utils/math_utils.o: utils/math_utils.c
 	$(CPP) -c utils/math_utils.c -o utils/math_utils.o $(CXXFLAGS)
-
-sqlite3/shell.o: sqlite3/shell.c
-	$(CPP) -c sqlite3/shell.c -o sqlite3/shell.o $(CXXFLAGS)
-
-sqlite3/sqlite3.o: sqlite3/sqlite3.c
-	$(CPP) -c sqlite3/sqlite3.c -o sqlite3/sqlite3.o $(CXXFLAGS)
