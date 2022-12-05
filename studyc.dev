@@ -28,8 +28,8 @@ Folders=test,utils
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000000000000000
-UnitCount=11
+CompilerSettings=0000000000000000001000000
+UnitCount=12
 
 [VersionInfo]
 Major=1
@@ -159,4 +159,14 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 CompileCpp=1
+
+[Unit12]
+FileName=kmp.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
 
