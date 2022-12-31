@@ -5,7 +5,7 @@ void testPlusPlus(int a, int b, int c){
 	cout << a << " " << b << " " << c << endl;
 }
 
-int main()
+int unit4_main()
 {
 	//i++; i+=1; i=i+1;
 	int i = 5; 

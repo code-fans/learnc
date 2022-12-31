@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o
+OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o unit9.o unit100.o all_lession.o unit10.o
+LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o unit9.o unit100.o all_lession.o unit10.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -35,3 +35,24 @@ unit4.o: unit4.cpp
 
 unit5.o: unit5.cpp
 	$(CPP) -c unit5.cpp -o unit5.o $(CXXFLAGS)
+
+unit6.o: unit6.cpp
+	$(CPP) -c unit6.cpp -o unit6.o $(CXXFLAGS)
+
+unit7.o: unit7.cpp
+	$(CPP) -c unit7.cpp -o unit7.o $(CXXFLAGS)
+
+unit8.o: unit8.cpp
+	$(CPP) -c unit8.cpp -o unit8.o $(CXXFLAGS)
+
+unit9.o: unit9.cpp
+	$(CPP) -c unit9.cpp -o unit9.o $(CXXFLAGS)
+
+unit100.o: unit100.cpp
+	$(CPP) -c unit100.cpp -o unit100.o $(CXXFLAGS)
+
+all_lession.o: all_lession.cpp
+	$(CPP) -c all_lession.cpp -o all_lession.o $(CXXFLAGS)
+
+unit10.o: unit10.cpp
+	$(CPP) -c unit10.cpp -o unit10.o $(CXXFLAGS)

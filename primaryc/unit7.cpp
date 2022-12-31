@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int main()
+int unit7_main()
 {
 	int a, b, t; 
     a=10;
