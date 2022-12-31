@@ -1,21 +1,27 @@
 #include <iostream>
-#include <stdlib.h>
+#include <stdlib.h> 
+
 using namespace std;
-/*
+
+int func(int x1, int x2) 
+{
+	return x1 * x2;
+}
+
 int main()
 {
-    int x;
-    cin >> x;
-    if(x<5 || x % 4 != 1){
-    	cout << -1;
-	} else {
-	
-	    for(int i=0; i< x / 4 ; i++){
-	    	cout << "0011";
+	while(true){
+		cout << "请您输入两个数字，用空格隔开：" << endl ;
+		int inInt1, inInt2;
+		cin >> inInt1 >> inInt2;
+		if( inInt1 == 0 && inInt2 == 0){
+			break;
 		}
-		cout<< "0";
+		cout << "这两个数相乘的结果为:" << func( inInt1, inInt2) << endl;
 	}
-    //system("pause");
     return 0;
 }
-*/
+
+
+
+

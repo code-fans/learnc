@@ -48,6 +48,7 @@ int KMP(char* chang,char* duan)
 	return k < d_len ? -1 : i - k;
 }
  
+/* 
 int main()
 {
  
@@ -62,3 +63,4 @@ int main()
 	
 	return 0;
  }
+ */
