@@ -1,11 +1,11 @@
-#include <iostream>
+#include <iostream>  
 using namespace std;
 int unit10_main()
 {
-	int a,b,s;
-	cout <<"this unit 10：";
-	cin >> a >>b;
-	s=a*b;
-	cout <<"种数的棵树:" <<s<<endl;
-	return 0; 
+	float tang, shui, tangshui;
+	tang = 15*0.2; 
+	tangshui = tang/0.15;
+	shui = tangshui-15;
+	cout << "应加水："<< shui;
+	return 0;
 }
