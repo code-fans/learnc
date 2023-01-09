@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o
+OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o
+LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -74,3 +74,12 @@ unit16.o: unit16.cpp
 
 csp.o: csp.cpp
 	$(CPP) -c csp.cpp -o csp.o $(CXXFLAGS)
+
+unit17.o: unit17.cpp
+	$(CPP) -c unit17.cpp -o unit17.o $(CXXFLAGS)
+
+unit18.o: unit18.cpp
+	$(CPP) -c unit18.cpp -o unit18.o $(CXXFLAGS)
+
+unit19.o: unit19.cpp
+	$(CPP) -c unit19.cpp -o unit19.o $(CXXFLAGS)

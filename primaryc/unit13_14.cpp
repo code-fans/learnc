@@ -2,7 +2,7 @@
 using namespace std;
 int unit13_main()
 {
-	int iq;
+	int iq; 
 	cout <<"IQ"<<endl;
 	cin>>iq;
 	if (iq>140) cout <<"Ìì²Å"<<endl;
