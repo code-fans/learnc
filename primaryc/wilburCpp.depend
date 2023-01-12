@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/csp.cpp
+	<iostream>
+	<algorithm>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit10.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit100.cpp
+	<iostream>
+	<stdlib.h>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit11.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit12.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit13_14.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit15.cpp
+	<iostream>
+	<string>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit16.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit17.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit18.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit2.cpp
+	<iostream>
+	<string>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit3.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit4.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit5.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit6.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit7.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit8.cpp
+	<iostream>
+	<iomanip>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit9.cpp
+	<iostream>
+
+1673267499 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit19.cpp
+	<iostream>
+
+1673522112 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit22.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+
+1673527653 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+
+1673527647 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit23.cpp
+	<iostream>
+
+1673522112 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit20.cpp
+	<iostream>
+
