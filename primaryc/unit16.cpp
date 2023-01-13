@@ -1,4 +1,4 @@
-#include <iostream>  
+#include <iostream>
 using namespace std;
 int unit16_main()
 {
@@ -9,11 +9,11 @@ int unit16_main()
 	light=!	light;
 	light=!	light;
 	if(	light)
-		cout<<"µÆÁÁ";
+		cout<<"ç¯äº®";
 	else
-		cout <<"µÆÃð" ; 
-		
-	cout << endl << "ÇëÊäÈëÒ»¸öÊý×Ö£º"; 
+		cout <<"ç¯ç­" ;
+
+	cout << endl << "è¯·è¾“å…¥ä¸€ä¸ªæ•°å€¼ï¼š";
 	bool flag;
 	int n;
 	cin>>n;
@@ -23,6 +23,6 @@ int unit16_main()
 		cout<<"yes" ;
 	else
 		cout <<"no";
-		
+
 	return 0;
-} 	
+}

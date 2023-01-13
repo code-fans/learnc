@@ -1,21 +1,21 @@
-#include <iostream>  
+#include <iostream>
 using namespace std;
 int unit13_main()
 {
-	int iq; 
+	int iq;
 	cout <<"IQ"<<endl;
 	cin>>iq;
-	if (iq>140) cout <<"Ìì²Å"<<endl;
-	
-	int n;	
-	cout << "ÇëÊäÈë1·ÖÖÓÌøÉþ´ÎÊý£º";
+	if (iq>140) cout <<"ä½ æ˜¯ä¸ªå¤©æ‰ï¼"<<endl;
+
+	int n;
+	cout << "è¯·è¾“å…¥ä½ æ¯åˆ†é’Ÿè·³ç»³å¤šå°‘ä¸‹ï¼š";
 	cin >>n;
 	if (n>=200)
-		cout<<"ÌøÉþ´ïÈË";
+		cout<<"è·³ç»³è¾¾äºº";
 	else
-		cout<<"¼ÌÐøÅ¬Á¦";
-	
-	return 0; 
+		cout<<"ç»§ç»­åŠªåŠ›";
+
+	return 0;
 }
 
 

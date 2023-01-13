@@ -13,7 +13,7 @@ int unit23_main()
         fieyong = 6+(lucheng-2)*1.8;
     else
         fieyong = 6;
-    cout <<"请输入时间";
+    cout <<"byh请输入时间";
     cin >> shijian;
     fieyong=fieyong+(shijian/3)*1;
     cout << fieyong;
