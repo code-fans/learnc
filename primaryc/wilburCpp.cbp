@@ -30,6 +30,10 @@
 		<Unit filename="unit22.cpp" />
 		<Unit filename="unit23.cpp" />
 		<Unit filename="unit24.cpp" />
+		<Unit filename="unit26.cpp" />
+		<Unit filename="unit27.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="unit3.cpp" />
 		<Unit filename="unit4.cpp" />
 		<Unit filename="unit5.cpp" />
