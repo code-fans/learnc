@@ -15,6 +15,7 @@
 		<Unit filename="all_lession.cpp" />
 		<Unit filename="csp.cpp" />
 		<Unit filename="difineNewFunc.cpp" />
+		<Unit filename="nuit31.cpp" />
 		<Unit filename="unit10.cpp" />
 		<Unit filename="unit100.cpp" />
 		<Unit filename="unit11.cpp" />
@@ -36,6 +37,10 @@
 		</Unit>
 		<Unit filename="unit28.cpp" />
 		<Unit filename="unit3.cpp" />
+		<Unit filename="unit30.cpp" />
+		<Unit filename="unit32.cpp" />
+		<Unit filename="unit33.cpp" />
+		<Unit filename="unit35.cpp" />
 		<Unit filename="unit4.cpp" />
 		<Unit filename="unit5.cpp" />
 		<Unit filename="unit6.cpp" />
