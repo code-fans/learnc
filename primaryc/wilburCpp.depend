@@ -66,7 +66,7 @@
 	<ctime>
 	<cstdlib>
 
-1675061283 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+1675342862 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
 
 1673584125 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit23.cpp
 	<iostream>
@@ -104,4 +104,7 @@
 	<iostream>
 	<ctime>
 	<cstdlib>
+
+1675343630 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit40.cpp
+	<iostream>
 
