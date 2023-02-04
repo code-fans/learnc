@@ -41,6 +41,8 @@
 		<Unit filename="unit32.cpp" />
 		<Unit filename="unit33.cpp" />
 		<Unit filename="unit35.cpp" />
+		<Unit filename="unit36.cpp" />
+		<Unit filename="unit37.cpp" />
 		<Unit filename="unit39.cpp" />
 		<Unit filename="unit4.cpp" />
 		<Unit filename="unit40.cpp" />
