@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int unit40_main()
+int toBinary()
 {
 	long long arr[80],i,v;
 	cout << "请输入一个正整数: ";
@@ -22,4 +22,22 @@ int unit40_main()
    	return 0;
 }
 
+int calcFactor()
+{
+    int i ,u ,j;
+    cin>>i;
+    u=0;
+    for(j=1;j<=i;j++){
+        if(i%j==0){
+            u++;
+            cout << j << "  ";
+        }
+    }
+    cout << endl<< i<<"有"<<u << "个因子，";
 
+    if(u==2)
+        cout <<"是素数";
+    else
+        cout <<"不是素数";
+
+}
