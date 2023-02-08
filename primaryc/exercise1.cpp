@@ -1,5 +1,8 @@
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
+
 int toBinary()
 {
 	long long arr[80],i,v;
@@ -39,5 +42,29 @@ int calcFactor()
         cout <<"是素数";
     else
         cout <<"不是素数";
+    return 0;
+}
 
+
+int enumPrimeNumber(){
+    cout << "请输入一个正整数：";
+    long long n;
+    cin >> n;
+
+    return 0;
+}
+
+// 五个五个数余三， 七个七个数余二
+
+int findTheNumber(){
+    int n, x ,i=0;
+    for(x=0; 5*x<1000; x++){
+        n = 5 * x + 3;
+        if(n % 7 == 2){
+            cout << setw(6) << n;
+            i++;
+            if(i%5==0)
+                cout <<endl;
+        }
+    }
 }
