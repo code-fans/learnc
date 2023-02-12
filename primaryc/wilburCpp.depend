@@ -66,7 +66,7 @@
 	<ctime>
 	<cstdlib>
 
-1675861778 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+1676189523 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
 
 1673584125 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit23.cpp
 	<iostream>
@@ -105,7 +105,7 @@
 	<ctime>
 	<cstdlib>
 
-1675501970 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit40.cpp
+1675944090 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit40.cpp
 	<iostream>
 
 1675500632 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit36.cpp
@@ -115,6 +115,16 @@
 	<iostream>
 	<iomanip>
 
-1675588772 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
+1675862109 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
+	<iostream>
+	<iomanip>
+
+1676190423 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit41.cpp
+	<iostream>
+
+1676189255 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit42.cpp
+	<iostream>
+
+1676188327 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit43.cpp
 	<iostream>
 
