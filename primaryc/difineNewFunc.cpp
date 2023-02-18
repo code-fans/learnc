@@ -4,7 +4,8 @@ using namespace std;
 int func(int a, int b){
     return a * b + a + b;
 }
-
+//output
+ 
 int deffunc_main(){
     int  n = 1;
     for(int i=0; i<6; i++){
@@ -12,6 +13,7 @@ int deffunc_main(){
         cout << n << endl;
     }
 
-    cout <<  func( func( func( func( func( func(1,9),9),9),9),9),9);
+    cout << endl<< func(func(func(func(func(func(1, 9), 9), 9), 9), 9), 9)
+	      << endl;
     return 0;
 }

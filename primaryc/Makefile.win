@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o
+OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o difineNewFunc.o
+LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o difineNewFunc.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -89,3 +89,6 @@ unit20.o: unit20.cpp
 
 unit25.o: unit25.cpp
 	$(CPP) -c unit25.cpp -o unit25.o $(CXXFLAGS)
+
+difineNewFunc.o: difineNewFunc.cpp
+	$(CPP) -c difineNewFunc.cpp -o difineNewFunc.o $(CXXFLAGS)
