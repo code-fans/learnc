@@ -13,6 +13,7 @@ void transNumber(int dec, int power){
     while(i>0){
         i--;
         if( ant[i] >=10){
+
             lv = 'a' + (ant[i]-10);
             cout<<lv;
         } else
