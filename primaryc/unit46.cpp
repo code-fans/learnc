@@ -42,6 +42,16 @@ int unit46_2_main()
 
 int unit46_3main()
 {
+    cout << -10 % 3 << ":"<< -10/3
+    << endl << -11 % 3 << ":"<< -11/3
+
+    << endl << -10 % -3 << ":"<< -10/-3
+    << endl << -11 % -3 << ":"<< -11/-3
+    << endl ;
+}
+
+int unit46_4main()
+{
     int u, i,o ,sum=0;
     cin>>u>>i;
     cout<<u/i;
