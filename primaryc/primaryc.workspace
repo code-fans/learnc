@@ -2,5 +2,6 @@
 <CodeBlocks_workspace_file>
 	<Workspace title="primaryc">
 		<Project filename="wilburCpp.cbp" />
+		<Project filename="../pettystl/pettystl.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
