@@ -14,6 +14,7 @@ void transNumber(long long dec, int power){
 
     while(i>0){
         i--;
+<<<<<<< HEAD
         if(ant[i]==62)
         	cout<<"-";
         else if(ant[i]==63)
@@ -22,6 +23,10 @@ void transNumber(long long dec, int power){
 			lv='A'+(ant[i]-36);
 			cout<<lv; 
         }else if( ant[i] >=10){ //26
+=======
+        if( ant[i] >=10){
+
+>>>>>>> 73e88410ca24ca19ffab65eefbb51ef0e4fab45c
             lv = 'a' + (ant[i]-10);
             cout<<lv;
         }else
