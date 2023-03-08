@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o difineNewFunc.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o difineNewFunc.o
+OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o
+LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -90,5 +90,65 @@ unit20.o: unit20.cpp
 unit25.o: unit25.cpp
 	$(CPP) -c unit25.cpp -o unit25.o $(CXXFLAGS)
 
-difineNewFunc.o: difineNewFunc.cpp
-	$(CPP) -c difineNewFunc.cpp -o difineNewFunc.o $(CXXFLAGS)
+unit23.o: unit23.cpp
+	$(CPP) -c unit23.cpp -o unit23.o $(CXXFLAGS)
+
+unit24.o: unit24.cpp
+	$(CPP) -c unit24.cpp -o unit24.o $(CXXFLAGS)
+
+unit26.o: unit26.cpp
+	$(CPP) -c unit26.cpp -o unit26.o $(CXXFLAGS)
+
+unit27.o: unit27.cpp
+	$(CPP) -c unit27.cpp -o unit27.o $(CXXFLAGS)
+
+unit28.o: unit28.cpp
+	$(CPP) -c unit28.cpp -o unit28.o $(CXXFLAGS)
+
+unit29.o: unit29.cpp
+	$(CPP) -c unit29.cpp -o unit29.o $(CXXFLAGS)
+
+unit30.o: unit30.cpp
+	$(CPP) -c unit30.cpp -o unit30.o $(CXXFLAGS)
+
+unit32.o: unit32.cpp
+	$(CPP) -c unit32.cpp -o unit32.o $(CXXFLAGS)
+
+unit33.o: unit33.cpp
+	$(CPP) -c unit33.cpp -o unit33.o $(CXXFLAGS)
+
+unit35.o: unit35.cpp
+	$(CPP) -c unit35.cpp -o unit35.o $(CXXFLAGS)
+
+unit36.o: unit36.cpp
+	$(CPP) -c unit36.cpp -o unit36.o $(CXXFLAGS)
+
+unit37.o: unit37.cpp
+	$(CPP) -c unit37.cpp -o unit37.o $(CXXFLAGS)
+
+unit39.o: unit39.cpp
+	$(CPP) -c unit39.cpp -o unit39.o $(CXXFLAGS)
+
+unit40.o: unit40.cpp
+	$(CPP) -c unit40.cpp -o unit40.o $(CXXFLAGS)
+
+unit41.o: unit41.cpp
+	$(CPP) -c unit41.cpp -o unit41.o $(CXXFLAGS)
+
+unit42.o: unit42.cpp
+	$(CPP) -c unit42.cpp -o unit42.o $(CXXFLAGS)
+
+unit43.o: unit43.cpp
+	$(CPP) -c unit43.cpp -o unit43.o $(CXXFLAGS)
+
+unit44.o: unit44.cpp
+	$(CPP) -c unit44.cpp -o unit44.o $(CXXFLAGS)
+
+unit45.o: unit45.cpp
+	$(CPP) -c unit45.cpp -o unit45.o $(CXXFLAGS)
+
+exercise1.o: exercise1.cpp
+	$(CPP) -c exercise1.cpp -o exercise1.o $(CXXFLAGS)
+
+exercise2.o: exercise2.cpp
+	$(CPP) -c exercise2.cpp -o exercise2.o $(CXXFLAGS)

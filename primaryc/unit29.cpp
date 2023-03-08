@@ -7,11 +7,11 @@ int unit29_main()
     sum=0;
     n=1;
     for(i=1;i<=64;i++)
-}
-    n*=2;
-    sum+=n;
-    cout<<i<<" "<<n<<endl;
-}
+	{
+	    n*=2;
+	    sum+=n;
+	    cout<<i<<" "<<n<<endl;
+	}
     cout<<sum<<endl;
     return 0;
 }
