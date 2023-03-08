@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
+// TODO ½«Õâ¸ö×ª»»µÄ¸ü¸ÄÎª×î´ó 64½øÖÆ
+// Ìí¼Ó ¶ÔÊäÈëµÄÅÐ¶Ï 
 
-void transNumber(int dec, int power){
+void transNumber(long long dec, int power){
     int i=0, ant[100];
     char lv;
     do{
@@ -12,10 +14,17 @@ void transNumber(int dec, int power){
 
     while(i>0){
         i--;
-        if( ant[i] >=10){
+        if(ant[i]==62)
+        	cout<<"-";
+        else if(ant[i]==63)
+        	cout<<"_";
+        else if(ant[i]>=36){
+			lv='A'+(ant[i]-36);
+			cout<<lv; 
+        }else if( ant[i] >=10){ //26
             lv = 'a' + (ant[i]-10);
             cout<<lv;
-        } else
+        }else
             cout<<ant[i];
     }
     cout << endl;
@@ -23,16 +32,19 @@ void transNumber(int dec, int power){
 
 int unit45_main()
 {
-    int n , r  ,i ,ant[100];
-
+    int n, ant[100];
+	long long r;
     while(1)   {
-        cout<< "è¾“å…¥ä¸¤ä¸ªæ­£æ•´æ•°ï¼Œå°†å‰ä¸€ä¸ªæ•´æ•°è½¬åŒ–ä¸ºå¯¹åº”è¿›åˆ¶ï¼š" <<endl;
+        cout<< "ÇëÊäÈëÁ½¸öÕýÕûÊý£º" <<endl;
         cin >> r >> n ;
         if(r<0 || n<2)
             break;
-        i=0;
         transNumber(r, n);
+        r=0;
+        n=0;
     }
 
+	
 	return 0;
 }
+
