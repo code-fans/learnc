@@ -13,6 +13,7 @@
 			</Target>
 		</Build>
 		<Unit filename="all_lession.cpp" />
+		<Unit filename="calculate24.cpp" />
 		<Unit filename="csp.cpp" />
 		<Unit filename="difineNewFunc.cpp" />
 		<Unit filename="exercise1.cpp" />
