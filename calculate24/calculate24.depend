@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1678584167 source:/home/codefan/projects/cplusplus/learnc/calculate24/main.cpp
+1678586140 source:/home/codefan/projects/cplusplus/learnc/calculate24/main.cpp
 	<iostream>
+	<sstream>
 	<cmath>
 

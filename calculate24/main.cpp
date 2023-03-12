@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <cmath>
 
 using namespace std;
@@ -37,10 +38,15 @@ bool equal24(float a){
 }
 
 string floatToString(float a){
+    std::ostringstream oss;
+    oss<<a;
+    std::string str(oss.str());
+    return str;
+    /*
     if (fabs(a-(int)a)<1e-5)
         return to_string((int)a);
     else
-        return to_string(a);
+        return to_string(a);*/
 }
 
 int calc24_two(float a, float b){
