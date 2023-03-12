@@ -4,7 +4,6 @@
 
 using namespace std;
 
-using namespace std;
 int calc24_four(float a, float b, float c, float d);
 string formula1, formula2;
 
@@ -12,7 +11,7 @@ int main(){
     float a,b,c,d;
 
     while(1){
-        cout<<"请输入四个不大于13的正整数，不符合要求将退出："<<endl;
+        cout<<"璇疯緭鍏ュ洓涓笉澶т簬13鐨勬鏁存暟锛屼笉绗﹀悎瑕佹眰灏嗛��鍑猴細"<<endl;
 
         cin>>a;
         if(a<1 || a>13)
@@ -93,22 +92,22 @@ int calc24_three_1(float a, float b, float c){
     if(calc24_two(a-b, c)) {
         return 1;
     }
-    formula2 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
+    formula2 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
     if(calc24_two(b-a, c)) {
         return 1;
     }
-    formula1 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
+    formula2 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
     if(calc24_two(a*b, c)) {
         return 1;
     }
     if(b != 0){
-        formula1 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
+        formula2 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
         if(calc24_two(a/b, c)) {
             return 1;
         }
     }
     if(a != 0){
-        formula1 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
+        formula2 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
         if(calc24_two(b/a, c)) {
             return 1;
         }
@@ -139,7 +138,7 @@ int calc24_four_1(float a, float b, float c, float d){
     if(calc24_three(a-b, c,d)) {
         return 1;
     }
-    formula1 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(b-a);
+    formula1 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
     if(calc24_three(b-a, c,d)) {
         return 1;
     }
@@ -173,12 +172,12 @@ int calc24_four(float a, float b, float c, float d){
     if(calc24_four_1(b, c, a, d))
         return 1;
 
-    if(calc24_four_1(b ,d ,a, c ))
+    if(calc24_four_1(b ,d ,a, c))
         return 1;
 
     if(calc24_four_1(c, d, b, a))
         return 1;
 
-    cout<<"此题无解!"<<endl;
+    cout<<"姝ら鏃犺В!"<<endl;
     return 0;
 }
