@@ -2,9 +2,12 @@
 #include <cmath>
 
 using namespace std;
-int calc24_four(float a, float b, float c, float d);
 
-int calc_main(){
+using namespace std;
+int calc24_four(float a, float b, float c, float d);
+string formula1, formula2;
+
+int main(){
     float a,b,c,d;
 
     while(1){
@@ -33,29 +36,42 @@ bool equal24(float a){
     return fabs(a - 24) < 1e-5;
 }
 
+string floatToString(float a){
+    if (fabs(a-(int)a)<1e-5)
+        return to_string((int)a);
+    else
+        return to_string(a);
+}
+
 int calc24_two(float a, float b){
     //if(a*b==24||a/b==24||b/a==24||a-b==24||b-a==24||a+b==24)
     if(equal24(a+b)) { // fabs(a+b - 24)<1e-9
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<a <<"+"<<b<<"=24"<< endl;
         return 1;
     }
     if(equal24(a-b)) {
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<a <<"-"<<b<<"=24"<< endl;
         return 1;
     }
     if(equal24(b-a)) {
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<b<<"-"<<a<<"=24"<< endl;
         return 1;
     }
     if(equal24(a*b)) {
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<a <<"*"<<b<<"=24"<< endl;
         return 1;
     }
     if(b != 0.f && equal24(a/b)) {
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<a <<"/"<<b<<"=24"<< endl;
         return 1;
     }
     if(a != 0.f && equal24(b/a)) {
+        cout<<formula1<<endl<<formula2<<endl;
         cout<<b <<"/"<<a <<"=24"<< endl;
         return 1;
     }
@@ -63,34 +79,34 @@ int calc24_two(float a, float b){
 }
 
 int calc24_three_1(float a, float b, float c){
+    formula2 = floatToString(a) + "+" + floatToString(b) + "=" + floatToString(a+b);
     if(calc24_two(a+b, c)) {
-        cout<<a <<"+"<<b<< "="<< a+b << endl;
         return 1;
     }
-
+    formula2 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
     if(calc24_two(a-b, c)) {
-        cout<<a <<"-"<<b<< "="<< a-b<< endl;
         return 1;
     }
-
+    formula2 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
     if(calc24_two(b-a, c)) {
-        cout<<b<<"-"<<a<< "="<< b-a << endl;
         return 1;
     }
+    formula1 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
     if(calc24_two(a*b, c)) {
-        cout<<a <<"*"<<b<< "="<< a*b << endl;
         return 1;
     }
-
-    if(b!=0 && calc24_two(a/b, c)) {
-        cout<<a <<"/"<<b<< "="<< a/b << endl;
-        return 1;
+    if(b != 0){
+        formula1 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
+        if(calc24_two(a/b, c)) {
+            return 1;
+        }
     }
-    if(a!=0 && calc24_two(b/a, c)) {
-        cout<<b <<"/"<<a<< "="<< b/a<< endl;
-        return 1;
+    if(a != 0){
+        formula1 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
+        if(calc24_two(b/a, c)) {
+            return 1;
+        }
     }
-
     return 0;
 }
 
@@ -108,29 +124,30 @@ int calc24_three(float a, float b, float c){
 }
 
 int calc24_four_1(float a, float b, float c, float d){
+    formula1 = floatToString(a) + "+" + floatToString(b) + "=" + floatToString(a+b);
     if(calc24_three (a+b, c,d)) {
-        cout<<a <<"+"<<b<< "="<< a+b << endl;
         return 1;
     }
 
+    formula1 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
     if(calc24_three(a-b, c,d)) {
-        cout<<a <<"-"<<b<< "="<< a-b<< endl;
         return 1;
     }
+    formula1 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(b-a);
     if(calc24_three(b-a, c,d)) {
-        cout<<b<<"-"<<a<< "="<< b-a << endl;
         return 1;
     }
+    formula1 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
     if(calc24_three(a*b, c,d)) {
-        cout<<a <<"*"<<b<< "="<< a*b << endl;
         return 1;
     }
-    if(b!=0 && calc24_three(a/b, c, d)) {
-        cout<<a <<"/"<<b<< "="<< a/b << endl;
+
+    formula1 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
+    if(calc24_three(a/b, c, d)) {
         return 1;
     }
-    if(a!=0 && calc24_three(b/a, c,d)) {
-        cout<<b <<"/"<<a<< "="<< b/a<< endl;
+    formula1 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
+    if(calc24_three(b/a, c,d)) {
         return 1;
     }
 
