@@ -12,7 +12,7 @@ int main(){
     float a,b,c,d;
 
     while(1){
-        cout<<"璇疯緭鍏ュ洓涓笉澶т簬13鐨勬鏁存暟锛屼笉绗﹀悎瑕佹眰灏嗛��鍑猴細"<<endl;
+        cout<<"请输入四个不大于13的正整数，不符合要求将退出："<<endl;
 
         cin>>a;
         if(a<1 || a>13)
@@ -179,6 +179,6 @@ int calc24_four(float a, float b, float c, float d){
     if(calc24_four_1(c, d, b, a))
         return 1;
 
-    cout<<"姝ら鏃犺В!"<<endl;
+    cout<<"此题无解!"<<endl;
     return 0;
 }
