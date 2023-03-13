@@ -28,7 +28,8 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "${file}",
                 "${fileDirname}\\utils\\*.c",
-                "${fileDirname}\\sqlite3\\*.c"
+                "${fileDirname}\\pettystl\\*.c",
+                "${fileDirname}\\primaryc\\*.c"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -46,7 +47,9 @@
             "command": "g++",
             "args": [
                 "${file}",
-                "${fileDirname}/utils/*.c",
+                "${fileDirname}/../utils/*.c",
+                "${fileDirname}/../pettystl/*.c",
+                "${fileDirname}/../primaryc/*.c",
                 "-o",
                 "${workspaceFolder}/${fileBasenameNoExtension}.out",
                 "-g"

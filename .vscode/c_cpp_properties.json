@@ -36,7 +36,8 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
-            }
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4
