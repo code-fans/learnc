@@ -1,7 +1,23 @@
 # depslib dependency file v1.0
+1678512881 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+
+1678532448 source:/home/codefan/projects/cplusplus/learnc/primaryc/calculate24.cpp
+	<iostream>
+	<cmath>
+
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/csp.cpp
 	<iostream>
 	<algorithm>
+
+1676682202 source:/home/codefan/projects/cplusplus/learnc/primaryc/difineNewFunc.cpp
+	<iostream>
+
+1675862109 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
+	<iostream>
+	<iomanip>
+
+1674893810 source:/home/codefan/projects/cplusplus/learnc/primaryc/nuit31.cpp
+	<iostream>
 
 1673615003 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit10.cpp
 	<iostream>
@@ -9,6 +25,9 @@
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit100.cpp
 	<iostream>
 	<stdlib.h>
+
+1678272215 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit1000.cpp
+	<iostream>
 
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit11.cpp
 	<iostream>
@@ -32,33 +51,14 @@
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit18.cpp
 	<iostream>
 
+1673267499 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit19.cpp
+	<iostream>
+
 1674887153 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit2.cpp
 	<iostream>
 	<string>
 
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit3.cpp
-	<iostream>
-
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit4.cpp
-	<iostream>
-
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit5.cpp
-	<iostream>
-
-1673615025 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit6.cpp
-	<iostream>
-
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit7.cpp
-	<iostream>
-
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit8.cpp
-	<iostream>
-	<iomanip>
-
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit9.cpp
-	<iostream>
-
-1673267499 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit19.cpp
+1673522112 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit20.cpp
 	<iostream>
 
 1673522112 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit22.cpp
@@ -66,18 +66,10 @@
 	<ctime>
 	<cstdlib>
 
-1678270275 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
-
 1673584125 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit23.cpp
 	<iostream>
 
-1673522112 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit20.cpp
-	<iostream>
-
 1673614745 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit24.cpp
-	<iostream>
-
-1676682202 source:/home/codefan/projects/cplusplus/learnc/primaryc/difineNewFunc.cpp
 	<iostream>
 
 1673931196 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit26.cpp
@@ -86,27 +78,19 @@
 1674039816 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit28.cpp
 	<iostream>
 
-1674893810 source:/home/codefan/projects/cplusplus/learnc/primaryc/nuit31.cpp
-	<iostream>
-
-1674902549 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit32.cpp
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit3.cpp
 	<iostream>
 
 1674903188 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit30.cpp
 	<iostream>
 
-1674893970 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit35.cpp
+1674902549 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit32.cpp
+	<iostream>
 
 1674902527 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit33.cpp
 	<iostream>
 
-1675061270 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit39.cpp
-	<iostream>
-	<ctime>
-	<cstdlib>
-
-1675944090 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit40.cpp
-	<iostream>
+1674893970 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit35.cpp
 
 1675500632 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit36.cpp
 	<iostream>
@@ -115,9 +99,16 @@
 	<iostream>
 	<iomanip>
 
-1675862109 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
+1675061270 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit39.cpp
 	<iostream>
-	<iomanip>
+	<ctime>
+	<cstdlib>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit4.cpp
+	<iostream>
+
+1675944090 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit40.cpp
+	<iostream>
 
 1676190794 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit41.cpp
 	<iostream>
@@ -141,6 +132,19 @@
 	<iostream>
 	<cmath>
 
-1678272215 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit1000.cpp
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit5.cpp
+	<iostream>
+
+1673615025 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit6.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit7.cpp
+	<iostream>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit8.cpp
+	<iostream>
+	<iomanip>
+
+1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit9.cpp
 	<iostream>
 
