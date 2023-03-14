@@ -100,10 +100,10 @@ int calc24_three_1(float a, float b, float c){
 
     formula2 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
     calc24_two(a-b, c);
-    if(a!=b){
-        formula2 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
-        calc24_two(b-a, c);
-    }
+
+    formula2 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
+    calc24_two(b-a, c);
+
     formula2 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
     calc24_two(a*b, c);
 
@@ -111,27 +111,17 @@ int calc24_three_1(float a, float b, float c){
         formula2 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
         calc24_two(a/b, c);
     }
-    if(a != 0 && a!=b){
+    if(a != 0){
         formula2 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
         calc24_two(b/a, c);
     }
     return 0;
 }
 
-bool floatNotEqual(float a, float b){
-    return fabs(a - b) > 1e-7;
-}
-
-
 int calc24_three(float a, float b, float c){
     calc24_three_1(a, b, c);
-
-    if(floatNotEqual(c,b))
-        calc24_three_1(a, c, b);
-
-    if(floatNotEqual(b,a) &&  floatNotEqual(c,a))
-        calc24_three_1(b, c, a);
-
+    calc24_three_1(a, c, b);
+    calc24_three_1(b, c, a);
     return 0;
 }
 
@@ -142,10 +132,8 @@ int calc24_four_1(float a, float b, float c, float d){
     formula1 = floatToString(a) + "-" + floatToString(b) + "=" + floatToString(a-b);
     calc24_three(a-b, c,d);
 
-    if(a!=b){
-        formula1 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
-        calc24_three(b-a, c,d);
-    }
+    formula1 = floatToString(b) + "-" + floatToString(a) + "=" + floatToString(b-a);
+    calc24_three(b-a, c,d);
 
     formula1 = floatToString(a) + "*" + floatToString(b) + "=" + floatToString(a*b);
     calc24_three(a*b, c,d);
@@ -153,10 +141,8 @@ int calc24_four_1(float a, float b, float c, float d){
     formula1 = floatToString(a) + "/" + floatToString(b) + "=" + floatToString(a/b);
     calc24_three(a/b, c, d);
 
-    if(a!=b){
-        formula1 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
-        calc24_three(b/a, c,d);
-    }
+    formula1 = floatToString(b) + "/" + floatToString(a) + "=" + floatToString(b/a);
+    calc24_three(b/a, c,d);
 
     return 0;
 }
@@ -164,20 +150,15 @@ int calc24_four_1(float a, float b, float c, float d){
 int calc24_four(float a, float b, float c, float d){
     calc24_four_1(a, b, c, d);
 
-    if(b!=c)
-        calc24_four_1(a, c, b, d);
+    calc24_four_1(a, c, b, d);
 
-    if(c!=d && b!=d)
-        calc24_four_1(a, d, b, c);
+    calc24_four_1(a, d, b, c);
 
-    if(a!=c && b!=a)
-        calc24_four_1(b, c, a, d);
+    calc24_four_1(b, c, a, d);
 
-    if(d!=a && b!=a && c!=d)
-        calc24_four_1(b ,d ,a, c);
+    calc24_four_1(b ,d ,a, c);
 
-    if(a!=c && b!=d && b!=d && d!=a)
-        calc24_four_1(c, d, b, a);
+    calc24_four_1(c, d, b, a);
 
     cout<<"一共有" << sum << "种解法!"<<endl;
     return 0;
