@@ -9,3 +9,8 @@
 *.out.**
 *.layout
 .objs
+bin
+obj
+Debug
+Release
+
