@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1678512881 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+1679055439 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
 
 1678532448 source:/home/codefan/projects/cplusplus/learnc/primaryc/calculate24.cpp
 	<iostream>
@@ -146,5 +146,8 @@
 	<iomanip>
 
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit9.cpp
+	<iostream>
+
+1679055360 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit51.cpp
 	<iostream>
 
