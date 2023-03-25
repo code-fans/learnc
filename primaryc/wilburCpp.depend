@@ -1,18 +1,19 @@
 # depslib dependency file v1.0
-1679055439 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
+1679749461 source:/home/codefan/projects/cplusplus/learnc/primaryc/all_lession.cpp
 
 1678532448 source:/home/codefan/projects/cplusplus/learnc/primaryc/calculate24.cpp
 	<iostream>
 	<cmath>
 
-1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/csp.cpp
+1679146461 source:/home/codefan/projects/cplusplus/learnc/primaryc/csp.cpp
 	<iostream>
 	<algorithm>
+	<cstring>
 
 1676682202 source:/home/codefan/projects/cplusplus/learnc/primaryc/difineNewFunc.cpp
 	<iostream>
 
-1675862109 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
+1679751862 source:/home/codefan/projects/cplusplus/learnc/primaryc/exercise1.cpp
 	<iostream>
 	<iomanip>
 
@@ -148,6 +149,6 @@
 1673266576 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit9.cpp
 	<iostream>
 
-1679055360 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit51.cpp
+1679056301 source:/home/codefan/projects/cplusplus/learnc/primaryc/unit51.cpp
 	<iostream>
 

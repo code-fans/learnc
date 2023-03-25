@@ -68,3 +68,49 @@ int findTheNumber(){
         }
     }
 }
+
+
+int primaryc2()
+{
+    int ans[10];
+    for(int i=0;i<10;i++){
+        ans[i]=0;
+    }
+    cout<<"请输入一个数不超过10位"<<endl;
+    long long sum;
+    cin>>sum;
+    do
+    {
+        int d =sum%10;
+        sum/=10;
+        ans[d]++;
+    }while(sum!=0);
+
+    bool cf = false;
+    for(int i=0;i<10;i++){
+        if(ans[i]>1 ){
+            cout<<i<<"重复"<<ans[i]<<"次"<<endl;
+            cf=true;
+        }
+    }
+    if(cf)
+        cout<<"有重复"<<endl;
+    else
+        cout<<"没重复"<<endl;
+    return 0;
+}
+
+int primaryc()
+{
+    long long  n, m=0, u;
+    cin>>n;
+    u=n;
+    do{
+        m=m*10+n%10;
+        n/=10;
+    }while(n!=0);
+    if(u==m)
+        cout<<"是回文数";
+    else
+        cout<<"不是回文数";
+}
