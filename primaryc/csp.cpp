@@ -1,7 +1,7 @@
 //#include <bits/stdc++.h>
 #include <iostream>
 #include <algorithm>
-#include<cstring>
+#include <cstring>
 
 #define SIZE(arr) ((sizeof(arr)) / (sizeof(arr[0])))
 
