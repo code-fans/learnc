@@ -11,6 +11,19 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 			</Target>
+			<Target title="sort">
+				<Option output="bin/sort/primary c++" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/sort/" />
+				<Option object_output="obj/sort/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
 		</Build>
 		<Unit filename="all_lession.cpp" />
 		<Unit filename="csp.cpp" />
@@ -35,7 +48,7 @@
 		<Unit filename="unit24.cpp" />
 		<Unit filename="unit26.cpp" />
 		<Unit filename="unit27.cpp">
-			<Option target="&lt;{~None~}&gt;" />
+			<Option target="sort" />
 		</Unit>
 		<Unit filename="unit28.cpp" />
 		<Unit filename="unit3.cpp" />

@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=00000000c0000000001000000
-UnitCount=44
+UnitCount=45
 
 [VersionInfo]
 Major=1
@@ -481,6 +481,16 @@ BuildCmd=
 
 [Unit43]
 FileName=exercise1.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit45]
+FileName=testString.cpp
 CompileCpp=1
 Folder=
 Compile=1

@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o
+OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o testString.o
+LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o testString.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -152,3 +152,6 @@ exercise1.o: exercise1.cpp
 
 exercise2.o: exercise2.cpp
 	$(CPP) -c exercise2.cpp -o exercise2.o $(CXXFLAGS)
+
+testString.o: testString.cpp
+	$(CPP) -c testString.cpp -o testString.o $(CXXFLAGS)

@@ -36,6 +36,13 @@ int main_test3num(){
     return 0;
 }
 int csp_main(){
+	int c[5]={1,2};
+	for(int i=0;i<5;i++)
+		cout << c[i] << " ";
+	return 0;
+}
+
+int csp_main2(){
 	freopen("csp.txt", "r", stdin);
 	//freopen("csp.out", "w", stdout);
 	int a, b;
