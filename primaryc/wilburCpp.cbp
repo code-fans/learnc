@@ -17,6 +17,7 @@
 		<Unit filename="difineNewFunc.cpp" />
 		<Unit filename="exercise1.cpp" />
 		<Unit filename="nuit31.cpp" />
+		<Unit filename="srotdata.txt" />
 		<Unit filename="unit10.cpp" />
 		<Unit filename="unit100.cpp" />
 		<Unit filename="unit1000.cpp" />
@@ -59,6 +60,7 @@
 		<Unit filename="unit51.cpp" />
 		<Unit filename="unit58.cpp" />
 		<Unit filename="unit6.cpp" />
+		<Unit filename="unit64.cpp" />
 		<Unit filename="unit7.cpp" />
 		<Unit filename="unit8.cpp" />
 		<Unit filename="unit9.cpp" />
