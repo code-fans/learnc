@@ -48,8 +48,7 @@
             "args": [
                 "${file}",
                 "${fileDirname}/../utils/*.c",
-                "${fileDirname}/../pettystl/*.c",
-                "${fileDirname}/../primaryc/*.c",
+                "${fileDirname}/../pettystl/*.cpp",
                 "-o",
                 "${workspaceFolder}/${fileBasenameNoExtension}.out",
                 "-g"

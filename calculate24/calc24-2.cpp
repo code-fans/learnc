@@ -7,7 +7,7 @@ using namespace std;
 int calc24_four(float a, float b, float c, float d);
 string formula1, formula2;
 int sum;
-int main(){
+int main2(){
     float a,b,c,d;
 
     while(1){

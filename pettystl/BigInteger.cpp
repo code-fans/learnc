@@ -1,7 +1,7 @@
 
 class BigInteger {
     private:
-        int data[];
+        int data[10];
         int len;
         char sign;
     public:
