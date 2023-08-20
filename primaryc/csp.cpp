@@ -35,10 +35,11 @@ int main_test3num(){
     }
     return 0;
 }
-int csp_main(){
+int main(){
 	int c[5]={1,2};
 	for(int i=0;i<5;i++)
 		cout << c[i] << " ";
+    cout << endl;
 	return 0;
 }
 
