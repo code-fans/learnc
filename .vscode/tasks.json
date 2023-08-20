@@ -47,6 +47,25 @@
             "command": "g++",
             "args": [
                 "${file}",
+                "-o",
+                "${workspaceFolder}/${fileBasenameNoExtension}.out",
+                "-g"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+         
+        {
+            "type": "shell",
+            "label": "build cpp all",
+            "command": "g++",
+            "args": [
+                "${file}",
                 "${fileDirname}/../utils/*.c",
                 "${fileDirname}/../pettystl/*.cpp",
                 "-o",
@@ -61,6 +80,8 @@
                 "$gcc"
             ]
         }
+
+
     ]
     
 }
