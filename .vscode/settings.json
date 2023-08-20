@@ -12,7 +12,8 @@
         "math.h": "c",
         "cstring": "c",
         "string.h": "c",
-        "file_utils.h": "c"
+        "file_utils.h": "c",
+        "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
