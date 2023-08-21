@@ -13,7 +13,9 @@
         "cstring": "c",
         "string.h": "c",
         "file_utils.h": "c",
-        "string": "cpp"
+        "string": "cpp",
+        "cstdio": "cpp",
+        "iosfwd": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
