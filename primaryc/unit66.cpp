@@ -8,7 +8,7 @@ int main(){
     string str2,str1;
     char s;
     int i;
-    getline(cin,str1);
+    getline(cin, str1); //cin >> str1; //in input out output
     for (i=0;i<str1.size();i++){
         s=str1[i];
         if ((s>='a'&&s<='z')||(s>='A'&&s<='Z')){
