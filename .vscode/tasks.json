@@ -21,20 +21,18 @@
                 "/Zi",
                 "/EHsc",
                 "/Fe:",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}",
-                "${fileDirname}\\utils\\*.c",
-                "${fileDirname}\\pettystl\\*.c",
-                "${fileDirname}\\primaryc\\*.c"
+                "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+                "${file}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$msCompile"
             ],
             "group": "build"
         },
+
         {
             "type": "shell",
             "label": "build cpp",
