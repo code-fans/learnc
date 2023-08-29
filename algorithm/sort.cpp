@@ -38,11 +38,18 @@ void selectSort(int data[], int len)
 void bubbleSort(int data[], int len)
 {
     for(int i=0; i<len-1; i++) {
-        for(int k=0; k<len-1-i; k++) {
+        //定义一个检查变量
+        bool hasSorted = true;
+        //减少没有必要的循环
+        for(int k=0; k<len-1-i; k++) { 
             if (data[k] < data[k+1]) {
                 swapData(data, k, k+1);
+                hasSorted = false;
             }
         }
+        // 如果已经排序好了，直接跳出最外层循环
+        if(hasSorted)
+            break;
     }
 }
 
