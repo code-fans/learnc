@@ -10,6 +10,16 @@ void displayArray(int data[], int len)
     cout << endl;
 }
 
+//交换数组元素
+void swapData(int data[], int pos1, int pos2)
+{
+    if (pos1 != pos2){
+        int temp = data[pos1];
+        data[pos1] = data[pos2];
+        data[pos2] = temp;
+    }
+}
+
 // 选择排序
 void selectSort(int data[], int len)
 {
@@ -20,31 +30,25 @@ void selectSort(int data[], int len)
                 min = j;
             }
         }
-        if (min != i){
-            int temp = data[min];
-            data[min] = data[i];
-            data[i] = temp;
-        }
+        swapData(data, min, i);
     }
 }
 
 // 冒泡排序
 void bubbleSort(int data[], int len)
 {
-    int i,j,k;
-    for(i=0;i<len;i++)
-    {
-        j=data[i];
-        for(k=0;k<len-1;k++)
-            {
-                if (data[k]<data[k+1])
-                    {
-                        int temp = data[k];
-                        data[k] = data[k+1];
-                        data[k+1] = temp;  
-                    }
+    for(int i=0; i<len-1; i++) {
+        for(int k=0; k<len-1-i; k++) {
+            if (data[k] < data[k+1]) {
+                swapData(data, k, k+1);
             }
+        }
     }
+}
+
+// 插入排序
+void insertSort(int data[], int len){
+
 }
 
 int main()
