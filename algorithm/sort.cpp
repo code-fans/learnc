@@ -23,15 +23,7 @@ void swapData(int data[], int pos1, int pos2)
 // 选择排序
 void selectSort(int data[], int len)
 {
-    for (int i = 0; i < len - 1; i++) {
-        int min = i;
-        for (int j = i + 1; j < len; j++){
-            if (data[j] < data[min]){
-                min = j;
-            }
-        }
-        swapData(data, min, i);
-    }
+    
 }
 
 // 冒泡排序
@@ -55,19 +47,18 @@ void bubbleSort(int data[], int len)
 
 // 插入排序
 void insertSort(int data[], int len){
-    int i, n, b, c;
-    for (i=0;i<len;i++){
-        b=0;
-        for(n=1;n<len++;n++)
-        {
-            if(data[i]>data[n])
-                b++;
+    int j, b;
+    for (int i=1; i<len; i++){
+        j = i;
+        b = data[j];
+        while (j>0 && b < data[j-1]) {
+            data[j] = data[j-1];
+            j--;
         }
-        data[i]=c;
-        data[len-b]=data[i];
-        data[len-b]=c;       
+        data[j] = b;
+    }
 }
-}
+
 int main()
 {
     // 重定向标准输入
