@@ -55,9 +55,19 @@ void bubbleSort(int data[], int len)
 
 // 插入排序
 void insertSort(int data[], int len){
-
+    int i, n, b, c;
+    for (i=0;i<len;i++){
+        b=0;
+        for(n=1;n<len++;n++)
+        {
+            if(data[i]>data[n])
+                b++;
+        }
+        data[i]=c;
+        data[len-b]=data[i];
+        data[len-b]=c;       
 }
-
+}
 int main()
 {
     // 重定向标准输入
@@ -72,8 +82,7 @@ int main()
     // 显示排序前的数据
     displayArray(a, len);
     // 调用排序算法
-    bubbleSort(a, len);
+    insertSort(a, len);
     // 显示排序后的结果
     displayArray(a, len);
-    return 0;
 }
