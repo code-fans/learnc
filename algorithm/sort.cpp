@@ -23,7 +23,15 @@ void swapData(int data[], int pos1, int pos2)
 // 选择排序
 void selectSort(int data[], int len)
 {
-    
+    int min,m;
+    for(int i=0; i<len-1; i++){
+        min=i;
+        for(int s=i+1; s<len; s++){
+            if (data[min]>data[s])
+                min = s;
+        }
+        swapData(data, min, i);
+    }
 }
 
 // 冒泡排序
@@ -73,7 +81,7 @@ int main()
     // 显示排序前的数据
     displayArray(a, len);
     // 调用排序算法
-    insertSort(a, len);
+    selectSort(a, len);
     // 显示排序后的结果
     displayArray(a, len);
 }
