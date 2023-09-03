@@ -68,10 +68,6 @@ template<typename T> void insertSort(T data[], int len ,bool ascending){
     }
 }
 
-bool compareInt(int a, int b){
-    return a > b;
-}
-
 int main()
 {
     // 重定向标准输入
@@ -79,15 +75,16 @@ int main()
     int len, asc;
     // 输入数组长度
     cin >> len >> asc;
-    float a[1000];
+    int a[1000];
     // 循环读取数组元素
     for (int i = 0; i < len; i++)
         cin >> a[i];
     // 显示排序前的数据
     displayArray(a, len);
     // 调用排序算法
-    insertSort(a, len, asc==1);
-    //std::sort(a, a+len, compareInt);
+    //insertSort(a, len, asc==1);
+    //std::sort(a, a+len, [](int * a, int * b){return *a > *b;});
+    std::sort(a, a+len, greater<int>()); // less
     // 显示排序后的结果
     displayArray(a, len);
 }
