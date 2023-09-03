@@ -83,7 +83,7 @@ int main()
     displayArray(a, len);
     // 调用排序算法
     //insertSort(a, len, asc==1);
-    //std::sort(a, a+len, [](int * a, int * b){return *a > *b;});
+    //std::sort(a, a+len, [&](int & a, int & b){return a < b;});
     std::sort(a, a+len, greater<int>()); // less
     // 显示排序后的结果
     displayArray(a, len);
