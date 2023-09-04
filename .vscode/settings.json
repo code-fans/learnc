@@ -15,7 +15,8 @@
         "file_utils.h": "c",
         "string": "cpp",
         "cstdio": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "random": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
