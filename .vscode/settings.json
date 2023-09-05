@@ -16,7 +16,10 @@
         "string": "cpp",
         "cstdio": "cpp",
         "iosfwd": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "complex": "cpp",
+        "cmath": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
