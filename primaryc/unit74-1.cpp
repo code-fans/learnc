@@ -33,7 +33,7 @@ int reverse(int num){
     return ans;
 }
 
-int main()
+int main2()
 {
     int n;
     cout << "请输入一个数字：";
@@ -41,7 +41,7 @@ int main()
     cout << reverse(n) << endl;
 }
 
-int main2()
+int main()
 {
     int i;
     for(i=1; i<=1000000; i++)
