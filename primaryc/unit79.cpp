@@ -66,7 +66,7 @@ int minCoinNumber(int yuan){
 
     if(n9 <= n5 && n9 <=n2){
         return n9+1;
-    } else  if(n5 <= n9 && n5 <=n2){
+    } else  if(n5 <=n2){
         return n5+1;
     } else {
         return n2+1;
