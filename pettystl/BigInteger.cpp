@@ -1,3 +1,4 @@
+#include <iostream>
 
 namespace pettystl {
     class BigInteger {
@@ -8,6 +9,9 @@ namespace pettystl {
         public:
             bool operator == (BigInteger other){
                 return true;
+            }
+
+            BigInteger& operator << (istream is) {
             }
     };
 }
