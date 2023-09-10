@@ -5,12 +5,12 @@ using namespace std;
 long long fibonacciSequence(int n){    
     if (n<2)
         return 1;
-    long long fn2 = 1, fn1 =1, fn;
+    long long fn2, fn1 =1, fn=1;
 
     for(int i=2;i<=n;i++){
-        fn = fn1 + fn2;
         fn2 = fn1;
         fn1 = fn;
+        fn = fn1 + fn2;
     }
     return fn;
 }
@@ -90,8 +90,8 @@ int minCoinNumber(int yuan){
 int main(){
     int a;
     cin>>a;
-    //cout<<fibonacciSequence(a)<<endl;
-    int n = minCoinNumber(a);
-    cout<< "最少数量：" << n <<endl;
+    cout<<fibonacciSequence(a)<<endl;
+    //int n = minCoinNumber(a);
+    //cout<< "最少数量：" << n <<endl;
     return 0;
 }
