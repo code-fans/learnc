@@ -43,7 +43,7 @@ void swap(long long *p1, long long *p2)
     long long temp;
     temp=*p1;
     *p1=*p2;
-    *p2=temp;
+    *p2=temp;jij
 }
 
 int main()
