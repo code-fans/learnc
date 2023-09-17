@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_workspace_file>
-	<Workspace title="primaryc">
-		<Project filename="wilburCpp.cbp" />
-		<Project filename="../pettystl/pettystl.cbp" />
-		<Project filename="../calculate24/calculate24.cbp" />
-	</Workspace>
-</CodeBlocks_workspace_file>
