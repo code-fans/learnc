@@ -71,7 +71,7 @@ template<typename T> void insertSort(T data[], int len ,bool ascending){
 int main()
 {
     // 重定向标准输入
-    freopen("algorithm/srotdata.txt", "r", stdin);
+    freopen("data/srotdata.txt", "r", stdin);
     int len, asc;
     // 输入数组长度
     cin >> len >> asc;

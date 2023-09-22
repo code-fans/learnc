@@ -1,4 +1,4 @@
-#include<cstdio>
+#include <cstdio>
 //#define MAX_LEN 50
 const int MAX_LEN = 50;
 
