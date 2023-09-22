@@ -2,7 +2,7 @@
 using namespace std;
 int unit64_main()
 {
-    freopen("srotdata.txt", "r", stdin);
+    freopen("data/srotdata.txt", "r", stdin);
 
     int i, j, t, len;
     cin >> len;
@@ -33,7 +33,7 @@ int unit64_main()
 
 int unit64_main2()
 {
-    freopen("srotdata.txt", "r", stdin);
+    freopen("data/srotdata.txt", "r", stdin);
 
     int i, j, t, p, len;
     cin >> len;

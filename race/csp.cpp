@@ -44,8 +44,8 @@ int main(){
 }
 
 int csp_main2(){
-	freopen("csp.txt", "r", stdin);
-	//freopen("csp.out", "w", stdout);
+	freopen("data/csp.txt", "r", stdin);
+	//freopen("data/csp.out", "w", stdout);
 	int a, b;
 	cin >> a >> b;
 	cout << a << ":" << b << endl;
