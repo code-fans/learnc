@@ -1,4 +1,12 @@
 5
+zhangsan 80 80
+lisi 99 99
+wangwu 90 100
+wilbur 100 100
+codefan 85 85
+
+
+5
 -1,20
 0,0
 1,10
