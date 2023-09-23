@@ -15,9 +15,8 @@ bool cmp(M a, M b)
         return a.num > b.num;
 }
 
-M b[26];
-
 int main(){
+    M b[26];
     for (int i=0;i<26;i++){
         b[i].num=0;
         b[i].c = 'a' + i;
@@ -26,8 +25,8 @@ int main(){
     cin>>s;
     for (int i=0;i<s.length();i++)
     {
-        if (s.at(i)>='a'&& s.at(i)<='z'){
-            b[s.at(i)-'a'].num++;
+        if (s.at(i)>='a'&& s.at(i)<='z'){ // s[i]>='a'&& s[i]<='z'
+            b[s.at(i)-'a'].num++; // b[s[i]-'a'].num++
         }
     }
     sort(b, b+26, cmp);

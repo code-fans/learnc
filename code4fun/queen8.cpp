@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#define queen_sum 16
+#define queen_sum 8
 
 using namespace std;
 
@@ -19,7 +19,7 @@ bool conflict(int queen[], int b){
     return false;//所有的都不冲突
 }
 // 八皇后算法
-int main(){
+int main(int argc, char *argv[]){
     int success = 0;
     int queen[queen_sum];
     //正在放第几个棋子
@@ -59,7 +59,7 @@ int main(){
                 hasPuted ++;
             }
         }
-        
     }
+    cout << "可能得方案一共有：" << success <<endl;
     return 0;
 }
