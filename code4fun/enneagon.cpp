@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // https://www.zhihu.com/question/46235037
 /**
  * N芒星N个顶点,如果能找到一个数值k(k>1),每次跳过k个顶点,如果N次之后能将所有的顶点遍历,则判断可以一笔画出.
  * */
 
-bool EnneagonTest(unsigned int n)
+bool enneagonTest(unsigned int n)
 {
     if (n < 4)
     {
@@ -52,4 +53,9 @@ bool EnneagonTest(unsigned int n)
     delete[] arr;
 
     return rst;
+}
+
+int main(){
+    enneagonTest   (5);
+    return 0;
 }
