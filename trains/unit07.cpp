@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <stdio.h>
 #include <ctype.h>
 #include <iostream>
