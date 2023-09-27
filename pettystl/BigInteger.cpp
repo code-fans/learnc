@@ -1,17 +1,27 @@
 #include <iostream>
 
+#define BIG_INTEGET_MAX_LENGTH 1000
 namespace pettystl {
+    
     class BigInteger {
         private:
-            int data[10];
+            char data[BIG_INTEGET_MAX_LENGTH];
             int len;
-            char sign;
+            int sign;
+
         public:
-            bool operator == (BigInteger other){
+            friend bool operator == (const BigInteger& other, const BigInteger& other2){
                 return true;
             }
 
-            BigInteger& operator << (istream is) {
+            ostream& operator << (ostream& os) {
             }
+
+            istream& operator >> (istream& is) {
+            }
+
+            friend BigInteger operator+ (const BigInteger& other, const BigInteger& other2) {
+            }
+
     };
 }
