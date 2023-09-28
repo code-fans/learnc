@@ -3,35 +3,23 @@ int main(){
     freopen("data/input.txt", "r"/* r read w write*/, stdin);
     int r,c,ans=0;
     scanf("%d%d",&r,&c);
-    int a[r][c], b[r][c];
+    int a[r*c], b[r*c];
+
+    for (int i = 0; i < r*c; i++)
+    {
+        scanf("%d", a+i);
+    }
+    for (int i = 0; i < r*c; i++)
+    {
+        scanf("%d", b+i);
+    }
     
-    for (int i = 0; i < r; i++)
+    for (int i = 0; i < r*c; i++)
     {
-        for (int e = 0; e < c; e++)
+        if (a[i]==b[i])
         {
-            scanf("%d", &a[i][e]);
+            ans++;
         }
-        
-    }
-    for (int i = 0; i < r; i++)
-    {
-        for (int e = 0; e < c; e++)
-        {
-            scanf("%d", &b[i][e]);
-        }
-        
-    }
-    for (int i = 0; i < r; i++)
-    {
-        for (int e = 0; e < c; e++)
-        {
-            if (a[i][e]==b[i][e])
-            {
-                ans++;
-            }
-            
-        }
-        
     }
     
     printf("%d\n",ans);
