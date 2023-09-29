@@ -7,7 +7,7 @@ int main(){
 
     for (int i = 0; i < r*c *2; i++)
     {
-        scanf("%d", a+i);
+        scanf("%d", a+i); // &a[i]
     }
     
     for (int i = 0; i < r*c; i++)

@@ -1,37 +1,26 @@
-#include<cstdio>
-#include<iostream>
-using namespace std;
-int cmp(int a, int b)
-{
-    return a>b;
-}
+#include <cstdio>
+
+int board[100000];
+
 int main()
 {
     freopen("data/input.txt", "r"/* r read w write*/, stdin);
-    int mmdo,mmdo1,mmdo3=0,mmdo4=0;
-    scanf("%d",&mmdo);
-    int mmdo2[mmdo];
-    for (int i = 0; i < mmdo; i++)
-    {
-        scanf("%d",&mmdo2[i]);
+    int boardSum, jumpEnerge;
+    scanf("%d",&boardSum);
+    for (int i = 0; i < boardSum; i++){
+        scanf("%d", board + i); //&board[i]
     }
-    scanf("%d",&mmdo1);
-    mmdo3=mmdo2[0];
-    mmdo4=mmdo2[0];
-    for (int i = 1; i < mmdo; i++)
+    scanf("%d",&jumpEnerge);
+    int maxEnerge = board[0];
+    int currentEnerge = maxEnerge;
+
+    for (int i = 1; i < boardSum && currentEnerge>=jumpEnerge; i++)
     {
-        
-        mmdo4=mmdo2[i]+mmdo4-mmdo1;
-        if (mmdo4<mmdo1)
-        {
-            break;
+        currentEnerge=currentEnerge - jumpEnerge + board[i];
+        if (maxEnerge<currentEnerge) {
+            maxEnerge=currentEnerge;
         }
-        if (mmdo3<mmdo4)
-        {
-            mmdo3=mmdo4;
-        }
-        
     }
-    printf("%d\n",mmdo3);
+    printf("%d\n",maxEnerge);
     return 0;
 }
