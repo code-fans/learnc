@@ -1,26 +1,26 @@
 #include <cstdio>
+
 int main()
 {
-    int a, m, max=0, max2=0,andmax;
+    int a, m, sum=0;
     freopen("data/input.txt", "r"/* r read w write*/, stdin);
     scanf("%d%d",&a, &m);
     int all[a];
-    for (int i = 0; i < a; i++)
-    {
+    int i=0;
+    for (; i<a && i<m; i++){
         scanf("%d", &all[i]);
+        sum += all[i];
     }
-    for (int v = 0; v < m; v++)
-    {
-        max2+=all[v];
-    }
-    for (int i = 0; i < a-m; i++)
-    {
-        max2=max2-all[i]+all[i+m];
-        if (andmax < max2)
-        {
-            andmax=max2;
+    
+    int maxSum = sum;
+    for (; i < a; i++) {
+        scanf("%d", &all[i]);
+        sum += all[i] - all[i-m];
+        if(sum > maxSum){
+            maxSum = sum;
         }
     }
-    printf("%d\n",andmax);
+   
+    printf("%d\n",maxSum);
     return 0;
 }
