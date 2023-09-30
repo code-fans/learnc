@@ -11,20 +11,38 @@ namespace pettystl {
             int sign;
         private:
             void trimHighZero();
-            int absCompare(const BigInteger& bint1, const BigInteger& bint2);
-            int absAdd(char dest[], const BigInteger& bint1, const BigInteger& bint2);
+            int absCompare(const BigInteger& bint1, const BigInteger& bint2) const;
+            int absAdd(char dest[], const BigInteger& bint1, const BigInteger& bint2, int powerOffset = 0);
             int absMinus(char dest[], const BigInteger& bint1, const BigInteger& bint2);
+            int absMultiplyOneDigit(char dest[], const BigInteger& other, const char digit);
         public:
+            BigInteger();
+            ~BigInteger();
             std::string toString();
             BigInteger& fromString(const std::string str);
-            int compareTo(const BigInteger& other);
+            bool isZero() const;
+            int compareTo(const BigInteger& other) const;
 
             friend bool operator == (const BigInteger& other, const BigInteger& other2);
+
             friend std::ostream& operator << (std::ostream& os, const BigInteger& other);
             friend std::istream& operator >> (std::istream& is, BigInteger& other);
+
             friend BigInteger operator+ (const BigInteger& other, const BigInteger& other2);
             friend BigInteger operator- (const BigInteger& other, const BigInteger& other2);
+            friend BigInteger operator* (const BigInteger& other, const BigInteger& other2);
     };
+
+    BigInteger::BigInteger() {
+        sign = 1;
+        len=1;
+        data[0] = '0';
+        data[1] = '\0';
+    }
+
+    BigInteger::~BigInteger() {
+
+    }
 
     void BigInteger::trimHighZero() {
         while(len>1 && data[len-1] == '0'){
@@ -33,7 +51,7 @@ namespace pettystl {
         }
     }
 
-    int BigInteger::absCompare(const BigInteger& bint1, const BigInteger& bint2) {
+    int BigInteger::absCompare(const BigInteger& bint1, const BigInteger& bint2) const{
         if(bint1.len>bint2.len)
             return 1;
         if(bint1.len<bint2.len)
@@ -47,16 +65,16 @@ namespace pettystl {
         return 0;
     }
 
-    int BigInteger::absAdd(char dest[], const BigInteger& other, const BigInteger& other2) {
+    int BigInteger::absAdd(char dest[], const BigInteger& other, const BigInteger& other2, int powerOffset) {
         int z = 0;
-        int len = std::max(other.len, other2.len);
+        int len = std::max(other.len, other2.len + powerOffset);
         for (int i = 0; i< len; i++) {
             int a=0, b=0;
             if(i<other.len)
                 a= other.data[i]-'0';
 
-            if(i<other2.len)
-                b=other2.data[i]-'0';
+            if(i>=powerOffset && i<other2.len+powerOffset)
+                b=other2.data[i-powerOffset]-'0';
 
             dest[i] = (a+b+z)%10+'0';
             z=(a+b+z)/10;
@@ -92,17 +110,6 @@ namespace pettystl {
         return len;
     }
 
-    int BigInteger::compareTo(const BigInteger& other) {
-        if(len ==1 && other.len==1 && data[0] == '0' && other.data[0] == '0')
-            return 0;
-        if(this->sign > other.sign)
-            return 1;
-        if(this->sign < other.sign)
-            return -1;
-
-        return this->sign * absCompare(*this, other);
-    }
-
     std::string BigInteger::toString() {
         char str[BIG_INTEGET_MAX_LENGTH];
         std::memcpy(str, data, len);
@@ -131,8 +138,23 @@ namespace pettystl {
         return *this;
     }
 
+    bool BigInteger::isZero() const{
+        return len == 1 && data[0] == '0';
+    }
+
+    int BigInteger::compareTo(const BigInteger& other) const {
+        if(this->isZero() && other.isZero())
+            return 0;
+        if(this->sign > other.sign)
+            return 1;
+        if(this->sign < other.sign)
+            return -1;
+
+        return this->sign * absCompare(*this, other);
+    }
+
     bool operator == (const BigInteger& other, const BigInteger& other2) {
-        if(other.len ==1 && other2.len==1 && other.data[0] == '0' && other2.data[0] == '0')
+        if(other.isZero() && other2.isZero())
             return true;
         if(other.sign != other.sign || other.len != other2.len)
             return false;
@@ -169,10 +191,6 @@ namespace pettystl {
         }
         int c = sum.absCompare(other, other2);
         if(c==0){ // return zero
-            sum.sign = 1;
-            sum.len=1;
-            sum.data[0] = '0';
-            sum.data[1] = '\0';
             return sum;
         }
         if(c>0){
@@ -197,11 +215,7 @@ namespace pettystl {
 
         int c = sum.absCompare(other, other2);
         if(c==0){ // return zero
-            sum.sign = 1;
-            sum.len=1;
-            sum.data[0] = '0';
-            sum.data[1] = '\0';
-            return sum;
+             return sum;
         }
 
         if(c>0){
@@ -216,12 +230,43 @@ namespace pettystl {
         sum.trimHighZero();
         return sum;
     }
+
+    int BigInteger::absMultiplyOneDigit(char dest[], const BigInteger& other, const char digit) {
+        int z = 0, shang;
+        int b= digit-'0'; //1~9
+        int len = other.len;
+        for (int i = 0; i< len; i++) {
+            int a = other.data[i]-'0';
+            shang = a * b + z;
+            dest[i] = shang % 10+'0';
+            z= shang/10;
+        }
+        if (z!=0) {
+            dest[len] = z +'0';
+            len ++;
+        }
+        dest[len] = '\0';
+        return len;
+    }
+
+    BigInteger operator* (const BigInteger& other, const BigInteger& other2) {
+        BigInteger mulitply;
+        if(other.isZero() || other2.isZero())
+            return mulitply;
+        BigInteger temp;
+        for(int i=0; i<other2.len; i++){
+            temp.len = temp.absMultiplyOneDigit(temp.data, other, other2.data[i]);
+            mulitply.len = mulitply.absAdd(mulitply.data, mulitply, temp, i);
+        }
+        mulitply.sign = other.sign * other2.sign;
+        return mulitply;
+    }
 }
 
 int main() {
     pettystl::BigInteger bint1, bint2, bint3;
     std::cin >> bint1 >> bint2;
-    bint3 = bint1 - bint2;
+    bint3 = bint1 * bint2;
     std::cout << bint3 << std::endl;
     return 0;
 }
