@@ -18,7 +18,7 @@ namespace pettystl {
         public:
             BigInteger();
             ~BigInteger();
-            std::string toString();
+            std::string toString() const;
             BigInteger& fromString(const std::string str);
             bool isZero() const;
             int compareTo(const BigInteger& other) const;
@@ -110,7 +110,7 @@ namespace pettystl {
         return len;
     }
 
-    std::string BigInteger::toString() {
+    std::string BigInteger::toString() const {
         char str[BIG_INTEGET_MAX_LENGTH];
         std::memcpy(str, data, len);
         int strLen = len;
