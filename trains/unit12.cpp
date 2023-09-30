@@ -11,7 +11,7 @@ int main()
         scanf("%d", &all[i]);
         sum += all[i];
     }
-    
+
     int maxSum = sum;
     for (; i < a; i++) {
         scanf("%d", &all[i]);
@@ -22,5 +22,6 @@ int main()
     }
    
     printf("%d\n",maxSum);
+    fclose(stdin);
     return 0;
 }
