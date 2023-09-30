@@ -11,13 +11,13 @@ int func(int x1, int x2)
 int main()
 {
 	while(true){
-		cout << "请您输入两个数字，用空格隔开：" << endl ;
+		cout << "璇疯緭鍏ヤ袱涓笉绛変簬鐨勬暣鏁帮細" << endl ;
 		int inInt1, inInt2;
 		cin >> inInt1 >> inInt2;
 		if( inInt1 == 0 && inInt2 == 0){
 			break;
 		}
-		cout << "这两个数相乘的结果为:" << func( inInt1, inInt2) << endl;
+		cout << "瀹冧滑鐨勪箻绉槸:" << func( inInt1, inInt2) << endl;
 	}
     return 0;
 }
