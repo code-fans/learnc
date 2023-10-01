@@ -11,10 +11,12 @@ namespace pettystl {
             int sign;
         private:
             void trimHighZero();
-            int absCompare(const BigInteger& bint1, const BigInteger& bint2) const;
+            int absCompare(const char * bint1, int bint1L, const char * bint2, int bint2L) const;
             int absAdd(char dest[], const BigInteger& bint1, const BigInteger& bint2, int powerOffset = 0);
-            int absMinus(char dest[], const BigInteger& bint1, const BigInteger& bint2);
+            int absMinus(char dest[], const BigInteger& bint1, const BigInteger& bint2) const;
+            int absMinus(char dest[], int len, const BigInteger& bint2) const;
             int absMultiplyOneDigit(char dest[], const BigInteger& other, const char digit);
+            int absDivideOneStep(char dest[], int len, const BigInteger& other);
         public:
             BigInteger();
             ~BigInteger();
@@ -31,6 +33,7 @@ namespace pettystl {
             friend BigInteger operator+ (const BigInteger& other, const BigInteger& other2);
             friend BigInteger operator- (const BigInteger& other, const BigInteger& other2);
             friend BigInteger operator* (const BigInteger& other, const BigInteger& other2);
+            friend BigInteger operator/ (const BigInteger& other, const BigInteger& other2);
     };
 
     BigInteger::BigInteger() {
@@ -51,16 +54,16 @@ namespace pettystl {
         }
     }
 
-    int BigInteger::absCompare(const BigInteger& bint1, const BigInteger& bint2) const{
-        if(bint1.len>bint2.len)
+    int BigInteger::absCompare(const char * bint1, int bint1L, const char * bint2, int bint2L) const{
+        if(bint1L>bint2L)
             return 1;
-        if(bint1.len<bint2.len)
+        if(bint1L<bint2L)
             return -1;
-        for(int i= bint1.len-1; i>=0; i--) {
-            if(bint1.data[i] > bint2.data[i])
+        for(int i= bint1L-1; i>=0; i--) {
+            if(bint1[i] > bint2[i])
                 return 1;
-            if(bint1.data[i] < bint2.data[i])
-                return 1;
+            if(bint1[i] < bint2[i])
+                return -1;
         }
         return 0;
     }
@@ -87,7 +90,7 @@ namespace pettystl {
         return len;
     }
 
-    int BigInteger::absMinus(char dest[], const BigInteger& other, const BigInteger& other2) {
+    int BigInteger::absMinus(char dest[], const BigInteger& other, const BigInteger& other2) const {
         int z = 0;
         int len = other.len; // bint1 >= bint2
         for (int i = 0; i< len; i++) {
@@ -97,6 +100,28 @@ namespace pettystl {
 
             if(i<other2.len)
                 b=other2.data[i]-'0';
+
+            if(a+z<b){
+                dest[i] = (10+a+z -b)+'0';
+                z = -1;
+            } else {
+                dest[i] = (a+z - b) + '0'; 
+                z = 0;
+            }
+        }
+        dest[len] = '\0';
+        return len;
+    }
+
+    int BigInteger::absMinus(char dest[], int len, const BigInteger& other2) const{
+        int z = 0;
+        for (int i = 0; i< len; i++) {
+            int a=0, b=0;
+            if(i<len)
+                a= dest[i]-'0';
+
+            if(i<other2.len)
+                b= other2.data[i]-'0';
 
             if(a+z<b){
                 dest[i] = (10+a+z -b)+'0';
@@ -150,7 +175,7 @@ namespace pettystl {
         if(this->sign < other.sign)
             return -1;
 
-        return this->sign * absCompare(*this, other);
+        return this->sign * absCompare(this->data, this->len, other.data, other.len);
     }
 
     bool operator == (const BigInteger& other, const BigInteger& other2) {
@@ -189,7 +214,7 @@ namespace pettystl {
             sum.len = sum.absAdd(sum.data, other, other2);
             return sum;
         }
-        int c = sum.absCompare(other, other2);
+        int c = sum.absCompare(other.data, other.len, other2.data, other2.len);
         if(c==0){ // return zero
             return sum;
         }
@@ -213,7 +238,7 @@ namespace pettystl {
             return sum;
         }
 
-        int c = sum.absCompare(other, other2);
+        int c = sum.absCompare(other.data, other.len, other2.data, other2.len);
         if(c==0){ // return zero
              return sum;
         }
@@ -261,12 +286,47 @@ namespace pettystl {
         mulitply.sign = other.sign * other2.sign;
         return mulitply;
     }
+
+    int BigInteger::absDivideOneStep(char dest[], int len, const BigInteger& other) {
+        int result = 0;
+        while(other.absCompare(dest, len, other.data, other.len)>=0){
+            other.absMinus(dest, len, other);
+            if(dest[len-1]=='0')
+                len--;
+            result++;
+        }
+        return result;
+    }
+
+    BigInteger operator/ (const BigInteger& other, const BigInteger& other2){
+        BigInteger divRes;
+        divRes.sign = other.sign * other2.sign;
+        int resLen = other.len - other2.len + 1;
+        if(resLen<1)
+            return divRes;
+
+        char data[BIG_INTEGET_MAX_LENGTH];
+        std::memcpy(data, other.data, BIG_INTEGET_MAX_LENGTH);
+        
+        for(int i=resLen-1; i>=0; i--){
+            int dataLen = other2.len;
+            if(data[i+other2.len]>'0'){
+                dataLen ++;
+            }
+            int d = divRes.absDivideOneStep(data + i, dataLen, other2);
+            divRes.data[i] = d+'0';
+        }
+        divRes.len = resLen;
+        divRes.data[resLen] = '\0';
+        divRes.trimHighZero();
+        return divRes;
+    }
 }
 
 int main() {
     pettystl::BigInteger bint1, bint2, bint3;
     std::cin >> bint1 >> bint2;
-    bint3 = bint1 * bint2;
+    bint3 = bint1 / bint2;
     std::cout << bint3 << std::endl;
     return 0;
 }
