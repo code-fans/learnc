@@ -181,7 +181,7 @@ namespace pettystl {
     bool operator == (const BigInteger& other, const BigInteger& other2) {
         if(other.isZero() && other2.isZero())
             return true;
-        if(other.sign != other.sign || other.len != other2.len)
+        if(other.sign != other2.sign || other.len != other2.len)
             return false;
         for(int i=0; i<other.len; i++){
             if(other.data[i] != other2.data[i])
