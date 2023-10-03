@@ -34,6 +34,7 @@ namespace pettystl {
             friend BigInteger operator- (const BigInteger& other, const BigInteger& other2);
             friend BigInteger operator* (const BigInteger& other, const BigInteger& other2);
             friend BigInteger operator/ (const BigInteger& other, const BigInteger& other2);
+            friend BigInteger operator% (const BigInteger& other, const BigInteger& other2);
     };
 
     BigInteger::BigInteger() {
@@ -48,7 +49,7 @@ namespace pettystl {
     }
 
     void BigInteger::trimHighZero() {
-        while(len>1 && data[len-1] == '0'){
+        while(len>1 && (data[len-1] == '0' || data[len-1] == '\0')){
             len --;
             data[len] = '\0';
         }
@@ -321,12 +322,32 @@ namespace pettystl {
         divRes.trimHighZero();
         return divRes;
     }
+    
+    BigInteger operator% (const BigInteger& other, const BigInteger& other2){
+        BigInteger remainder;
+        remainder.sign = other.sign;
+        remainder.len = other.len;
+        std::memcpy(remainder.data, other.data, BIG_INTEGET_MAX_LENGTH);
+        int resLen = other.len - other2.len + 1;
+        if(resLen<1)
+            return remainder;
+
+        for(int i=resLen-1; i>=0; i--){
+            int dataLen = other2.len;
+            if(remainder.data[i+other2.len]>'0'){
+                dataLen ++;
+            }
+            remainder.absDivideOneStep(remainder.data + i, dataLen, other2);
+        }
+        remainder.trimHighZero();
+        return remainder;
+    }
 }
 
 int main() {
     pettystl::BigInteger bint1, bint2, bint3;
     std::cin >> bint1 >> bint2;
-    bint3 = bint1 / bint2;
+    bint3 = bint1 % bint2;
     std::cout << bint3 << std::endl;
     return 0;
 }
