@@ -26,6 +26,11 @@ namespace pettystl {
             int compareTo(const BigInteger& other) const;
 
             friend bool operator == (const BigInteger& other, const BigInteger& other2);
+            friend bool operator != (const BigInteger& other, const BigInteger& other2);
+            friend bool operator >= (const BigInteger& other, const BigInteger& other2);
+            friend bool operator > (const BigInteger& other, const BigInteger& other2);
+            friend bool operator <= (const BigInteger& other, const BigInteger& other2);
+            friend bool operator < (const BigInteger& other, const BigInteger& other2);
 
             friend std::ostream& operator << (std::ostream& os, const BigInteger& other);
             friend std::istream& operator >> (std::istream& is, BigInteger& other);
@@ -189,6 +194,26 @@ namespace pettystl {
                 return false;
         }
         return true;
+    }
+
+    bool operator != (const BigInteger& other, const BigInteger& other2){
+        return !(other==other2);
+    }
+    
+    bool operator >= (const BigInteger& other, const BigInteger& other2){
+        return other.compareTo(other2) >=0;
+    }
+
+    bool operator > (const BigInteger& other, const BigInteger& other2){
+        return other.compareTo(other2) >0;
+    }
+
+    bool operator <= (const BigInteger& other, const BigInteger& other2){
+        return other.compareTo(other2) <=0;
+    }
+
+    bool operator < (const BigInteger& other, const BigInteger& other2){
+        return other.compareTo(other2) <0;
     }
 
     std::ostream& operator << (std::ostream& os, const BigInteger& other) {
