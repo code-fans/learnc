@@ -8,10 +8,8 @@ double leibnitz_pi()
     for (long long i = 1; i < 10000000; i++)
     {
         ans+= 4.0/(i*4.0+1.0) - 4.0/(i*4.0-1.0);
-        /*
         if(i%1000 == 0)
             printf("%.20lf\n",ans);
-        */
     }
     return ans;
 }
@@ -39,7 +37,6 @@ double bbp_pi()
     }
     return ans;
 }
-
 
 int main()
 {
