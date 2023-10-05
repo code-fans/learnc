@@ -3,17 +3,17 @@
 #include "./utils/file_utils.h"
 
 /**
- * Ìî³äËùÓĞ¿ÉÒÔÈ·¶¨µÄµ¥Ôª£¬Ò»°ã¶ÔÓ¦³õ¼¶ÄÑ¶ÈµÄÊı¶À¿ÉÒÔÍê³É¡£
- * @param sudoku ÊÇÒ»¸ö¶şÎ¬Êı×é£¬±íÊ¾Êı¶ÀÄÚÈİ£¬ 0 ±íÊ¾Ã»ÓĞÈ·¶¨µÄÊı¾ÍÊÇ¿Õ
- * @param matrix Êı¾İµÄÎ¬¶È£¬±ÈÈç6¹¬ 9¹¬
- * @param row ±íÊ¾¹¬µÄĞĞÊı
- * @param col ±íÊ¾¹¬µÄÁĞÊı
+ * å¡«å……æ‰€æœ‰å¯ä»¥ç¡®å®šçš„å•å…ƒï¼Œä¸€èˆ¬å¯¹åº”åˆçº§éš¾åº¦çš„æ•°ç‹¬å¯ä»¥å®Œæˆã€‚
+ * @param sudoku æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Œè¡¨ç¤ºæ•°ç‹¬å†…å®¹ï¼Œ 0 è¡¨ç¤ºæ²¡æœ‰ç¡®å®šçš„æ•°å°±æ˜¯ç©º
+ * @param matrix æ•°æ®çš„ç»´åº¦ï¼Œæ¯”å¦‚6å®« 9å®«
+ * @param row è¡¨ç¤ºå®«çš„è¡Œæ•°
+ * @param col è¡¨ç¤ºå®«çš„åˆ—æ•°
  */
 int fillAssuredItem(int **sudoku, int matrix, int row, int col)
 {
-    int fillTotal = 0; // ×Ü¹²ÌîĞ´µÄÊı×Ö
+    int fillTotal = 0; // æ€»å…±å¡«å†™çš„æ•°å­—
     int hasError = 0;
-    int fillNum; //¼ÇÂ¼±¾´ÎÑ­»·ÕÒµ½µÄÊı×Ö
+    int fillNum; //è®°å½•æœ¬æ¬¡å¾ªç¯æ‰¾åˆ°çš„æ•°å­—
     do
     {
         fillNum = 0;
@@ -26,12 +26,12 @@ int fillAssuredItem(int **sudoku, int matrix, int row, int col)
                     int checkData[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                     for (int k = 0; k < matrix; k++)
                     {
-                        //¼ì²éĞĞ
+                        //æ£€æŸ¥è¡Œ
                         checkData[sudoku[i][k]]++;
-                        //¼ì²éÁĞ
+                        //æ£€æŸ¥åˆ—
                         checkData[sudoku[k][j]]++;
                     }
-                    //¼ì²éÇøÓò
+                    //æ£€æŸ¥åŒºåŸŸ
                     int ar = i / row;
                     int ac = j / col;
                     for (int r = 0; r < row; r++)
@@ -41,7 +41,7 @@ int fillAssuredItem(int **sudoku, int matrix, int row, int col)
                             checkData[sudoku[ar * row + r][ac * col + c]]++;
                         }
                     }
-                    //ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄÊı¾İ
+                    //æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„æ•°æ®
                     int rc = 0;
                     int rv = 0;
                     for (int k = 1; k < matrix + 1; k++)
@@ -60,7 +60,7 @@ int fillAssuredItem(int **sudoku, int matrix, int row, int col)
 
                     if (rc == 0)
                     {
-                        //³öÌâ´íÎó£¬Ã»ÓĞÕıÈ·µÄ½â
+                        //å‡ºé¢˜é”™è¯¯ï¼Œæ²¡æœ‰æ­£ç¡®çš„è§£
                         hasError++;
                     }
                 }
@@ -77,11 +77,11 @@ int fillAssuredItem(int **sudoku, int matrix, int row, int col)
 }
 
 /**
- * ¼ì²éÊı¶ÀÊÇ·ñÒÑ¾­È«²¿ÌîºÃ£¬»¹ÓĞ¼¸¸ö¿Õ¸ñ
- * @param sudoku ÊÇÒ»¸ö¶şÎ¬Êı×é£¬±íÊ¾Êı¶ÀÄÚÈİ£¬ 0 ±íÊ¾Ã»ÓĞÈ·¶¨µÄÊı¾ÍÊÇ¿Õ
- * @param matrix Êı¾İµÄÎ¬¶È£¬±ÈÈç6¹¬ 9¹¬
- * @param row ±íÊ¾¹¬µÄĞĞÊı
- * @param col ±íÊ¾¹¬µÄÁĞÊı
+ * æ£€æŸ¥æ•°ç‹¬æ˜¯å¦å·²ç»å…¨éƒ¨å¡«å¥½ï¼Œè¿˜æœ‰å‡ ä¸ªç©ºæ ¼
+ * @param sudoku æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Œè¡¨ç¤ºæ•°ç‹¬å†…å®¹ï¼Œ 0 è¡¨ç¤ºæ²¡æœ‰ç¡®å®šçš„æ•°å°±æ˜¯ç©º
+ * @param matrix æ•°æ®çš„ç»´åº¦ï¼Œæ¯”å¦‚6å®« 9å®«
+ * @param row è¡¨ç¤ºå®«çš„è¡Œæ•°
+ * @param col è¡¨ç¤ºå®«çš„åˆ—æ•°
  */
 int checkNotSureItems(int **sudoku, int matrix, int row, int col)
 {
@@ -100,25 +100,25 @@ int checkNotSureItems(int **sudoku, int matrix, int row, int col)
 }
 
 /**
- * ÅÅ³ı·¨À´Ìî³äÊı¶À£¬ ĞĞ¡¢ÁĞ¡¢¹¬ÄÚÈıÖÖÇé¿ö
- * @param sudoku ÊÇÒ»¸ö¶şÎ¬Êı×é£¬±íÊ¾Êı¶ÀÄÚÈİ£¬ 0 ±íÊ¾Ã»ÓĞÈ·¶¨µÄÊı¾ÍÊÇ¿Õ
- * @param matrix Êı¾İµÄÎ¬¶È£¬±ÈÈç6¹¬ 9¹¬
- * @param row ±íÊ¾¹¬µÄĞĞÊı
- * @param col ±íÊ¾¹¬µÄÁĞÊı
+ * æ’é™¤æ³•æ¥å¡«å……æ•°ç‹¬ï¼Œ è¡Œã€åˆ—ã€å®«å†…ä¸‰ç§æƒ…å†µ
+ * @param sudoku æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Œè¡¨ç¤ºæ•°ç‹¬å†…å®¹ï¼Œ 0 è¡¨ç¤ºæ²¡æœ‰ç¡®å®šçš„æ•°å°±æ˜¯ç©º
+ * @param matrix æ•°æ®çš„ç»´åº¦ï¼Œæ¯”å¦‚6å®« 9å®«
+ * @param row è¡¨ç¤ºå®«çš„è¡Œæ•°
+ * @param col è¡¨ç¤ºå®«çš„åˆ—æ•°
  */
 int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
 {
-    int fillTotal = 0; // ×Ü¹²ÌîĞ´µÄÊı×Ö
-    int fillNum;       //¼ÇÂ¼Ã¿´ÎÑ­»·ÌîĞ´µÄÊı×Ö
+    int fillTotal = 0; // æ€»å…±å¡«å†™çš„æ•°å­—
+    int fillNum;       //è®°å½•æ¯æ¬¡å¾ªç¯å¡«å†™çš„æ•°å­—
     do
     {
         fillNum = 0;
-        //¹¬ÄÚÅÅ³ı
+        //å®«å†…æ’é™¤
         for (int i = 0; i < col; i++)
         {
             for (int j = 0; j < row; j++)
             {
-                //ÕÒµ½¹¦ÄÜ»¹Ã»ÓĞÈ·¶¨µÄÊı
+                //æ‰¾åˆ°åŠŸèƒ½è¿˜æ²¡æœ‰ç¡®å®šçš„æ•°
                 int checkData[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
                 for (int r = 0; r < row; r++)
                 {
@@ -127,7 +127,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                         checkData[sudoku[i * row + r][j * col + c]]++;
                     }
                 }
-                //¶ÔÃ¿Ò»¸ö¿ÕÈ±µÄÊı×Ö£¬ÔÚ¿Õ¸ñÖĞÊÇÌî£¬¼ì²éÊÇ·ñÓĞ³åÍ»
+                //å¯¹æ¯ä¸€ä¸ªç©ºç¼ºçš„æ•°å­—ï¼Œåœ¨ç©ºæ ¼ä¸­æ˜¯å¡«ï¼Œæ£€æŸ¥æ˜¯å¦æœ‰å†²çª
                 for (int v = 1; v < matrix + 1; v++)
                 {
                     if (checkData[v] == 0)
@@ -141,7 +141,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                                 if (sudoku[i * row + r][j * col + c] == 0)
                                 {
                                     int conflict = 0;
-                                    //¼ì²é¶ÔÓÃµÄÁĞºÍĞĞ
+                                    //æ£€æŸ¥å¯¹ç”¨çš„åˆ—å’Œè¡Œ
                                     for (int k = 0; k < matrix; k++)
                                     {
                                         if (sudoku[k][j * col + c] == v || sudoku[i * row + r][k] == v)
@@ -159,7 +159,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                                 }
                             }
                         }
-                        //ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄµØ·½
+                        //æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„åœ°æ–¹
                         if (canFillSum == 1)
                         {
                             sudoku[fillRow][fillCol] = v;
@@ -169,10 +169,10 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                 }
             }
         }
-        // ĞĞÅÅ³ı
+        // è¡Œæ’é™¤
         for (int i = 0; i < matrix; i++)
         {
-            //ÕÒµ½¹¦ÄÜ»¹Ã»ÓĞÈ·¶¨µÄÊı
+            //æ‰¾åˆ°åŠŸèƒ½è¿˜æ²¡æœ‰ç¡®å®šçš„æ•°
             int checkData[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             for (int j = 0; j < matrix; j++)
             {
@@ -190,7 +190,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                         if (sudoku[i][j] != 0)
                             continue;
                         int conflict = 0;
-                        //¼ì²é¶ÔÓ¦ÁĞ
+                        //æ£€æŸ¥å¯¹åº”åˆ—
                         for (int k = 0; k < matrix; k++)
                         {
                             if (sudoku[k][j] == v)
@@ -203,7 +203,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                         {
                             continue;
                         }
-                        //¼ì²é¹¬ÄÚ
+                        //æ£€æŸ¥å®«å†…
                         int ar = i / row;
                         int ac = j / col;
                         for (int r = 0; r < row; r++)
@@ -229,7 +229,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                             fillCol = j;
                         }
                     }
-                    //ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄµØ·½
+                    //æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„åœ°æ–¹
                     if (canFillSum == 1)
                     {
                         sudoku[fillRow][fillCol] = v;
@@ -239,10 +239,10 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
             }
         }
 
-        // ÁĞÅÅ³ı
+        // åˆ—æ’é™¤
         for (int j = 0; j < matrix; j++)
         {
-            //ÕÒµ½¹¦ÄÜ»¹Ã»ÓĞÈ·¶¨µÄÊı
+            //æ‰¾åˆ°åŠŸèƒ½è¿˜æ²¡æœ‰ç¡®å®šçš„æ•°
             int checkData[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             for (int i = 0; i < matrix; i++)
             {
@@ -261,7 +261,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                             continue;
 
                         int conflict = 0;
-                        //¼ì²é¶ÔÓ¦ĞĞ
+                        //æ£€æŸ¥å¯¹åº”è¡Œ
                         for (int k = 0; k < matrix; k++)
                         {
                             if (sudoku[i][k] == v)
@@ -274,7 +274,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                         {
                             continue;
                         }
-                        //¼ì²é¹¬ÄÚ
+                        //æ£€æŸ¥å®«å†…
                         int ar = i / row;
                         int ac = j / col;
                         for (int r = 0; r < row; r++)
@@ -300,7 +300,7 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
                             fillCol = j;
                         }
                     }
-                    //ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄµØ·½
+                    //æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„åœ°æ–¹
                     if (canFillSum == 1)
                     {
                         sudoku[fillRow][fillCol] = v;
@@ -311,13 +311,13 @@ int inPalaceExclusion(int **sudoku, int matrix, int row, int col)
         }
 
         fillTotal = fillTotal + fillNum;
-    } while (fillNum > 0); //Èç¹ûÒ»ÂÖÑ­»·Ò»¸öÒ²Ã»ÓĞÕÒµ½£¬ÔòÍÆ³öÑ­»·
+    } while (fillNum > 0); //å¦‚æœä¸€è½®å¾ªç¯ä¸€ä¸ªä¹Ÿæ²¡æœ‰æ‰¾åˆ°ï¼Œåˆ™æ¨å‡ºå¾ªç¯
     return fillTotal;
 }
 
 /**
- * Ä£ÄâÈË¹¤ÌîĞ´Êı¶ÀµÄË¼Â·£¬ÏÈÕÒÎ¨Ò»ÖµÖ±½ÓÌîĞ´£¬
- * ÔÙÍ¨¹ıÅÅ³ı·¨ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄµ¥Ôª¸ñ£¬Èç´ËÍù¸´¡£
+ * æ¨¡æ‹Ÿäººå·¥å¡«å†™æ•°ç‹¬çš„æ€è·¯ï¼Œå…ˆæ‰¾å”¯ä¸€å€¼ç›´æ¥å¡«å†™ï¼Œ
+ * å†é€šè¿‡æ’é™¤æ³•æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„å•å…ƒæ ¼ï¼Œå¦‚æ­¤å¾€å¤ã€‚
  */
 int analyseSolution(int **sudoku, int matrix, int row, int col)
 {
@@ -325,14 +325,14 @@ int analyseSolution(int **sudoku, int matrix, int row, int col)
     int step = 0;
     int fillCount = 0;
     while (step < 2 || fillCount > 0)
-    { // step<2 È·±£Á½ÖÖ·½·¨¶¼Ö´ĞĞÒ»´Î
+    { // step<2 ç¡®ä¿ä¸¤ç§æ–¹æ³•éƒ½æ‰§è¡Œä¸€æ¬¡
         if (step % 2 == 0)
-        { // ÏÈÕÒÖ»ÓĞÒ»ÖÖ¿ÉÄÜµÄ¿Õ¸ñ£¬ÌîÆğÀ´
+        { // å…ˆæ‰¾åªæœ‰ä¸€ç§å¯èƒ½çš„ç©ºæ ¼ï¼Œå¡«èµ·æ¥
             fillCount = fillAssuredItem(sudoku, matrix, row, col);
             // printIntMatrix(sudoku, matrix, matrix);
         }
         else
-        { // ÔÙÍ¨¹ıÅÅ³ı·¨£¬ÕÒµ½Ö»ÄÜÌîĞ´µ½Ò»¸öµ¥Ôª¸ñµÄÊı×Ö
+        { // å†é€šè¿‡æ’é™¤æ³•ï¼Œæ‰¾åˆ°åªèƒ½å¡«å†™åˆ°ä¸€ä¸ªå•å…ƒæ ¼çš„æ•°å­—
             fillCount = inPalaceExclusion(sudoku, matrix, row, col);
         }
         if (fillCount < 0)
@@ -352,11 +352,11 @@ int analyseSolution(int **sudoku, int matrix, int row, int col)
     return success == 1 ? step : -1;
 }
 /**
- * »ØËİ·¨£¬±©Á¦Çó½â£¬´úÂëºÜ¼ò½à
+ * å›æº¯æ³•ï¼Œæš´åŠ›æ±‚è§£ï¼Œä»£ç å¾ˆç®€æ´
  */
 int violenceSolution(int **sudoku, int matrix, int row, int col)
 {
-    // ÕÒµ½µÚÒ»¸ö¿Õ¸ñ
+    // æ‰¾åˆ°ç¬¬ä¸€ä¸ªç©ºæ ¼
     int findSpace = 0;
     int success = 0;
     int spaceR, spaceC;
@@ -378,21 +378,21 @@ int violenceSolution(int **sudoku, int matrix, int row, int col)
         }
     }
     if (findSpace == 0)
-    { //Ã»ÓĞ¿Õ¸ñ£¬ÌîĞ´Íê³É
+    { //æ²¡æœ‰ç©ºæ ¼ï¼Œå¡«å†™å®Œæˆ
         printIntMatrix(sudoku, matrix, matrix);
         return 1;
     }
 
-    //¼ì²éÒ»ÏÂÕâ¸öµã¿ÉÒÔÌîĞ´¶àÉÙ¸öÖµ
+    //æ£€æŸ¥ä¸€ä¸‹è¿™ä¸ªç‚¹å¯ä»¥å¡«å†™å¤šå°‘ä¸ªå€¼
     int checkData[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     for (int k = 0; k < matrix; k++)
     {
-        //¼ì²éĞĞ
+        //æ£€æŸ¥è¡Œ
         checkData[sudoku[spaceR][k]]++;
-        //¼ì²éÁĞ
+        //æ£€æŸ¥åˆ—
         checkData[sudoku[k][spaceC]]++;
     }
-    //¼ì²éÇøÓò
+    //æ£€æŸ¥åŒºåŸŸ
     int ar = spaceR / row;
     int ac = spaceC / col;
     for (int r = 0; r < row; r++)
@@ -402,7 +402,7 @@ int violenceSolution(int **sudoku, int matrix, int row, int col)
             checkData[sudoku[ar * row + r][ac * col + c]]++;
         }
     }
-    //ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄÊı¾İ
+    //æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„æ•°æ®
     int rc = 0;
     int rv[20] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -415,18 +415,18 @@ int violenceSolution(int **sudoku, int matrix, int row, int col)
         }
     }
     if (rc == 1)
-    { // Ö»ÓĞÒ»ÖÖÇé¿ö£¬ÌîĞ´Õâ¸ö¿Õ¸ñºó¼ÌĞø
+    { // åªæœ‰ä¸€ç§æƒ…å†µï¼Œå¡«å†™è¿™ä¸ªç©ºæ ¼åç»§ç»­
         sudoku[spaceR][spaceC] = rv[0];
-        //¼ÌĞøÌîĞ´ÏÂÒ»¸ö¿Õ¸ñ
+        //ç»§ç»­å¡«å†™ä¸‹ä¸€ä¸ªç©ºæ ¼
         return violenceSolution(sudoku, matrix, row, col);
     }
 
     if (rc == 0)
-    { // ²Â²âµÄÊı¾İÓĞÎÊÌâ£¬ĞèÒª»ØËİ
+    { // çŒœæµ‹çš„æ•°æ®æœ‰é—®é¢˜ï¼Œéœ€è¦å›æº¯
         return 0;
     }
 
-    //¸´ÖÆÒ»·İµ±Ç°×´Ì¬
+    //å¤åˆ¶ä¸€ä»½å½“å‰çŠ¶æ€
     int **copySudoku = allocateMatrix(matrix, matrix);
     copyIntMatrix(copySudoku, sudoku, matrix, matrix);
     for (int i = 0; i < rc; i++)
@@ -438,28 +438,28 @@ int violenceSolution(int **sudoku, int matrix, int row, int col)
             releaseIntMatrix(copySudoku, matrix);
             return 1;
         }
-        //»Ö¸´Êı¶À
+        //æ¢å¤æ•°ç‹¬
         copyIntMatrix(sudoku, copySudoku, matrix, matrix);
     }
     releaseIntMatrix(copySudoku, matrix);
-    //Ã»ÓĞÕÒµ½ÓĞĞ§µÄ½â£¬ ĞèÒª»ØËİ
+    //æ²¡æœ‰æ‰¾åˆ°æœ‰æ•ˆçš„è§£ï¼Œ éœ€è¦å›æº¯
     return 0;
 }
 
 /**
- * Êı¶ÀÇó½âËã·¨£¬´ÓÎÄ±¾ÎÄ¼şÖĞ¶ÁÈ¡Êı¶À·½Õó£¬±ÈÈç 9*9£¬ 6*6£¬ 4*4µÈµÈ matrix
- * row¡¢col ¶¨ÒåÊı¶ÀµÄ¹¬¸ñ´óĞ¡£¬±ÈÈç 3*3 £¬2*3 £¬2*2 µÈµÈ
- * Õâ¸öÎÄ¼şÖĞÓĞÁ½ÖÖÇó½â·¨£¬Ò»ÖÖÄ£ÄâÈË¹¤ÌîĞ´Êı¶ÀµÄË¼Â·£¬ÏÈÕÒÎ¨Ò»ÖµÖ±½ÓÌîĞ´£¬
- * ÔÙÍ¨¹ıÅÅ³ı·¨ÕÒµ½Î¨Ò»¿ÉÒÔÌîĞ´µÄµ¥Ôª¸ñ£¬Èç´ËÍù¸´¡£
- * ÁíÒ»ÖĞËã·¨Îª»ØËİ·¨£¬ÏÈÕÒµ½µÚÒ»¸ö¿Õ¸ñ£¬¼ì²é¿ÉÒÔÌîĞ´µÄÖµ£¬Èç¹ûÊÇÒ»¸öÖ±½ÓÌîĞ´
- * Èç¹ûÓĞ¶à¸ö¿ÉÒÔÌîĞ´£¬ÏÈËæ±ãÌîĞ´Ò»¸ö£¨Ñ¡×îĞ¡µÄ£©È»ºó¼ÌĞø£¬Èç¹ûºóĞø³åÍ»£¨ÕÒ²»µ½½â£©
- * ¾ÍÊÔÏÂÒ»¸öÖµ£¨»ØËİ£©¡£
+ * æ•°ç‹¬æ±‚è§£ç®—æ³•ï¼Œä»æ–‡æœ¬æ–‡ä»¶ä¸­è¯»å–æ•°ç‹¬æ–¹é˜µï¼Œæ¯”å¦‚ 9*9ï¼Œ 6*6ï¼Œ 4*4ç­‰ç­‰ matrix
+ * rowã€col å®šä¹‰æ•°ç‹¬çš„å®«æ ¼å¤§å°ï¼Œæ¯”å¦‚ 3*3 ï¼Œ2*3 ï¼Œ2*2 ç­‰ç­‰
+ * è¿™ä¸ªæ–‡ä»¶ä¸­æœ‰ä¸¤ç§æ±‚è§£æ³•ï¼Œä¸€ç§æ¨¡æ‹Ÿäººå·¥å¡«å†™æ•°ç‹¬çš„æ€è·¯ï¼Œå…ˆæ‰¾å”¯ä¸€å€¼ç›´æ¥å¡«å†™ï¼Œ
+ * å†é€šè¿‡æ’é™¤æ³•æ‰¾åˆ°å”¯ä¸€å¯ä»¥å¡«å†™çš„å•å…ƒæ ¼ï¼Œå¦‚æ­¤å¾€å¤ã€‚
+ * å¦ä¸€ä¸­ç®—æ³•ä¸ºå›æº¯æ³•ï¼Œå…ˆæ‰¾åˆ°ç¬¬ä¸€ä¸ªç©ºæ ¼ï¼Œæ£€æŸ¥å¯ä»¥å¡«å†™çš„å€¼ï¼Œå¦‚æœæ˜¯ä¸€ä¸ªç›´æ¥å¡«å†™
+ * å¦‚æœæœ‰å¤šä¸ªå¯ä»¥å¡«å†™ï¼Œå…ˆéšä¾¿å¡«å†™ä¸€ä¸ªï¼ˆé€‰æœ€å°çš„ï¼‰ç„¶åç»§ç»­ï¼Œå¦‚æœåç»­å†²çªï¼ˆæ‰¾ä¸åˆ°è§£ï¼‰
+ * å°±è¯•ä¸‹ä¸€ä¸ªå€¼ï¼ˆå›æº¯ï¼‰ã€‚
  */
 void sudokuSolution(const char *filename, int matrix, int row, int col)
 {
     if (col * row != matrix || matrix > 16)
     {
-        printf("ÊäÈëµÄ²ÎÊı²»ÕıÈ·£¡\n");
+        printf("è¾“å…¥çš„å‚æ•°ä¸æ­£ç¡®ï¼\n");
         return;
     }
 
@@ -468,11 +468,11 @@ void sudokuSolution(const char *filename, int matrix, int row, int col)
     int success = violenceSolution(sudoku, matrix, row, col);
     if (success > 0)
     {
-        printf("³É¹¦ÕÒµ½½â,ÄÑ¶ÈÏµÊıÎª%d\n", success);
+        printf("æˆåŠŸæ‰¾åˆ°è§£,éš¾åº¦ç³»æ•°ä¸º%d\n", success);
     }
     else
     {
-        printf("Ã»ÓĞÕÒµ½½â, ¿ÉÄÜ³öÌâ´íÎó»òÕßÓĞ¶à¸ö½â¡£\n");
+        printf("æ²¡æœ‰æ‰¾åˆ°è§£, å¯èƒ½å‡ºé¢˜é”™è¯¯æˆ–è€…æœ‰å¤šä¸ªè§£ã€‚\n");
     }
     //printIntMatrix(sudoku, matrix, matrix);
     releaseIntMatrix(sudoku, matrix);
