@@ -9,7 +9,7 @@ int a(int l,int y,int r,int m)
             cout<<1978-l+1<<endl;
             return 0;
         }
-        cout<<"杨淮生"<<1978-l<<""
+        cout<<"杨淮生"<<1978-l<<"";
     }
 }
 int dad()
@@ -81,6 +81,6 @@ int main()
     }
     else
         {
-            a
+            
         }
 }

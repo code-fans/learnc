@@ -13,5 +13,4 @@ int main()
     }
     ans+=r;
     printf("%d\n",ans);
-
 }
