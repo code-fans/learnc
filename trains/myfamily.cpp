@@ -1,17 +1,19 @@
 #include<iostream>
 using namespace std;
-int a(int l,int y,int r,int m)
+
+void a(int l,int y,int r,int m)
 {
     if(m==1)
     {
         if (y>=10&&r>=10)
         {
             cout<<1978-l+1<<endl;
-            return 0;
+            return;
         }
         cout<<"杨淮生"<<1978-l<<"";
     }
 }
+
 int dad()
 {
     cout<<"出生于"<<"1978年.10月.23日"<<endl;
