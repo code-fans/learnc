@@ -14,9 +14,11 @@ int main()
         if (maxday<a[i][0]+a[i][1])
         {
             maxday=a[i][0]+a[i][1];
-            ans=i;
+            ans=i+1;
         }
     }
+    if(maxday<=8)
+        ans=0;
     cout<<ans<<endl;
     return 0;   
 }
