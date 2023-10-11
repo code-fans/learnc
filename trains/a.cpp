@@ -2,25 +2,22 @@
 using namespace std;
 int main()
 {
-    char m;
-    string isbm;
-    
-    cin>>isbm;
-    int n=0,j=0;
-    for(int i=0; i<12; i++)
+    int d[40]={0}, i=0;
+    long long b;
+    cin>>b;
+    while(b!=0)
     {
-        if(isbm[i]!='-'){
-            n+=(isbm[i]-'0')*(++j);
-        }
+        d[i++]=b%2;
+        b/=2;
     }
-    n %= 11;
-    m = n==10? 'X': n+'0';
-    if(m == isbm[12])
-        cout<<"Right"<<endl;
-    else
+    for(int j=15;j>=0;j--)
     {
-        isbm[12] = m;
-        cout<<isbm<<endl;
+        b=b*2+d[j];
     }
+    for(int j=31;j>=16;j--)
+    {
+        b=b*2+d[j];
+    }
+    cout<<b<<endl;
     return 0;
 }
