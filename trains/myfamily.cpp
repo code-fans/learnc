@@ -5,13 +5,41 @@ void a(int l,int y,int r,int m)
 {
     if(m==1)
     {
-        if (y>=10&&r>=10)
+        if (y>=10&&r>=23)
         {
-            cout<<1978-l+1<<endl;
+            cout<<"杨淮生"<<1978-l+1<<endl;
             return;
         }
         cout<<"杨淮生"<<1978-l<<"";
     }
+    if(m==2)
+    {
+        if (y>=10&&r>=30)
+        {
+            cout<<"陈俊"<<l-1978+1<<endl;
+            return;
+        }
+        cout<<"陈俊"<<l-1978<<"";
+    }
+    if(m==3)
+    {
+        if (y>=8&&r>=8)
+        {
+            cout<<"杨静姝"<<l-2009+1<<endl;
+            return;
+        }
+        cout<<"杨静姝"<<l-2009<<"";
+    }
+    if (m==4)
+    {
+        if (y==2&&r==1)
+        {
+            cout<<"杨清和"<<l-2015+1<<endl;
+            return;
+        }
+        cout<<"杨清和"<<l-2015<<endl;
+    }
+    
 }
 
 int dad()
