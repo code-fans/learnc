@@ -1,6 +1,30 @@
 #include<iostream>
 using namespace std;
 
+class Person{
+public:
+    string name;
+    int age;
+    string birthday;
+    string sex;
+public:
+    void display();
+};
+
+void Person::display(){
+
+}
+
+int dad()
+{
+    cout<<"出生于"<<"1978年.10月.23日"<<endl;
+    cout<<"姓名"<<' '<<"男"<<' '<<"杨淮生"<<endl;
+    cout<<"家庭里年龄第1的成员"<<endl;
+    cout<<"计算机专业"<<endl;
+    cout<<"我们家的一名老师"<<endl;
+    return 0;
+}
+
 void a(int l,int y,int r,int m)
 {
     if(m==1)
