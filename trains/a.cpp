@@ -1,40 +1,28 @@
 #include<iostream>
 using namespace std;
-int a[1000][1000];
+int a[300][300];
 
-void huoba( int x,int y, int i)
+void huoba( int x,int y)
 {
-    a[x][y]=1;
-    if(y+1<=i)
-        a[x][y+1]=1;
-    if(y-1>=0)
-        a[x][y-1]=1;
-    if(x+1<=i)
-        a[x+1][y]=1;
-    if(x-1>=0)
-        a[x-1][y]=1;
-    if(x+1<=i&&y+1<=i)
-        a[x+1][y+1]=1;
-    if(x+1<=i&&y-1>=0)
-        a[x+1][y-1]=1;
-    if(x-1>=0&&y+1<=i)
-        a[x-1][y+1]=1;
-    if(x-1>=0&&y-1>=0)
-        a[x-1][y-1]=1;
-
-    if(y+2<=i)
-        a[x][y+2]=1;
-    if(y-2>=0)
-        a[x][y-2]=1;
-    if(x-2>=0)
-        a[x-2][y]=1;
-    if(x+2<=i)
-        a[x+2][y]=1;
+     for (int i = -2; i <=2; i++)
+   {
+        for (int j = -2; j <=2; j++)
+        {
+            if( (i<0?-i:i) +(j<0?-j:j) <= 2 )
+                a[x+i][y+j] = 1;
+        } 
+   }
 }
 
-void yingshi()
+void yingshi(int x,int y)
 {
-
+   for (int i = -2; i <=2; i++)
+   {
+        for (int j = -2; j <=2; j++)
+        {
+            a[x+i][y+j] = 1;
+        } 
+   }
 }
 
 int main()
@@ -46,19 +34,23 @@ int main()
     for (int u = 0; u < c; u++)
     {
         cin>>x>>y;
-        huoba(x-1,y-1, i-1);
+        huoba(x+2,y+2);
     }
-    for (int t = 0; t < i; t++)
+    for (int t = 0; t < d; t++)
     {
-        for (int u = 0; u < i; u++)
+        cin>>x>>y;
+        yingshi(x+2,y+2);
+    }
+    
+    for (int t = 3; t < i+3; t++)
+    {
+        for (int u = 3; u < i+3; u++)
         {
             if (a[t][u]!=1)
             {
                 b++;
             }
-            
-        }
-        
+        }  
     }
     cout<<b<<endl;
     return 0;
