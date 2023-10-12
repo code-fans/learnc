@@ -1,26 +1,65 @@
 #include<iostream>
 using namespace std;
+int a[1000][1000];
+
+void huoba( int x,int y, int i)
+{
+    a[x][y]=1;
+    if(y+1<=i)
+        a[x][y+1]=1;
+    if(y-1>=0)
+        a[x][y-1]=1;
+    if(x+1<=i)
+        a[x+1][y]=1;
+    if(x-1>=0)
+        a[x-1][y]=1;
+    if(x+1<=i&&y+1<=i)
+        a[x+1][y+1]=1;
+    if(x+1<=i&&y-1>=0)
+        a[x+1][y-1]=1;
+    if(x-1>=0&&y+1<=i)
+        a[x-1][y+1]=1;
+    if(x-1>=0&&y-1>=0)
+        a[x-1][y-1]=1;
+
+    if(y+2<=i)
+        a[x][y+2]=1;
+    if(y-2>=0)
+        a[x][y-2]=1;
+    if(x-2>=0)
+        a[x-2][y]=1;
+    if(x+2<=i)
+        a[x+2][y]=1;
+}
+
+void yingshi()
+{
+
+}
+
 int main()
 {
-    char m;
-    string isbm;
-    
-    cin>>isbm;
-    int n=0,j=0;
-    for(int i=0; i<12; i++)
+    int i,b=0;
+    cin>>i;
+    int x, y,c,d;
+    cin>>c>>d;
+    for (int u = 0; u < c; u++)
     {
-        if(isbm[i]!='-'){
-            n+=(isbm[i]-'0')*(++j);
+        cin>>x>>y;
+        huoba(x-1,y-1, i-1);
+    }
+    for (int t = 0; t < i; t++)
+    {
+        for (int u = 0; u < i; u++)
+        {
+            if (a[t][u]!=1)
+            {
+                b++;
+            }
+            
         }
+        
     }
-    n %= 11;
-    m = n==10? 'X': n+'0';
-    if(m == isbm[12])
-        cout<<"Right"<<endl;
-    else
-    {
-        isbm[12] = m;
-        cout<<isbm<<endl;
-    }
+    cout<<b<<endl;
     return 0;
 }
