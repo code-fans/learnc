@@ -1,47 +1,61 @@
 #include<iostream>
+#include<cstdio>
+#include<string>
 using namespace std;
-int a[300][300];
 
-void huoba( int x,int y, bool ys)
-{
-     for (int i = -2; i <=2; i++)
-   {
-        for (int j = -2; j <=2; j++)
-        {
-            if(ys || (i<0?-i:i) +(j<0?-j:j) <= 2 )
-                a[x+i][y+j] = 1;
-        } 
-   }
+bool isHuiWenShu(int digit[], int len){
+    for(int i=0; i<len/2; i++){
+        if(digit[i] != digit[len-1-i])
+            return false;
+    }
+    return true;
 }
-
 
 int main()
 {
-    int i,b=0;
-    cin>>i;
-    int x, y,c,d;
-    cin>>c>>d;
-    for (int u = 0; u < c; u++)
-    {
-        cin>>x>>y;
-        huoba(x+2,y+2, false);
+    string str;
+    int jz;
+    cin>>jz >> str;
+    int digit[100]={0};
+    int len = str.size();
+
+    for(int i=0; i<len; i++){
+        char c = str[i];
+        if(c>='0'&&c<='9'){
+            digit[i] = c-'0';
+        } else if(c>='A'&&c<='Z'){
+            digit[i] = c-'A'+10;
+        } else if(c>='a'&&c<='z'){
+            digit[i] = c - 'a' + 10;
+        } 
     }
-    for (int t = 0; t < d; t++)
-    {
-        cin>>x>>y;
-        huoba(x+2,y+2, true);
+
+    int step = 0;
+    while(!isHuiWenShu(digit, len)){
+        if(step>30){
+            break;
+        }
+        step++;
+        for(int i=0; i<len/2+len%2; i++){
+            int n = digit[i] + digit[len-1-i];
+            digit[i] = n;
+            digit[len-1-i] = n;
+        }
+        int jw=0;
+        for(int i=0; i<len; i++){
+            jw = jw + digit[i];
+            digit[i] = jw % jz;
+            jw =jw / jz;
+        }
+        if(jw>0){
+            digit[len] = jw;
+            len ++;
+        }
+
     }
-    
-    for (int t = 3; t < i+3; t++)
-    {
-        for (int u = 3; u < i+3; u++)
-        {
-            if (a[t][u]!=1)
-            {
-                b++;
-            }
-        }  
+     if(step>30){
+        cout << "Impossible!" << endl;
+    } else{
+        cout <<"STEP=" <<step << endl;
     }
-    cout<<b<<endl;
-    return 0;
 }
