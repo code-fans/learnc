@@ -1,47 +1,32 @@
 #include<iostream>
 using namespace std;
-int a[300][300];
-
-void huoba( int x,int y, bool ys)
-{
-     for (int i = -2; i <=2; i++)
-   {
-        for (int j = -2; j <=2; j++)
-        {
-            if(ys || (i<0?-i:i) +(j<0?-j:j) <= 2 )
-                a[x+i][y+j] = 1;
-        } 
-   }
-}
-
-
 int main()
 {
-    int i,b=0;
-    cin>>i;
-    int x, y,c,d;
-    cin>>c>>d;
-    for (int u = 0; u < c; u++)
+    int n;
+    string str;
+    cin>>str;
+    int a[100];
+    n=str.size();
+    for(int i=0;i<n;i++)
     {
-        cin>>x>>y;
-        huoba(x+2,y+2, false);
+        a[i]=str[n-i-1]-'0';
     }
-    for (int t = 0; t < d; t++)
+    int jw=0;
+    for (int i = 0; i < n; i++)
     {
-        cin>>x>>y;
-        huoba(x+2,y+2, true);
+        a[i]=a[i]*7+jw;
+        jw=a[i]/10;
+        a[i]=a[i]%10;
     }
-    
-    for (int t = 3; t < i+3; t++)
+    if (jw>0)
     {
-        for (int u = 3; u < i+3; u++)
-        {
-            if (a[t][u]!=1)
-            {
-                b++;
-            }
-        }  
+        a[n]=jw;
+        n++;
     }
-    cout<<b<<endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout<<a[n-i-1];
+    }
+    cout<<endl;
     return 0;
 }
