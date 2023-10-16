@@ -1,24 +1,34 @@
 #include<iostream>
 using namespace std;
+
 int main(){
+    freopen("data/input.txt", "r", stdin);
     int n;
     cin>>n;
-    int jishu,a=0,m=1;
-    for(int i=0;i<=n;i++)
+    int jinyan;
+    int a=1,m=1,b=1,ans=0;
+    double xuelandushi,zongxuelan=10,jishu=0;
+    for(int i=1;i<=n;i++)
     {
-        cin>>jishu;
-        int jinyan;
+        cin>>xuelandushi;
         cin>>jinyan;
-        for(int u=1;u<jishu;u++)
+        zongxuelan-=xuelandushi;
+        if (zongxuelan>10)
         {
-            a+=m*u;
-            m*=u;
+            zongxuelan=10;
         }
-        if(a>=jinyan)
-            cout<<"0"<<' ';
-        else
-            cout<<jinyan-a<<' ';
+        
+        if(zongxuelan<=0)
+        {
+            break ;
+        }
+        ans+=jinyan;
     }
-    cout<<endl;
+    for (int i = 1; ans>=i; i*=2)
+    {
+        ans-=i;
+        jishu++;
+    }
+    cout<< jishu <<' '<<ans<<endl;
     return 0;
 }

@@ -11,42 +11,19 @@ int main()
     {
         cin>>daka;
         cin>>tishu;
+        a=0;
         if (daka==0)
         {
             jinchen=0;
         }
         else
         {
-            if (tishu>=3)
-            {
-                if (++jinchen>=4)
-                {
-                    ans+=16;
-                    a+=16;
-                }
-                else
-                {
-                    ans+=8;
-                    a+=8;
-                }
-                tishu-=3;
-            }
-            if (tishu>3)
-            {
-                ans+=tishu/2;
-                a+=tishu/2;
-                if (a>40)
-                {
-                    ans-=a-40;
-                }
-                a=0;
-            }
-            
-            
+            a = tishu >=3 ? 8+(tishu-3)/2 : 0;
+            a = a > 20 ? 20 : a;
+            ans += ++jinchen >= 4 ? a*2: a;
         }
-        cout<<ans<<endl;
-        
     }
+    cout<<ans<<endl;
     return 0;
     
 }
