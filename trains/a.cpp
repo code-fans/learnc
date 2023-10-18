@@ -1,34 +1,27 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
+int main()
+{
+    string str;
+    cin>>str;
+    int n = str.length();
+    while(str[n-1]=='0')
+        n--;
 
-int main(){
-    freopen("data/input.txt", "r", stdin);
-    int n;
-    cin>>n;
-    int jinyan;
-    int a=1,m=1,b=1,ans=0;
-    double xuelandushi,zongxuelan=10,jishu=0;
-    for(int i=1;i<=n;i++)
+    int b = 0;
+    if(str[0] == '-')
     {
-        cin>>xuelandushi;
-        cin>>jinyan;
-        zongxuelan-=xuelandushi;
-        if (zongxuelan>10)
-        {
-            zongxuelan=10;
-        }
-        
-        if(zongxuelan<=0)
-        {
-            break ;
-        }
-        ans+=jinyan;
+        cout<<'-';
+        b=1;
     }
-    for (int i = 1; ans>=i; i*=2)
-    {
-        ans-=i;
-        jishu++;
-    }
-    cout<< jishu <<' '<<ans<<endl;
-    return 0;
+
+    if(b<n){
+        for (int i = n-1; i >=b; i--)
+        {
+            cout<<str[i];
+        }
+    } else
+        cout<<"0";
+    cout<<endl;
 }
