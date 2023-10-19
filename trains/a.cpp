@@ -3,25 +3,19 @@
 using namespace std;
 int main()
 {
-    string str;
-    cin>>str;
-    int n = str.length();
-    while(str[n-1]=='0')
-        n--;
-
-    int b = 0;
-    if(str[0] == '-')
-    {
-        cout<<'-';
-        b=1;
-    }
-
-    if(b<n){
-        for (int i = n-1; i >=b; i--)
-        {
-            cout<<str[i];
-        }
-    } else
-        cout<<"0";
-    cout<<endl;
+    int a[30000]={0};
+    int ma;
+    int n,m,ans=0,b;
+    cin>>ma>>n>>m>>b;
+    for (int i = 0; i < 300/n; i++)
+        a[i*n]++;
+    for (int i = 0; i < 300/m; i++)
+        a[i*m]++;
+    for (int i = 0; i < 300/b; i++)
+        a[i*b]++;
+    for (int i = 0; i < 300; i++)
+        if (a[i]==1)
+            ans++;
+    cout<<ans<<' ';
+    return 0;
 }
