@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class Person{
+/*class Person{
 public:
     string name;
     int age;
@@ -12,9 +12,27 @@ public:
 };
 
 void Person::display(){
-
+    cout << "姓名"<< name << endl;
+    cout << "出生于"<< birthday << endl;
 }
 
+int main2(){
+    Person dad;
+    dad.name = "杨淮生";
+    dad.birthday = "1978年.10月.23日";
+
+    Person mom;
+    mom.name = "陈俊";
+    mom.birthday = "1978年.10月.30日";
+
+    Person 
+
+    dad.display();
+    mom.display();
+    return 0;
+}
+
+*/
 int dad()
 {
     cout<<"出生于"<<"1978年.10月.23日"<<endl;
@@ -66,7 +84,7 @@ void a(int l,int y,int r,int m)
     
 }
 
-int dad()
+int dad2()
 {
     cout<<"出生于"<<"1978年.10月.23日"<<endl;
     cout<<"姓名"<<' '<<"男"<<' '<<"杨淮生"<<endl;
