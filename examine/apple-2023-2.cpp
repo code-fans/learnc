@@ -1,20 +1,32 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+int a[100000000];
 using namespace std;
 int main()
 {
-    long long n, s=0,ans=0,ans1=-1;
+    long long n, s=0,ans=0,ans1=-1,p=1,l=0;
     cin>>n;
-    while (n>0)
+    while (l!=n)
     {
-        ans++;
-        if ((n-1)%3==0 && ans1==-1)
+        for (int i = 0; i < n; i++)
         {
-            ans1=ans;
+            if (a[i]==0)
+            {
+                a[i]=p;
+                l++;
+                if (a[i]%3==0)
+                {
+                    a[i]=p;
+                    l++;
+                }
+                
+            }
         }
-        n-= 1+(n-1)/3;
+        p++;
+        s++;
+
     }
-    cout<<ans<<' '<<ans1<<endl;
+    cout<<s<<' '<<a[n-1]<<endl;
     return 0;
 }
