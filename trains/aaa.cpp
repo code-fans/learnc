@@ -1,35 +1,30 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-
-struct stud
-{
-    int id;
-    int math,english,chinese;
-    int sum;
-};
-
-bool cmp(stud a, stud b)
-{
-    return a.sum>b.sum ||
-     (a.sum == b.sum && (a.chinese>b.chinese || (a.chinese==b.chinese && a.id < b.id)));
-}
-
-stud s[300];
 int main()
 {
+    int a[10000];
     int n;
     cin>>n;
     for (int i = 0; i < n; i++)
     {
-        cin>>s[i].chinese>>s[i].math>>s[i].english;
-        s[i].id=i+1;
-        s[i].sum=s[i].chinese+s[i].math+s[i].english;
+        cin>>a[i];
     }
-    sort(s,s+n,cmp);
-    for (int i = 0; i < 5; i++)
+    sort(a,a+n);
+    int ans=0,m=1;
+    for (int i = 0; i < n; i++)
     {
-        cout<<s[i].id<<' '<<s[i].sum<<endl;
+        ans=0;
+        while (a[i]==a[m])
+        {
+            ans++;
+            if (ans>n/2)
+            {
+                cout<<a[m]<<endl;
+                return 0;
+            }
+            m++;
+        }
     }
-    
+    cout<<"no"<<endl;   
 }
