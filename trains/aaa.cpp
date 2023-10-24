@@ -26,6 +26,5 @@ int main()
             m++;
         }
     }
-    cout<<"no"<<endl;
-        
+    cout<<"no"<<endl;   
 }
