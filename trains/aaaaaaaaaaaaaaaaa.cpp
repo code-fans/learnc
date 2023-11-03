@@ -1,37 +1,37 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
-struct a
-{
+struct a{
+    char zm;
     int id;
     int jc;
 };
-a m[26]={0};
-bool cmp(a c,a b)
-{
-    if (c.jc==b.jc)
-    {
-        return c.id>b.id;
+a m[26];
+bool cmp(a c,a b){
+    if (c.jc==b.jc){
+        return c.id<b.id;
     }
-    else
-    {
-        return c.jc>b.jc;
+    else{
+        return c.jc<b.jc;
     }
 }
-int main()
-{
-    int l[26]={0};
+int main(){
     string a;
     char ans;
     cin>>a;
-    for (int i = 0; i < a.size(); i++){
-        m[a[i]-'a']++;
-        l[a[i]-'a']=i;
+    for (int i = 0; i < 26; i++){
+        m[i].jc=0;
     }
-    for (int i = 0; 0<1 ; i++){
-        ans=i+97;
-        if (m[i]==1){
-            cout<<ans<<endl;
+    for (int i = 0; i < a.size(); i++){
+        m[a[i]-'a'].jc++;
+        m[a[i]-'a'].id=i;
+        m[a[i]-'a'].zm=a[i];
+    }
+    sort(m,m+26,cmp);
+    for(int i=0; i<26 ; i++){
+        if (m[i].jc==1){
+            cout<<m[i].zm<<endl;
             return 0;
         }
     }
