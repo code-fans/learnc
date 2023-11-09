@@ -1,9 +1,10 @@
 #include <iostream>
 using namespace std;
+int a[1000]={0},b[1000]={0},ans=0;
 int main()
 {
     int x ,y,m;
-    int a[1000000]={0},b[1000000]={0},ans=0;
+    
     cin>>x>>y;
     for(int i=0;i<x;i++){
         cin>>a[i];
@@ -15,6 +16,28 @@ int main()
         cout<<"-1"<<endl;
         return 0;
     }
+    for(int i=0; i<x; i++){
+        int pos = -1;
+        int min = 1000000000;
+        for(int j=0; j<y; j++){
+            if(b[j]>=a[i] && b[j]<min ){
+                pos = j;
+                min = b[j];
+            }
+        }
+        if(pos<0){
+            cout<<"-1"<<endl;
+            return 0;
+        }
+        ans += b[pos];
+        b[pos] = 0;
+    }
+
+    cout<<ans<<endl;
+    return 0;
+}
+
+/*
     sort(b, b+y);
     sort(a, a+x);
     //都放在第一个
@@ -32,6 +55,4 @@ int main()
         cout<<"-1"<<endl;
         return 0;
     }
-    cout<<ans<<endl;
-    return 0;
-}
+*/
