@@ -4,22 +4,17 @@ using namespace std;
 int main(){
     string str;
     cin>>str;
-    for (int i = 0; i < str.size(); i++)
-    {
-        if (str[i]=='T')
-        {
+    for (int i = 0; i < str.size(); i++){
+        if (str[i]=='T'){
             cout<<'A';
         }
-        else if (str[i]=='A')
-        {
+        else if (str[i]=='A'){
             cout<<'T';
         }
-        else if (str[i]=='G')
-        {
+        else if (str[i]=='G'){
             cout<<'C';
         }
-        else 
-        {
+        else {
             cout<<'G';
         }
     }
