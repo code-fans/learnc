@@ -18,8 +18,9 @@ int main()
     {
         ans1+=a[i];
         ans+=ans1;
+        cout << a[i] << ' ';
         
     }
-    cout<<ans<<endl;
+    cout<<endl<<ans<<endl;
     return 0;
 }

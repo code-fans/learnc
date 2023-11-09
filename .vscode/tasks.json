@@ -21,7 +21,7 @@
                 "/Zi",
                 "/EHsc",
                 "/Fe:",
-                "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+                "${workspaceFolder}\\runtime\\${fileBasenameNoExtension}.exe",
                 "${file}"
             ],
             "options": {
@@ -40,7 +40,7 @@
             "args": [
                 "${file}",
                 "-o",
-                "${workspaceFolder}/${fileBasenameNoExtension}.out",
+                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.out",
                 "-g"
             ],
             "group": "build",
