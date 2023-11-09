@@ -57,7 +57,7 @@
                 "${fileDirname}/../utils/*.c",
                 "${fileDirname}/../pettystl/*.cpp",
                 "-o",
-                "${workspaceFolder}/${fileBasenameNoExtension}.out",
+                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.out",
                 "-g"
             ],
             "group": "build",
@@ -74,7 +74,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/runtime/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
