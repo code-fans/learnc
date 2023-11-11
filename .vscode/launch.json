@@ -21,9 +21,9 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/runtime/${fileBasenameNoExtension}.out",
+            "program": "${workspaceFolder}/runtime/${fileBasenameNoExtension}.o",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/runtime",
             "stopAtEntry": false, // if true then stop at the main entry (function)
             "environment": [],
             "externalConsole": true,

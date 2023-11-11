@@ -40,7 +40,7 @@
             "args": [
                 "${file}",
                 "-o",
-                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.out",
+                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.o",
                 "-g"
             ],
             "group": "build",
@@ -57,7 +57,7 @@
                 "${fileDirname}/../utils/*.c",
                 "${fileDirname}/../pettystl/*.cpp",
                 "-o",
-                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.out",
+                "${workspaceFolder}/runtime/${fileBasenameNoExtension}.o",
                 "-g"
             ],
             "group": "build",
