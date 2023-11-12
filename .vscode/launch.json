@@ -18,7 +18,7 @@
         },
         
         {
-            "name": "(lldb) Launch",
+            "name": "(mac) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/runtime/${fileBasenameNoExtension}.o",
