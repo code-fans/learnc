@@ -11,13 +11,16 @@ bool isp(int num)
     return true;
 }
 
+bool ishw(int a)
+{
+    return a%10 == a/100;
+}
+
 int main()
 {
-    int fw;
-    cin>>fw;
-    for (int i = 3; i < fw-1; i+=2){
-        if(isp(i) && isp(i+2))
-            cout<<i<<' '<<i+2<<endl;
+    for (int i = 100; i < 1000; i++){
+        if(isp(i) && ishw(i))
+            cout<<i<<endl;
     }
     return 0;
 }
