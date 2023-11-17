@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <iostream>
 #include <cmath>
 using namespace std;
 
@@ -17,6 +17,9 @@ double arctanx(double x)
 
 int main()
 {
-    printf("%.10f\n",arctanx(1 / sqrt(3))*6 );
+    cout.flags(cout.fixed); 
+    cout.precision(10);
+    cout<<arctanx(1 / sqrt(3))*6<< endl;
+    //printf("%.10f\n",arctanx(1 / sqrt(3))*6 );
     return 0;
 }
