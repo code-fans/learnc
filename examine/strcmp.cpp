@@ -11,7 +11,7 @@ int main()
     int i,j;
     int ans=0,direction;
 
-    cin >>word;//输入单词
+    getline(cin, word); // cin >> word
     getline(cin, sentence);//输入句子
     len1=word.size();//记录单词的长度
     len2=sentence.size();//记录句子的长度
@@ -26,6 +26,7 @@ int main()
             if(toupper(sentence[i+j])!=toupper(word[j]))	
                 break;
         }
+        
         if(j==len1 && (sentence[i+j]==' '|| j+i==len2))
         {
             ans++;//累加满足条件单词数
