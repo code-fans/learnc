@@ -1,32 +1,14 @@
 #include <iostream>
+#include <string>
 using namespace std;
-bool isp(int n)
-{
-    for (int i = 2; i*i <= n; i++)
-        if (n%i==0)
-            return false;
-    return true;
-}
 int main()
 {
-    int n,m,k;
-    cin>>n;
-    
-    k = n/2;
-    m = n-k;
-    for (int i = 0; i < n/2; i++)
-    {
-        if (isp(m) && isp(k))
-        {
-            cout<<m*k<<endl;
+    string str;
+    cin>>str;
+    for (int i = 0; i < str.size()/2; i++)
+        if (str[i]!=str[str.size()-1-i]){
+            cout<<"no"<<endl;
             return 0;
         }
-        else
-        {
-            k--;
-            m++;
-        }
-    }
-    
-    return 0;
+    cout<<"yes"<<endl;
 }
