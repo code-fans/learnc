@@ -7,12 +7,13 @@ using namespace std;
 int main()
 {
     string word,sentence;
-    int len1,len2;
+    int len1yyyyyyy,len2;
     int i,j;
     int ans=0,direction;
 
     getline(cin, word); // cin >> word
     getline(cin, sentence);//输入句子
+    
     len1=word.size();//记录单词的长度
     len2=sentence.size();//记录句子的长度
     
@@ -35,10 +36,4 @@ int main()
         }
     }
 
-    if(ans>0)	
-        cout<<ans<<" "<<direction<<endl;
-    else	
-        cout<<"-1"<<endl;
-
-    return 0;
 }
