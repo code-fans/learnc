@@ -1,4 +1,5 @@
 #include <iostream>
+#include <list>
 
 template <typename T> class LinkedList{
     public:
@@ -7,6 +8,7 @@ template <typename T> class LinkedList{
     public:
         LinkedList(T d);
         LinkedList<T> * insertData(T d);
+        void deleteNext();
 };
 
 template <typename T> 
@@ -21,6 +23,13 @@ LinkedList<T> * LinkedList<T>::insertData(T d) {
         np->next = next;
         next = np;
         return np;
+}
+
+template <typename T> 
+void LinkedList<T>::deleteNext() {
+    if(next==nullptr)
+        return;
+    next = next->next;
 }
 
 template <typename T> 
@@ -43,7 +52,17 @@ int main() {
         std::cout << tmpList->data << " ";
         tmpList = tmpList->next;
     }
-    std::cout <<std::endl;
+    std::cout<<std::endl;
+    tmpList = intList->next;
+    tmpList->deleteNext();
+    tmpList->deleteNext();
+    tmpList->deleteNext();
+    tmpList = intList;
+    while(tmpList != nullptr){
+        std::cout << tmpList->data << " ";
+        tmpList = tmpList->next;
+    }
+    std::cout<<std::endl;
     freeList(intList);
     return 0;
 }
