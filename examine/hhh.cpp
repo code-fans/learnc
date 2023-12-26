@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
-
-int N, k, ys[10100][110];
+int ans[10000][10000];
 
 int main(){
-
-    cin>> N >> k;
-    int c, l;
-    ys[0][0] = 1;
-    for(int i=1; i<=N; i++){
-        cin >> c;
-        for(int j=0; j<k; j++){
-            if(ys[i-1][j]){
-                l = (j+c) % k;
-                ys[i][l] = 1;
-                l = ((j-c) % k + k) % k;
-                ys[i][l] = 1;
+    int fangxiang=0,n,d=1;
+    cin>>n;
+    int x=-1,y=n-1;
+    for (int i = 2*n; i > 1; i--){
+        for (int j=0 ; j< i/2; j++){
+            switch(fangxiang%4){
+                case 0: x+=1; break;
+                case 1: y-=1; break;
+                case 2: x-=1; break;
+                case 3: y+=1; break;
             }
+            ans[x][y]=d;
+            d++;
         }
+        fangxiang++;
     }
-    if(ys[N][0]){
-        cout << "YES" << endl;
-    } else {
-        cout << "NO" << endl;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            cout<<ans[i][j]<<' ';
+        }
+        cout<<endl;
     }
+    
     return 0;
 }
