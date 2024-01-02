@@ -7,12 +7,14 @@ using namespace std;
 
 int putApple(int a,int p,int m)
 {
-    if(p==1)
+    if(p==1) // 退出递归条件
         return 1;
     int ans=0; 
     for(int i=m; p*i <=a; i++){ 
         // 确定第一个盘子放几个， m ~ a/p
-        ans += putApple(a-i, p-1, i); // i->m 后面的盘子不能比前面少
+        ans += putApple(a-i, p-1, i); 
+        // p-1 向退出条件逼近
+        // i->m 后面的盘子不能比前面少
         // 加法原理
     }
     return ans;
