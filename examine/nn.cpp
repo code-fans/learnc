@@ -5,28 +5,29 @@
 
 using namespace std;
 
-int putApple(int a,int p,int m)
-{
-    if(p==1) // 退出递归条件
-        return 1;
-    int ans=0; 
-    for(int i=m; p*i <=a; i++){ 
-        // 确定第一个盘子放几个， m ~ a/p
-        ans += putApple(a-i, p-1, i); 
-        // p-1 向退出条件逼近
-        // i->m 后面的盘子不能比前面少
-        // 加法原理
-    }
-    return ans;
-}
-
 int main()
 {
-    int hang,m,n;
-    cin>>hang;
-    for (int i = 0; i < hang; i++){
-        cin>>m>>n;
-        cout<<putApple(m,n,0)<<endl;
+    int hang,m=2,n,k=0,l=0;
+    cin>>n;
+    while (m<=n)
+    {
+        k=0;
+        while (n%m==0) {
+            k++;
+            n/=m;
+        }
+        if(l!=0&&k!=0)
+            cout<<'*';
+        if(k>=2){
+            cout<<m<<'^'<<k;
+            l++;
+        }
+        else if(k==1){
+            cout<<m;
+            l++;
+        }
+        m++;
     }
+    
     return 0;
 }
