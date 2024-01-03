@@ -3,45 +3,40 @@
 using namespace std;
 
 int ans[300]={0},ans1[300]={0};
-
 int len=1;
 int len1=1;
 
 int jiechini(int jidejiecheng)
 {
-    int t=0;
-    for (int j = 0; j < len; j++){
-        int y=(ans1[j]*jidejiecheng+t);
-        ans1[j]=y%10;
+    int t=0, t1=0;
+    for (int j = 0; j < len1; j++){
+        int y= ans1[j]*jidejiecheng + t;
+        ans1[j] = y%10;
         t=y/10;
+        
+        y = ans[j] + ans1[j] + t1;
+        ans[j] = y%10;
+        t1 = y/10;
     }
-    if(t!=0&&t<=9){
-        ans1[len]=t;
-        len++;
-    }
-    if(t>=10){
-        ans1[len]=t%10;
-        len++;
-        ans1[len]=t/10;
-        len++;
-    }
-
-    t=0;
-    if(len1 < len)
-        len1 = len; 
-    for (int i = 0; i < len1; i++){
-        int y=(ans1[i]+ans[i]+t);
-        ans[i] = y%10;
-        t=y/10;
-    }
-    if(t!=0&&t<=9){
-        ans[len1]+=t;
+    int l = len1;
+    while(t>0){
+        ans1[len1] = t%10;
+        t /= 10;
         len1++;
     }
-    if(t!=0&&t>=10){
-        ans[len1]+=t%10;
-        ans[len1+1]+=t/10;
-        len1+=2;
+
+    if(len<len1)
+        len = len1;
+  
+    while(l<len){
+        int y = ans[l] + ans1[l] + t1;
+        ans[l] = y%10;
+        t1 = y/10;
+        l++;
+    }
+    if(t1>0){
+        ans[len] = t1;
+        len++;
     }
     return 0;
 }
@@ -52,15 +47,16 @@ int main()
     ans[0]=1;
     int n;
     cin>>n;
-    for (int i = 2; i <= n; i++){
+    for(int i=2; i<=n; i++){
         jiechini(i);
     }
-    int u=0;
-    for (int i = 299; ans[i]==0 ; i--){
-        u++;
+    bool hasBigThanZero=false;
+    for (int i = 299; i >=0; i--){
+        if(ans[i]>0)
+            hasBigThanZero = true;
+        if(hasBigThanZero)
+            cout<<ans[i];
     }
-    for (int i = 0; i < 300-u; i++){
-        cout<<ans[len1-1-i];
-    }
+    cout<<endl;
     return 0;
 }
