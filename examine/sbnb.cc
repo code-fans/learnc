@@ -3,12 +3,17 @@
 using namespace std;
 int main()
 {
-    int n,a[100000];
-    cin>>n;
-    for (int i = 0; i < n; i++)
-        cin>>a[i];
-    sort(a,a+n);
-    for (int i = 0; i < n; i++)
-        cout<<a[n-i-1]<<endl;
+    int lima=-1;
+    
+    do
+    {
+        cout<<"输入密码"<<endl;
+        cin>>lima;
+        if(lima!=2024)
+            cout<<"密码错误，";
+    } while (lima!=2024);
+    if(lima==2024){
+        cout<<"新年快乐！ 恭喜发财"<<endl;
+    }
     return 0;
 }
