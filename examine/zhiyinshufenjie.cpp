@@ -1,16 +1,15 @@
 #include <iostream>
-using namespace std;
+#include <algorithm>
+#include <string>
+#include <cstdio>
 int main()
 {
-    int n, i=2;
+    int n,k,l,i1=2;
     cin>>n;
-    while(n!=1){
-        while (n%i==0){
-            cout<<i<<' ';
-            n/=i;
-        }
-        i++;
+    for (int i = 0; i < n; i++)
+    {
+        cin>>k;
+        
     }
-    cout<<endl;
-    return 0;
+    
 }
