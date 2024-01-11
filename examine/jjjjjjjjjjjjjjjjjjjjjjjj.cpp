@@ -1,23 +1,32 @@
 #include <iostream>
+#include <string>
 using namespace std;
-bool isp(int a)
-{
-    for (int i = 2; i < a; i++)
-    {
-        if(a%i==0)
-            return false;
-    }
-    return true;
-}
 int main()
 {
-    int a[1000],len=0,ans=0;
-    cin>>len;
-    for (int i = 2; i < len; i++)
-    {
-        if(isp(i))
-            cout<<i<<endl;
+    string str;
+    while (getline(cin,str)){
+        cout<<str<<endl;
+        for (int i = 0; i < str.size(); i++){
+            if(str[i]==')')
+                for (int j = i-1; j >= 0; j--){
+                    if(str[j]=='('){
+                        str[i]=' ';
+                        str[j]=' ';
+                        break;
+                    }
+                    if(str[j]==')')
+                        break;
+                }
+        }
+        for (int i = 0; i < str.size(); i++){
+            if(str[i]=='(')
+                cout<<'$';
+            else if (str[i]==')')
+                cout<<'?';
+            else
+                cout<<' ';
+        }
+        cout<<endl;
     }
     return 0;
-    
 }
