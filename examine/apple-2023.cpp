@@ -4,17 +4,23 @@
 using namespace std;
 int main()
 {
-    long long n, s=0,ans=0,ans1=-1;
-    cin>>n;
-    while (n>0)
-    {
-        ans++;
-        if ((n-1)%3==0 && ans1==-1)
-        {
-            ans1=ans;
+    string str; int len=0;
+    cin>>str;
+    for(int i=0; i<str.size(); i++){
+        char c=str[i];
+        if(c=='(')
+            len++;
+        else if(c==')'){
+            len --;
+            if(len<0){
+                cout<<"NO"<<endl;
+                return 0;
+            }
         }
-        n-= 1+(n-1)/3;
     }
-    cout<<ans<<' '<<ans1<<endl;
+    if(len!=0)
+        cout<<"NO"<<endl;
+    else
+        cout<<"YES"<<endl;
     return 0;
 }
