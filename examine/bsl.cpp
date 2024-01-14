@@ -1,69 +1,81 @@
+#include <algorithm>
 #include <iostream>
-#include <queue>
-
+#include <cstdio>
+#include <cmath>
+#include <string>
 using namespace std;
-struct point{
-    int x,y;
-};
+
+long long qiuMinMax(const long long * a, int len, int k, int l){
+    long long jiZhi [100001]={0};
+    int zjgs = len - l + 1;
+    for(int i=0; i<zjgs; i++){
+        long long maxA = a[i], minA=a[i];
+        for(int j=i+1; j< i+l; j++){
+            if(maxA < a[j]){
+                maxA = a[j];
+            }
+            if(minA > a[j]){
+                minA = a[j];
+            }
+        }
+        jiZhi[i] = maxA - minA;
+    }
+    sort(jiZhi, jiZhi+zjgs, greater<long long>());
+    return jiZhi[k-1];
+}
+
+bool qiuMinMax2(const long long * a, int len, int k, int l, long long jz){
+    int sub = 0;
+    int zjgs = len - l + 1;
+    for(int i=0; i<zjgs; i++){
+        long long maxA = a[i], minA=a[i];
+        for(int j=i+1; j< i+l; j++){
+            if(maxA < a[j]){
+                maxA = a[j];
+            }
+            if(minA > a[j]){
+                minA = a[j];
+            }
+        }
+        if(maxA - minA >= jz){
+            sub ++;
+            if(sub == k){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 int main()
 {
+    int T;
+    cin>>T;
+    long long a [100001];
+    for(int i=0; i<T; i++){
+        int n, k, l;
+        cin >> n >> k;
+        l = n-k+1;
+        
+        for(int j=0; j<n; j++)
+            cin >> a[j];
 
-    queue<point> dq;
-    char a[110][110];
-    int n,s;
-    cin>>n;
-    for(int k=0;k<n;k++){
-        cin>>s;
-        for (int i = 0; i < s; i++){
-            for (int j = 0; j < s; j++){
-                cin>>a[i][j];
-            }
+        if(l==1){
+            cout<< 0 <<' '<< 1 <<endl;
+            continue;
         }
-        int x1,y1,x2,y2;
-        cin>>x1>>y1>>x2>>y2;
-        a[x1][y1]='@';
-        point q;
-        q.x=x1;
-        q.y=y1;
-        dq.push(q);
-        while (!dq.empty()){
-            point p = dq.front();
-            dq.pop();
-            if(p.x>0 && a[p.x-1][p.y]=='.'){
-                a[p.x-1][p.y]='@';
-                point p1;
-                p1.x=p.x-1;
-                p1.y=p.y;
-                dq.push(p1);
-            }
-            if(p.x<s-1 && a[p.x+1][p.y]=='.'){
-                a[p.x+1][p.y]='@';
-                point p1;
-                p1.x=p.x+1;
-                p1.y=p.y;
-                dq.push(p1);
-                ans++;
-            }
-            if(p.y>0 && a[p.x][p.y-1]=='.'){
-                a[p.x][p.y-1]='@';
-                point p1;
-                p1.x=p.x;
-                p1.y=p.y-1;
-                dq.push(p1);
-            }
-            if(p.y<s-1 && a[p.x][p.y+1]=='.'){
-                a[p.x][p.y+1]='@';
-                point p1;
-                p1.x=p.x;
-                p1.y=p.y+1;
-                dq.push(p1);
-            }
+
+        long long maxJZ = qiuMinMax(a, n, k , l);
+        if(maxJZ==0){
+            cout<< 0 <<' '<< 1 <<endl;
+            continue;
         }
-        if(a[x2][y2]=='@')
-            cout<<"YES"<<endl;
-        else
-            cout<<"NO"<<endl;
+ 
+        while(l>2 && qiuMinMax2(a, n, k , l-1, maxJZ)){
+            l--;
+        }
+    
+        cout<<maxJZ<<' '<<l<<endl;
     }
     return 0;
 }
