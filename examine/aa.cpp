@@ -1,33 +1,133 @@
 #include <iostream>
+#include <string>
 using namespace std;
-bool ip(int k)
-{
-    for (int i = 2; i*i <= k; i++)
-        if (k%i==0)
-            return false;
-    return true;
-}
-
-bool iswpsh(int k)
-{
-    int n;
-    int a[1000];
-    for (int i = 0; i < k; i++)
-        a[i]=k%10;
-        k/10;
-    for (int i = 0; i < k/2; i++)
-        if (a[k-1-i]!=a[i])
-            return false;
-    return true;
-}
 
 int main()
 {
-    int n, ans=0, m;
-    cin>>n,m;
-    for (int i = n; i < m; i++)
-        if (ip(i))
-            ans++;
-    cout<<ans<<endl;
+    string str;
+    int n;
+    cin>>n;
+    for (int i = 0; i < n; i++){
+        cin>>str;
+        bool aaa=true;
+        for (int j = 0; j < str.size(); j++){
+            if(str[j]=='>'){
+                for (int k = j-1; k >= 0; k--){
+                    if(str[k]==')'||str[k]==']'||str[k]=='}'||str[k]=='('||str[k]=='['||str[k]=='{'||str[k]=='>'){
+                        cout<<"NO"<<endl;
+                        aaa=false;
+                        break;
+                    }
+                    if(str[k]=='<'){
+                        str[k]=' ';
+                        str[j]=' ';
+                        break;
+                    }
+                    if(k==0){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+
+            if(str[j]==')'){
+                for (int k = j-1; k >= 0; k--){
+                    if(str[k]=='>'||str[k]==']'||str[k]=='}'||str[k]=='<'||str[k]=='['||str[k]=='{'||str[k]==')'){
+                        cout<<"NO"<<endl;
+                        aaa=false;
+                        break;
+                    }
+                    if(str[k]=='('){
+                        str[k]=' ';
+                        str[j]=' ';
+                        break;
+                    }
+                    if(k==0){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(str[j]==']'){
+                for (int k = j-1; k >= 0; k--){
+                    if(str[k]=='>'||str[k]==')'||str[k]=='}'||str[k]=='<'||str[k]=='('||str[k]=='{'||str[k]==']'){
+                        cout<<"NO"<<endl;
+                        aaa=false;
+                        break;
+                    }
+                    if(str[k]=='['){
+                        str[k]=' ';
+                        str[j]=' ';
+                        break;
+                    }
+                    if(k==0){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(str[j]=='}'){
+                for (int k = j-1; k >= 0; k--){
+                    if(str[k]=='>'||str[k]==']'||str[k]==')'||str[k]=='<'||str[k]=='['||str[k]=='('||str[k]=='}'){
+                        cout<<"NO"<<endl;
+                        aaa=false;
+                        break;
+                    }
+                    if(str[k]=='{'){
+                        str[k]=' ';
+                        str[j]=' ';
+                        break;
+                    }
+                    if(k==0){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(str[j]=='('){
+                for (int k = j; k >= 0; k--){
+                    if(str[k]=='<'){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(str[j]=='['){
+                for (int k = j; k >= 0; k--){
+                    if(str[k]=='<'||str[k]=='('){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(str[j]=='{'){
+                for (int k = j; k >= 0; k--){
+                    if(str[k]!='{'&&str[k]!=' '){
+                        aaa=false;
+                        cout<<"NO"<<endl;
+                        break;
+                    }
+                }
+            }
+            if(!aaa)
+                break;
+        }
+        if(aaa)
+            for (int j = 0; j < str.size(); j++){
+                if(str[j]!=' '){
+                    cout<<"NO"<<endl;
+                    aaa=false;
+                    break;
+                }
+            }
+        if(aaa)
+            cout<<"YES"<<endl;
+    }
     return 0;
 }
