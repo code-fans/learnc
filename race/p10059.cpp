@@ -7,19 +7,22 @@ using namespace std;
 
 long long qiuMinMax(const long long * a, int len, int k, int l){
     long long jiZhi [100001]={0};
-    deque<int> minF;
-    deque<int> maxF;
+    deque<int> minQ;
+    deque<int> maxQ;
     for(int i=0; i<len; i++){
-        while (!minF.empty() && i - l >= minF.front()) minF.pop_front();
-		while (!minF.empty() && a[i] <= a[minF.back()]) minF.pop_back();
-		minF.push_back(i);
+        //第一步，把队列中已经不在比较范围内的元素去除
+        while (!minQ.empty() && i - l >= minQ.front()) minQ.pop_front();
+        //第二步，从后面把比当前入队数值大的元素去除
+		while (!minQ.empty() && a[i] <= a[minQ.back()]) minQ.pop_back();
+        //三， 天机当前
+		minQ.push_back(i);
 
-        while (!maxF.empty() && i - l >= maxF.front()) maxF.pop_front();
-		while (!maxF.empty() && a[i] >= a[maxF.back()]) maxF.pop_back();
-		maxF.push_back(i);
+        while (!maxQ.empty() && i - l >= maxQ.front()) maxQ.pop_front();
+		while (!maxQ.empty() && a[i] >= a[maxQ.back()]) maxQ.pop_back();
+		maxQ.push_back(i);
 
 		if (i >= l-1){
-            jiZhi[i-l+1] = a[maxF.front()] - a[minF.front()];
+            jiZhi[i-l+1] = a[maxQ.front()] - a[minQ.front()];
         }
     }
     int zjgs = len - l + 1;
@@ -30,19 +33,19 @@ long long qiuMinMax(const long long * a, int len, int k, int l){
 bool qiuMinMax2(const long long * a, int len, int k, int l, long long jz){
     int sub = 0;
    
-    deque<int> minF;
-    deque<int> maxF;
+    deque<int> minQ;
+    deque<int> maxQ;
     for(int i=0; i<len; i++){
-        while (!minF.empty() && i - l>= minF.front()) minF.pop_front();
-		while (!minF.empty() && a[i] <= a[minF.back()]) minF.pop_back();
-		minF.push_back(i);
+        while (!minQ.empty() && i - l>= minQ.front()) minQ.pop_front();
+		while (!minQ.empty() && a[i] <= a[minQ.back()]) minQ.pop_back();
+		minQ.push_back(i);
 
-        while (!maxF.empty() && i - l>= maxF.front()) maxF.pop_front();
-		while (!maxF.empty() && a[i] >= a[maxF.back()]) maxF.pop_back();
-		maxF.push_back(i);
+        while (!maxQ.empty() && i - l>= maxQ.front()) maxQ.pop_front();
+		while (!maxQ.empty() && a[i] >= a[maxQ.back()]) maxQ.pop_back();
+		maxQ.push_back(i);
 
 		if (i >= l-1){
-            long long cjz = a[maxF.front()] - a[minF.front()];
+            long long cjz = a[maxQ.front()] - a[minQ.front()];
             if(cjz >= jz){
                 sub++;
                 if(sub == k){
@@ -77,8 +80,11 @@ int main()
             cout<< 0 <<' '<< 1 <<endl;
             continue;
         }
+        /*while(l>2 && qiuMinMax2(a, n, k , l-1, maxJZ)){
+            l--;
+        }*/
+        
         int s=1, m;
-
         while(l>s){
             m=(l+s)/2;
             bool eq = qiuMinMax2(a, n, k , m, maxJZ);
@@ -88,7 +94,7 @@ int main()
                 s =m +1;
             }
         }
-    
+        
         cout<<maxJZ<<' '<<l<<endl;
     }
     return 0;
