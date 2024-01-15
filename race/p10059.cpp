@@ -69,9 +69,16 @@ int main()
             cout<< 0 <<' '<< 1 <<endl;
             continue;
         }
- 
-        while(l>2 && qiuMinMax2(a, n, k , l-1, maxJZ)){
-            l--;
+        int s=1, m;
+
+        while(l>s){
+            m=(l+s)/2;
+            bool eq = qiuMinMax2(a, n, k , m, maxJZ);
+            if(eq){
+                l= m;
+            } else {
+                s =m +1;
+            }
         }
     
         cout<<maxJZ<<' '<<l<<endl;

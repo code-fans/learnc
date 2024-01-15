@@ -11,47 +11,38 @@ int main()
     long long kaituo=0;
     int n;
     cin>>n;
-    long long jici;
-    int ci=0;
+    long long jici, strl = str.size();
+    int ci=1;
     for (int i = 0; i < n; i++){
         cin>>str1;
-        if((str1==">"&&ci%2==0)||(str1=="<"&&ci%2==1)){
+        if(str1==">"){
             cin>>jici;
-            jici%=str.size();
-            if(jici>kaituo)
-                kaituo+=str.size();
-            kaituo-=jici;
-        }
-        if((str1==">"&&ci%2==1)||(str1=="<"&&ci%2==0)){
-            cin>>jici;
-            jici%=str.size();
-            kaituo+=jici;
-            if(kaituo>=str.size()){
-                kaituo-=str.size();
-            }
+            jici %= strl;
+            kaituo -= ci * jici;
+ 
+        } else  if(str1== "<"){
+            cin>>jici; 
+            jici %= strl;
+            kaituo += ci * jici;
         }
         if(str1=="rev"){
-            if(ci%2==0){
-                if(kaituo==0)
-                    kaituo+=str.size();
-                kaituo--;
-            }else{
-                kaituo++;
-                if(kaituo>=str.size())
-                    kaituo-=str.size();
-            }
-            ci++;
+             ci*=-1;
+             kaituo += ci;
+        }
+        if(kaituo>=strl){
+            kaituo -= strl;
+        } else if(kaituo<0){
+            kaituo += strl;
         }
     }
-    if(ci%2==0){
-        for (int i = kaituo; i < kaituo+str.size(); i++){
-            cout<<str[i%str.size()];
+    for(int i=0; i<strl; i++){
+        long long p = kaituo + i *ci;
+        if(p<0){
+            p+=strl;
+        } else if(p>=strl){
+            p-=strl;
         }
-    }
-    else{
-        for (int i = str.size()+kaituo; i > kaituo; i--){
-            cout<<str[i%str.size()];
-        }
+        cout<<str[p];
     }
     cout<<endl;
     return 0;
