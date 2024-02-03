@@ -7,15 +7,26 @@
 using namespace std;
 int main()
 {
-    long long a=0,i=1;
-    long long ans=0;
-    while (a!=-1){
-        cout<<"输入1或2 输完请输 -1:";
-        cin>>a;
-        if(a==1)
-            ans+=i;
-        i*=2;
+    char a;
+    long long padd=0, pmulti,i=1;
+    cin>>pmulti; 
+    pmulti %= 10000;
+    while (cin>>a){
+        if(a!='*' && a!='+')
+            break;
+        long long temp;
+        cin>>temp;
+        if(a=='*'){
+            pmulti *= temp;
+            pmulti %= 10000;
+        } else {
+            padd += pmulti;
+            padd %= 10000;
+            pmulti = temp;
+        }
     }
-    cout<<ans<<endl;
+    padd += pmulti;
+
+    cout<<padd%10000<<endl;
     return 0;
 }
