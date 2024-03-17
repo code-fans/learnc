@@ -1,24 +1,49 @@
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 using namespace std;
-int a[10000][4]={{0}};
-
-int main()
+void sawp(int a[],int i,int j)
 {
-    int n , m;
-    cin>>n;
-    for (int i = 0; i < n; i++){
-        cin>>a[i][0]>>a[i][1]>>a[i][2]>>a[i][3];
+    int p=a[i];
+    a[i]=a[j];
+    a[j]=p;
+}
+void bsort(int a[],int n)
+{
+    for (int i = 0; i < n-1; i++){
+        bool nhm=true;
+        for (int j = 1; j < n-i; j++){
+            if(a[j-1]>a[j]){
+                sawp(a,j-1,j);
+                nhm=false;
+            }
+        }
+        if(nhm)
+            break;
     }
-    int x,y;
-    cin>>x>>y;
-    for (int i = n-1; i >= 0; i--){
-        if((x>=a[i][0]&&y>=a[i][1])&&(x<=(a[i][0]+a[i][2])&&y<=(a[i][1]+a[i][3]))){
-            cout<<i+1;
-            return 0;
+}
+void ssort(int a[],int n)
+{
+    int min;
+    for (int i = 0; i < n-1; i++){
+        for (int j = i; i < n; i++){
+            
         }
     }
     
-    cout<<-1;
+}
+int main()
+{   
+    int n;
+    cin>>n;
+    int a[10000];
+    for (int i = 0; i < n; i++){
+        cin>>a[i];
+    }
+    bsort(a,n);
+    for (int i = 0; i < n; i++){
+        cout<<a[i]<<' ';
+    }
     cout<<endl;
     return 0;
 }
