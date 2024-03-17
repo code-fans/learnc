@@ -1,42 +1,78 @@
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <cstdio>
+#include <iomanip>
+#include <algorithm>
 using namespace std;
-int ans[500]={0},a[300]={0},b[300]={0};
-int al,bl,ansl = 0;
-
-void jiechini(int jidejiecheng,int p)
+struct q
 {
-    int t=0;
-    for (int i = 0; i < al; i++){
-        int y=a[i]*jidejiecheng+t + ans[i+p];
-        t= y/10;
-        ans[i+p]= y%10;
-    }
-    ansl= al+p;
-    if(t>0){
-        ans[ansl]=t;
-        ansl++;
+    int x;
+    int y;
+};
+int size=0;
+int n,m;
+q a[10000];
+int b[101][101];
+void tz(){
+    size=1;
+    int i=0;
+    while(i<size){
+        int x = a[i].x;
+        int y = a[i].y;
+        if(x>0 &&b [x-1][y]==1){
+            b[x-1][y]=0;
+            a[size].x=x-1;
+            a[size].y=y;
+            size++;
+        }
+        if(y>0 &&b [x][y-1]==1){
+            b[x][y-1]=0;
+            a[size].x=x;
+            a[size].y=y-1;
+            size++;
+        }
+        if(x!=n &&b [x+1][y]==1){
+            b[x+1][y]=0;
+            a[size].x=x+1;
+            a[size].y=y;
+            size++;
+        }
+        if(y!=m &&b [x][y+1]==1){
+            b[x][y+1]=0;
+            a[size].x=x;
+            a[size].y=y+1;
+            size++;
+        }
+        i++;
     }
 }
 
 int main()
 {
-    string str,str1;
-    cin>>str>>str1;
-    al=str.size();
-    bl=str1.size();
-    for (int i = 0; i < al; i++){
-        a[i]=str[al-1-i]-'0';
+    int ans=0;
+    cin>>n>>m;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            cin>>b[i][j];
+        }
     }
-    for (int i = 0; i < bl; i++){
-        b[i]=str1[bl-1-i]-'0';
+    bool t=true;
+    while (t){
+        t = false;
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < m; j++){
+                if(b[i][j]==1){
+                    a[0].x=i;
+                    a[0].y=j;
+                    b[i][j] = 0;
+                    tz();
+                    t = true;
+                    ans++;
+                }
+            }
+        }
     }
-    for (int i = 0; i < bl; i++){
-        jiechini(b[i], i);
-    }
-    for (int i = ansl-1; i >= 0; i--){
-        cout<<ans[i];
-    }
-    cout<<endl;
+    cout<<ans<<endl;
     return 0;
 }

@@ -16,7 +16,6 @@ long long qiuMinMax(const long long * a, int len, int k, int l){
 		while (!minQ.empty() && a[i] <= a[minQ.back()]) minQ.pop_back();
         //三， 天机当前
 		minQ.push_back(i);
-
         while (!maxQ.empty() && i - l >= maxQ.front()) maxQ.pop_front();
 		while (!maxQ.empty() && a[i] >= a[maxQ.back()]) maxQ.pop_back();
 		maxQ.push_back(i);

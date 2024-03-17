@@ -3,7 +3,7 @@
 #define queen_sum 8
 
 using namespace std;
-
+int a[92][8];
 //判断 a 和 b 位置是否有冲突
 bool conflict(int queen[], int a, int b){
     return queen[a] == queen[b]  // 两个棋子在同一行
@@ -19,7 +19,7 @@ bool conflict(int queen[], int b){
     return false;//所有的都不冲突
 }
 // 八皇后算法
-int main(int argc, char *argv[]){
+int eat(){
     int success = 0;
     int queen[queen_sum];
     //正在放第几个棋子
@@ -46,11 +46,14 @@ int main(int argc, char *argv[]){
                 //成功了，将成功数量加一
                 success ++;
                 //输出当前成功的案例
-                cout << success <<":";
-                for(int i=0; i<queen_sum; i++){
-                    cout << setw(3) << queen[i];
-                }
-                cout << endl;
+                a[success-1][0]=queen[0]+1;
+                a[success-1][1]=queen[1]+1;
+                a[success-1][2]=queen[2]+1;
+                a[success-1][3]=queen[3]+1;
+                a[success-1][4]=queen[4]+1;
+                a[success-1][5]=queen[5]+1;
+                a[success-1][6]=queen[6]+1;
+                a[success-1][7]=queen[7]+1;
                 //成功后同样回溯
                 queen[hasPuted] = -1;
                 hasPuted --;
@@ -60,6 +63,19 @@ int main(int argc, char *argv[]){
             }
         }
     }
-    cout << "可能得方案一共有：" << success <<endl;
     return 0;
+}
+int main()
+{
+    int n,k;
+    cin>>n;
+    eat();
+    for (int i = 0; i < n; i++){
+        cin>>k;
+        for (int j = 0; j < 8; j++){
+            cout<<a[k-1][j];
+        }
+        cout<<endl;
+    }
+    
 }

@@ -1,26 +1,18 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cmath>
 using namespace std;
-int main()
-{
-    string str; int len=0;
-    cin>>str;
-    for(int i=0; i<str.size(); i++){
-        char c=str[i];
-        if(c=='(')
-            len++;
-        else if(c==')'){
-            len --;
-            if(len<0){
-                cout<<"NO"<<endl;
-                return 0;
-            }
+int main(){
+    long long x,y,z;
+    cin>>x>>y>>z;
+    long long a=1,b[100000]={0};
+    for (long long i = 0; i < z; i++){
+        b[i] = a * y;
+        if(i>=1+x){
+            a+=b[i-x-1];
         }
     }
-    if(len!=0)
-        cout<<"NO"<<endl;
-    else
-        cout<<"YES"<<endl;
+    cout<<a<<endl;
     return 0;
 }

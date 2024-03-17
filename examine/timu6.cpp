@@ -32,7 +32,7 @@ void dfs(int changdu, string currStr,int n){
         maxL = changdu;
     }
     for (int i = 0; i < n; i++){
-        if(a1[i].used <2){
+        if(a1[i].used!=2){
             int ans=isjong(currStr, a1[i].str);
             if(ans>0){
                 a1[i].used++;
@@ -42,7 +42,6 @@ void dfs(int changdu, string currStr,int n){
         }
     }
 }
-
 int main()
 {
     int n;
@@ -55,5 +54,4 @@ int main()
     cin >> start;
     dfs(start.size(), "@"+start, n);
     cout<<maxL<<endl;
-    return 0;
 }
