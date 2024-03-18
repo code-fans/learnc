@@ -1,17 +1,17 @@
-# Project: primary c++
+# Project: Project3
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe -D__DEBUG__
-CC       = gcc.exe -D__DEBUG__
+CPP      = g++.exe
+CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o testString.o
-LINKOBJ  = unit2.o unit3.o unit4.o unit5.o unit6.o unit7.o unit8.o all_lession.o unit10.o unit100.o unit9.o unit11.o unit12.o unit13_14.o unit15.o unit16.o csp.o unit17.o unit18.o unit19.o unit20.o unit25.o unit23.o unit24.o unit26.o unit27.o unit28.o unit29.o unit30.o unit32.o unit33.o unit35.o unit36.o unit37.o unit39.o unit40.o unit41.o unit42.o unit43.o unit44.o unit45.o exercise1.o exercise2.o testString.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = wilburCpp.exe
-CXXFLAGS = $(CXXINCS) -std=c++11 -g3 -fpermissive
-CFLAGS   = $(INCS) -std=c++11 -g3 -fpermissive
+BIN      = Project3.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -24,134 +24,5 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-unit2.o: unit2.cpp
-	$(CPP) -c unit2.cpp -o unit2.o $(CXXFLAGS)
-
-unit3.o: unit3.cpp
-	$(CPP) -c unit3.cpp -o unit3.o $(CXXFLAGS)
-
-unit4.o: unit4.cpp
-	$(CPP) -c unit4.cpp -o unit4.o $(CXXFLAGS)
-
-unit5.o: unit5.cpp
-	$(CPP) -c unit5.cpp -o unit5.o $(CXXFLAGS)
-
-unit6.o: unit6.cpp
-	$(CPP) -c unit6.cpp -o unit6.o $(CXXFLAGS)
-
-unit7.o: unit7.cpp
-	$(CPP) -c unit7.cpp -o unit7.o $(CXXFLAGS)
-
-unit8.o: unit8.cpp
-	$(CPP) -c unit8.cpp -o unit8.o $(CXXFLAGS)
-
-all_lession.o: all_lession.cpp
-	$(CPP) -c all_lession.cpp -o all_lession.o $(CXXFLAGS)
-
-unit10.o: unit10.cpp
-	$(CPP) -c unit10.cpp -o unit10.o $(CXXFLAGS)
-
-unit100.o: unit100.cpp
-	$(CPP) -c unit100.cpp -o unit100.o $(CXXFLAGS)
-
-unit9.o: unit9.cpp
-	$(CPP) -c unit9.cpp -o unit9.o $(CXXFLAGS)
-
-unit11.o: unit11.cpp
-	$(CPP) -c unit11.cpp -o unit11.o $(CXXFLAGS)
-
-unit12.o: unit12.cpp
-	$(CPP) -c unit12.cpp -o unit12.o $(CXXFLAGS)
-
-unit13_14.o: unit13_14.cpp
-	$(CPP) -c unit13_14.cpp -o unit13_14.o $(CXXFLAGS)
-
-unit15.o: unit15.cpp
-	$(CPP) -c unit15.cpp -o unit15.o $(CXXFLAGS)
-
-unit16.o: unit16.cpp
-	$(CPP) -c unit16.cpp -o unit16.o $(CXXFLAGS)
-
-csp.o: csp.cpp
-	$(CPP) -c csp.cpp -o csp.o $(CXXFLAGS)
-
-unit17.o: unit17.cpp
-	$(CPP) -c unit17.cpp -o unit17.o $(CXXFLAGS)
-
-unit18.o: unit18.cpp
-	$(CPP) -c unit18.cpp -o unit18.o $(CXXFLAGS)
-
-unit19.o: unit19.cpp
-	$(CPP) -c unit19.cpp -o unit19.o $(CXXFLAGS)
-
-unit20.o: unit20.cpp
-	$(CPP) -c unit20.cpp -o unit20.o $(CXXFLAGS)
-
-unit25.o: unit25.cpp
-	$(CPP) -c unit25.cpp -o unit25.o $(CXXFLAGS)
-
-unit23.o: unit23.cpp
-	$(CPP) -c unit23.cpp -o unit23.o $(CXXFLAGS)
-
-unit24.o: unit24.cpp
-	$(CPP) -c unit24.cpp -o unit24.o $(CXXFLAGS)
-
-unit26.o: unit26.cpp
-	$(CPP) -c unit26.cpp -o unit26.o $(CXXFLAGS)
-
-unit27.o: unit27.cpp
-	$(CPP) -c unit27.cpp -o unit27.o $(CXXFLAGS)
-
-unit28.o: unit28.cpp
-	$(CPP) -c unit28.cpp -o unit28.o $(CXXFLAGS)
-
-unit29.o: unit29.cpp
-	$(CPP) -c unit29.cpp -o unit29.o $(CXXFLAGS)
-
-unit30.o: unit30.cpp
-	$(CPP) -c unit30.cpp -o unit30.o $(CXXFLAGS)
-
-unit32.o: unit32.cpp
-	$(CPP) -c unit32.cpp -o unit32.o $(CXXFLAGS)
-
-unit33.o: unit33.cpp
-	$(CPP) -c unit33.cpp -o unit33.o $(CXXFLAGS)
-
-unit35.o: unit35.cpp
-	$(CPP) -c unit35.cpp -o unit35.o $(CXXFLAGS)
-
-unit36.o: unit36.cpp
-	$(CPP) -c unit36.cpp -o unit36.o $(CXXFLAGS)
-
-unit37.o: unit37.cpp
-	$(CPP) -c unit37.cpp -o unit37.o $(CXXFLAGS)
-
-unit39.o: unit39.cpp
-	$(CPP) -c unit39.cpp -o unit39.o $(CXXFLAGS)
-
-unit40.o: unit40.cpp
-	$(CPP) -c unit40.cpp -o unit40.o $(CXXFLAGS)
-
-unit41.o: unit41.cpp
-	$(CPP) -c unit41.cpp -o unit41.o $(CXXFLAGS)
-
-unit42.o: unit42.cpp
-	$(CPP) -c unit42.cpp -o unit42.o $(CXXFLAGS)
-
-unit43.o: unit43.cpp
-	$(CPP) -c unit43.cpp -o unit43.o $(CXXFLAGS)
-
-unit44.o: unit44.cpp
-	$(CPP) -c unit44.cpp -o unit44.o $(CXXFLAGS)
-
-unit45.o: unit45.cpp
-	$(CPP) -c unit45.cpp -o unit45.o $(CXXFLAGS)
-
-exercise1.o: exercise1.cpp
-	$(CPP) -c exercise1.cpp -o exercise1.o $(CXXFLAGS)
-
-exercise2.o: exercise2.cpp
-	$(CPP) -c exercise2.cpp -o exercise2.o $(CXXFLAGS)
-
-testString.o: testString.cpp
-	$(CPP) -c testString.cpp -o testString.o $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)

@@ -1,14 +1,16 @@
 #include <iostream>
 using namespace std;
-void gsort(int s ,int t, int a[]){
-   
+long long ans=0;
+int r[100000],a[100000];
+void msort(int s,int t){
     if(s==t-1) return ;
-    
     int mid=(s+t)/2;
-    gsort(s, mid,a);
-    gsort(mid,t,a);
-    int i=s, j=mid,k=s;
-    int r[100];
+    
+    msort(s,mid);
+    msort(mid,t);
+
+    int i=s,j=mid,k=s;
+
     while (i<mid && j<t){
         if (a[i]<=a[j]){
             r[k]=a[i];
@@ -17,36 +19,35 @@ void gsort(int s ,int t, int a[]){
         }
         else{
             r[k]=a[j];
-            j++;
+            ans += mid - i;
             k++;
+            j++;
         }
     }
-    while (i<mid)
-    {
+    
+    while (i<mid){
         r[k]=a[i];
-        k++;
         i++;
-    }
-    while (j<t  )
-    {
-        r[k]=a[j];
         k++;
+    }
+
+    while (j<t){
+        r[k]=a[j];
         j++;
+        k++;
     }
     for (int i = s; i < t; i++)
         a[i]=r[i];
 }
-int main(){
-    int n,a[1000]={0};
+
+int main()
+{
+    int n;
     cin>>n;
     for (int i = 0; i < n; i++){
         cin>>a[i];
     }
-    gsort(0, n, a);
-    for (int i = 0; i < n; i++){
-        cout<<a[i]<<' ';
-    }
-    cout<<endl;
-    cout<<"done!"<<endl;
+    msort(0,n);
+    cout<<ans<<endl;
     return 0;
 }

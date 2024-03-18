@@ -4,10 +4,9 @@ int main()
 {
     long long n,ans=0;
     int a,b;
-    cin>>a;
+    cin>>a>>b;
     n=a;
-    for (int i = 0; i < a; i++){
-        ans=1;
+    for (int i = 0; i < b; i++){
         n=n*n;
         ans=n;
         for (int j = 1; j <= n; j++){
