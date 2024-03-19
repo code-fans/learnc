@@ -63,9 +63,10 @@ void qsort(int a[],int l,int r){
             r2--;
         }
     } while (r1 < r2);
-
-    if(r1<n)
-        sawp(a, r1, n);
+    // r1 == r2 时 a[r1] 可能小于 a[n]
+    if(r1 < r && a[r1]<a[n]) 
+        r1++;
+    sawp(a, r1, n);
 
     qsort(a, l, r1 );
     qsort(a, r1+1, r);
@@ -103,8 +104,8 @@ void qsort3(int a[],int l,int r)
     if(i<r) qsort3(a, i, r);
 }
 
-void qsort4(int a[],int l,int r){
-    if(r-l<2)
+void qsort4(int a[], int l, int r){
+    if(r-l < 2)
         return;
     int mid = a[(l+r)/2], r1 = l, r2=r-1;
     do
@@ -119,7 +120,6 @@ void qsort4(int a[],int l,int r){
     } while (r1 < r2);
 
     qsort4(a, l, r1);
-
     qsort4(a, r1, r);
 }
 
@@ -132,7 +132,7 @@ int main()
     for (int i = 0; i < n; i++){
         cin>>a[i];
     }
-    qsort(a,0,n);
+    qsort(a, 0, n); 
     for (int i = 0; i < n; i++){
         cout<<a[i]<<' ';
     }
