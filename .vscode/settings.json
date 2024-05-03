@@ -113,7 +113,8 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "syncstream": "cpp",
-        "__functional_base": "cpp"
+        "__functional_base": "cpp",
+        "__tree": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "baidu.comate.key": "35725b59-0b11-4007-aed3-be83100378ff",
