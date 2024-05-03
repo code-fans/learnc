@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
- #include <algorithm>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,15 +11,16 @@ bool nextPermutation(char list[], int len) {
     while (i > 0 && list[i - 1] >= list[i]) {
         i--;
     }
-
+    // 已经是完全倒序排列了，比如 4321， descending 倒序
     //If the list is in descending order, return false
     if (i == 0) {
         return false;
     }
 
     //Start from the end of the list
-    int j = len - 1;
+    int j = len - 1; 
     //Loop until the list is not in ascending order
+    // ascending 顺序 
     while (list[j] <= list[i - 1]) {
         j--;
     }
