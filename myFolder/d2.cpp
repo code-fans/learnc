@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
  #include <algorithm>
- 
+
 using namespace std;
 
 bool nextPermutation(char list[], int len) {
@@ -26,7 +26,7 @@ bool nextPermutation(char list[], int len) {
     //Swap the elements at index i-1 and j
     swap(list[i - 1], list[j]);
     //Reverse the list from index i to the end
-    reverse(list + i, list  + len);
+    reverse(list + i, list + len);
     return true;
 }
 
