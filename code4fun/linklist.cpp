@@ -34,7 +34,7 @@ int main(){
         if(current->data==7){
             if(current->next!=nullptr){
                 current->next->prev=current->prev;
-                current->prev->next=current->next;
+                (*(*current).prev).next=current->next;
             }
             else{
                 current->prev->next=nullptr;
