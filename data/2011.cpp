@@ -10,11 +10,11 @@ int main()
         b = b *2011%10000;
         if(mp.count(b)){
             cout<<mp[b]<<' '<<j<<' '<<b<<endl;
-            return 0;
+            break;
         }
         mp[b] = j;
         //cout<<a[j]<<',';
     }
-    cout<< endl;
+    cout << "ok is done!" << endl;
     return 0;
 }
