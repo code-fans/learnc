@@ -28,6 +28,7 @@ void bmAddOne(HFM * hf){
 	bmAddOne(hf->r);
 	bmAddOne(hf->l);
 }
+
 int main(){
 	string str;
 	while(true){
@@ -72,12 +73,12 @@ int main(){
 			newNode->gs = hfm[0]->gs + hfm[1]->gs ;
 			bmAddOne(newNode);
 			for(int j=0; j<i-2; j++){
-				hfm[j+1] = hfm[j+2];
+				hfm[j] = hfm[j+2];
 			}
-			int p = 0;
-			while(p<i-2 && hfm[p+1]->gs < newNode->gs){
-				hfm[p] = hfm[p+1];
-				p++;
+			int p = i-2;
+			while(p>0 && hfm[p-1]->gs > newNode->gs){
+				hfm[p] = hfm[p-1];
+				p--;
 			}
 			hfm[p] = newNode;
 		}
