@@ -27,7 +27,7 @@
                 "${workspaceFolder}/**"
             ],
             "compilerPath": "/usr/bin/g++",
-            "cStandard": "c11",
+            "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64",
             "browse": {
@@ -42,3 +42,4 @@
     ],
     "version": 4
 }
+
