@@ -41,11 +41,6 @@ string floatToString(float a){
     oss<<a;
     std::string str(oss.str());
     return str;
-    /*
-    if (fabs(a-(int)a)<1e-5)
-        return to_string((int)a);
-    else
-        return to_string(a);*/
 }
 
 int calc24_two(float a, float b){
