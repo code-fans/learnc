@@ -17,7 +17,6 @@ void trans(){
     stack<char> staCK;
     string ch;
     cin>>ch;
-    
     for (int i = 0; i < ch.size(); i++)
     {
         if (ch[i]>='0' && ch[i]<='9')
