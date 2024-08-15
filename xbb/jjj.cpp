@@ -1,21 +1,24 @@
 #include <iostream>
 #include <algorithm>
-#include <vector>
 using namespace std;
-long long ans=0;
-int a[100000];
-vector<int> v;
+int a[1100000],n,m;
 int main()
 {
-    int n;
+    
     cin>>n;
+    cin>>m;
     for (int i = 0; i < n; i++){
         cin>>a[i];
-        vector<int>::iterator it = upper_bound(v.begin(),v.end(), a[i]);
-        int now = it - v.begin();
-        ans += i-now;
-        v.insert(v.begin()+now, a[i]);
     }
-    cout<<ans<<endl;
+    cout<<0<<endl;
+    int min=10000;
+    for (int i = 1; i < n; i++){
+        min=1000000;
+        for (int j = i-1; j >i-m-1&&j>=0; j--){
+            if(min>a[j])
+                min=a[j];
+        }
+        cout<<min<<endl;
+    }
     return 0;
 }
