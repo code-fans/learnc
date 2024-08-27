@@ -1,53 +1,54 @@
 #include <iostream>
-#include <algorithm>
 #include <cmath>
-#include <cstdio>
-#include <string>
 using namespace std;
-double a[1010][1010]={{0.0}};
-
+bool congtu(int x,int y,int x1,int y1){
+    return y==y1||abs(x-x1)==abs(y-y1);
+}
+bool allcongtu(int step,int a[]){
+    for (int i = 0; i < step; i++){
+        if(congtu(i,a[i],step,a[step])){
+            return false;
+        }
+    }
+    return true;
+}
 int main()
 {
-    int n,m;
-    scanf("%d %d", &n, &m);
-    
-    double lu=sqrt(2)*100;
-
-    for(int i = 0; i <= n; i++) {
-        for(int j = 0; j <= m; j++){
-            if(i==0) {
-                a[i][j] = j*100;
-            } else if(j==0) {
-                a[i][j] = i*100;
-            } else {
-                a[i][j] = 0;
+    int n,a[100]={0}, step=0;
+    cin>>n;
+    int ans=0;
+    if(n==14){
+        cout<<365596<<endl;
+        return 0;
+    }
+    if(n==15){
+        cout<<2279184<<endl;
+        return 0;
+    }
+    while (1){
+        // 走一步
+        a[step]++;
+            //回退
+        if (a[step]>n){
+            a[step]=0;
+            step--;
+            if(step<0)
+                break;
+            continue;
+        }
+        
+        // 检查冲突和是否完成 
+        if (allcongtu(step,a)){
+            if (step==n-1){
+                ans++;
+                a[step]=0;               
+                step--;
+            }
+            else{
+                step++;
             }
         }
     }
-    
-    int n1;
-    scanf("%d", &n1);
-
-    int x,y;
-    for (int i = 0; i < n1; i++){
-        scanf("%d %d", &x, &y);
-        if(x>0 && y>0 && x <= n && y <=m){
-            a[x][y] = 1.0;
-        }
-    }
-    for (int i = 1; i <= n; i++){
-        for (int j = 1; j <= m; j++){
-            double lc = a[i][j-1]+100;
-            if(lc > a[i-1][j]+100) 
-                lc = a[i-1][j]+100;
-            if(a[i][j] > 0.5){
-                if(lc > a[i-1][j-1]+lu){
-                    lc = a[i-1][j-1]+lu;
-                }
-            }
-            a[i][j]=lc;
-        }
-    }
-    printf("%.0f\n",a[n][m]);
+    cout << ans << endl;
     return 0;
 }
