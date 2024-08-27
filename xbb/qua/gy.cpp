@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 bool ism(int a,int m){
-    for (int i = 2; i*i <= a; i++){
-        while (a%i==0) a/=i;
-        if (a%i==0&&i>m) return false;
+    for (int i = 2; a>m && i<=m && i*i <= a; i++){
+        while (a%i==0)
+            a/=i;
     }
     return a<=m;
 }
