@@ -9,12 +9,13 @@ struct pop{
     int s;
     int max;
 } a[10000];
+
 bool cmp(pop a,pop b){
     if (a.z!=b.z) return a.z>b.z;
     if (a.s!=b.s) return a.s>b.s;
-    if (a.max!=b.max) return a.max>b.max;
-    return true;
+    return a.max>=b.max;
 }
+
 bool cmp1(pop a,pop b){
     return a.djg<b.djg;
 }
@@ -31,13 +32,15 @@ int main()
         a[i].djg=i;
     }
     sort(a,a+n,cmp);
-    for (int i = 0; i < n; i++){
+    a[0].dj=1;        
+    for (int i = 1; i < n; i++){
         if (a[i-1].z==a[i].z&&a[i-1].s==a[i].s&&a[i-1].max==a[i].max)
             a[i].dj=a[i-1].dj;
         else
             a[i].dj=i+1;        
     }
     sort(a,a+n,cmp1);
+    
     for (int i = 0; i < n; i++){
         cout<<a[i].dj<<endl;
     }
