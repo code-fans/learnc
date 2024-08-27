@@ -32,17 +32,20 @@ int main()
         a[i].djg=i;
     }
     sort(a,a+n,cmp);
+    int rank[10000];
+    rank[a[0].djg] = 1;
     a[0].dj=1;        
     for (int i = 1; i < n; i++){
         if (a[i-1].z==a[i].z&&a[i-1].s==a[i].s&&a[i-1].max==a[i].max)
             a[i].dj=a[i-1].dj;
         else
-            a[i].dj=i+1;        
+            a[i].dj=i+1;
+        
+        rank[a[i].djg] = a[i].dj;
     }
-    sort(a,a+n,cmp1);
     
     for (int i = 0; i < n; i++){
-        cout<<a[i].dj<<endl;
+        cout<<rank[i]<<endl;
     }
     return 0;
 }
