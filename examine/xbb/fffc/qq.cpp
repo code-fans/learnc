@@ -7,15 +7,19 @@ using namespace std;
 struct aaa{
     int h;
     int c;
-};
 
-struct cmpaaa{
-    bool operator() (aaa a, aaa b){
-        return a.c!=b.c?a.c>b.c:a.h<b.h;
+    friend ostream& operator << (ostream &os, const aaa& a){
+        os<<a.h<<' '<<a.c;
+        return os;
     }
+
+    bool operator < (const aaa& a) const {
+        return c!=a.c? c< a.c : a.h<h;
+    }
+
 };
 
-priority_queue<aaa, vector<aaa>, cmpaaa> q;
+priority_queue<aaa> q3;
 
 int main()
 {
@@ -25,15 +29,14 @@ int main()
     aaa a;
     for ( int i = 0; i < n; i++){
         cin>>a.h>>a.c;
-        q.push(a);
+        q3.push(a);
     }
 
     cout<<endl;
 
     for (int i = 0; i < m; i++){
-        a = q.top();
-        cout<<a.h << ' ' << a.c <<endl;
-        q.pop();
+        cout<<q3.top()<<endl;
+        q3.pop();
     }
     
     return 0;
