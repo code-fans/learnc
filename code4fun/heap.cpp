@@ -1,74 +1,43 @@
 #include <iostream>
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <string>
 using namespace std;
-
-int bp, ep , heap[300100];
-//base 1
-void push(int data){
-    int i= ep;
-    while(i > bp && heap[i-1] < data){
-        heap[i] = heap[i-1];
-        i--;
-    }
-    heap[i] = data;
-    ep++;
-}
-
-int pop(){
-    int data = heap[bp];
-    bp++;
-    return data;
-}
-
-
-void change(int pos, int key)
-{
-    int i = bp + pos -1;
-    if(heap[i] > key){
-        printf("-1\n");
-        return;
-    }
-    while(i > bp && heap[i-1] < key){
-        heap[i] = heap[i-1];
-        i--;
-    }
-    heap[i] = key;
-}
 
 int main()
 {
-    int n, v, p;
-    int t, key;
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++){
-        scanf("%d", &heap[i]);
-    }
-
-    sort(heap, heap+n, greater<int>());
-    bp=0; ep=n;
-
+    int k=0,num=0,x= 1,y=1,x1,y1;
+    cin>>x1>>y1;
+    int step[100]={0};
+    int dx[5]={1,2,2,1};
+    int dy[5]={-2,-1,1,2};
     while (1)
     {
-        scanf("%d", &p);
-        if(p==1)
-            printf("%d\n", heap[bp]);
-        else if(p==2)
-            printf("%d\n", pop());
-        else if(p==3)
-        {
-            scanf("%d%d", &v, &key);
-            change(v+1 ,key);
-        }
-        else if (p==4)
-        {
-            scanf("%d", &key);
-            push(key);
-        }
-        else
+        // 走一步
+        x+=dx[k];
+        y+=dy[k];
+        step[num] = k;
+        num ++;
+        k=0;
+        //如果成功了
+        if(x == x1 && y== y1){
             break;
+        }
+        if(x>x1 || y>y1 || y<1){
+            //退一步
+            do{
+                num--;
+                if(num<0){
+                    printf("error!\n");
+                    return 0;
+                }
+                k=step[num];
+                x-=dx[k];
+                y-=dy[k];
+                k++;
+            }while(k>3);
+        }
     }
+
+    for (k = 0; k <  num; k++)
+        printf("%d ",step[k]+1);
+    printf("\n");
     return 0;
 }
