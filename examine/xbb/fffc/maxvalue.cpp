@@ -6,7 +6,7 @@
 using namespace std;
 
 int n,a[10000]={0};
-
+//优化这个算法
 int maxvalue(int x){
     if(x==0) return 0;
     if(x==1)
