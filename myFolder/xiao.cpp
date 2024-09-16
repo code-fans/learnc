@@ -89,44 +89,6 @@ void qsort2(int a[], int l,int r){
     if(l1 < r-1) qsort2(a, l1, r);
 }
 
-void qsort3(int a[],int l,int r)
-{
-    int i,j,mid,p;
-    i=l; j=r;
-    mid= a[(l+r)/2];
-    do
-    {
-        while(a[i]<mid) i++;
-        while(a[j]>mid) j--;
-        if(i<=j)
-        {
-            p=a[i]; a[i]=a[j]; a[j]=p;
-            i++;j--;
-        }
-    } while (i<=j);
-    if(l<j) qsort3(a,l, j);
-    if(i<r) qsort3(a, i, r);
-}
-
-void qsort4(int a[], int l, int r){
-    if(r-l < 2)
-        return;
-    int mid = a[(l+r)/2], r1 = l, r2=r-1;
-    do
-    {
-        while (r1<r2 && a[r1]< mid) r1++;
-        while (r2>r1 && a[r2]> mid) r2--;
-        if(r1<r2){
-            sawp(a,r1,r2);
-            r1++;
-            r2--;
-        }
-    } while (r1 < r2);
-
-    qsort4(a, l, r1);
-    qsort4(a, r1, r);
-}
-
 void msort(int a[],int l, int r)
 {
     if(r-l < 2)
