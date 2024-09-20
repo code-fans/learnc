@@ -1,16 +1,21 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <cmath>
+#include <vector>
 #include <cstdio>
+
 using namespace std;
 
 int n,a[10000]={0};
-int nv[1000], nvl=0;
 //优化这个算法
 int maxvalue(int x){
-    if(x<=nvl) return nv[x];
-    for(int i=nvl+1; i<=x; i++){
+    if(x==0) return 0;
+    if(x==1)
+        return a[1];
+    int nv[1000];
+    nv[0] = 0;
+    nv[1] = a[1]; 
+    for(int i=2; i<=x; i++){
         nv[i] = nv[i-1] + a[1];
         for(int j=2; j<=n && j<=i; j++){
             if(nv[i] < nv[i-j] + a[j]){
@@ -26,28 +31,27 @@ int main(){
     cin>>n;
     for (int i=1;i<=n;i++)
         cin>>a[i];
-    nv[0] = 0;
-    nv[1] = a[1];
-    nvl = 1;
-
     int n2;
     string str;
     cin>>n2>>str;
     int ans = 0;
     for (int i = 0; i < n2-2; i++){
-        int k = 0;  
-        while(i < n2-2 && str.substr (i,3)=="abc"){
-            k++;
-            i+=3;
+        int k =0;  
+        if(str.substr(i,3)=="abc"){
+            do{
+                k++;
+                i+=3;
+            }while(i < n2-2 && str.substr (i,3)!="abc");
         }
         ans += maxvalue(k);
     }
-    cout<<ans<<endl;
+    cout<< endl;
+
     return 0;
 }
 /*
 3 
-3 5 11
-20
-dabczabcabcabcabcabz
+3 1 2
+13
+dabcabcabcabz
 */
