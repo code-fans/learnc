@@ -7,14 +7,14 @@ int exgcd(int a, int b, int& x, int& y) {
         x = 1, y = 0;
         return a;
     }
-    int r = exgcd(b, a % b, y, x);
-    y -= a / b * x;
-    /*
+    //int r = exgcd(b, a % b, y, x);
+    //y -= a / b * x;
+    
     int r = exgcd(b, a % b, x, y);
     int temp = x;
     x = y;
     y = temp - a / b * y;
-    */
+    
     return r;
 }
 
@@ -36,7 +36,7 @@ int exgcd2(int a, int b, int& x, int& y) {
 
 int main(){
     int s,t;
-    cout << exgcd(7, 11, s, t)<< endl;
+    cout << exgcd2(105, 66, s, t)<< endl;
     cout <<s << ' ' << t<< endl;
     return 0;
 }
