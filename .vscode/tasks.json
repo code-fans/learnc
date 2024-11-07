@@ -36,7 +36,7 @@
         {
             "type": "shell",
             "label": "build cpp",
-            "command": "/usr/bin/g++",
+            "command": "/usr/bin/g++ ",
             "args": [
                 "${file}",
                 "-o",
