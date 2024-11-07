@@ -72,55 +72,21 @@ void qsort(int a[],int l,int r){
     qsort(a, r1+1, r);
 }
 
-void qsort2(int a[],int l,int r){
+void qsort2(int a[], int l,int r){
 
-    int l1=l,r1=r-1, mid=a[(r+l)/2];
+    int l1=l,r1=r-1, mid=a[(l1+r1)/2];
     do
     {
-        while(a[l1]<mid && l1!=r1) l1++;
-        while(a[r1]>mid && r1!=l1) r1--;
-        sawp(a,l1,r1);
-    } while (l1<r1);
-    if(l1-1 >l) qsort2(a,l,l1);
-    if(l1 < r-1) qsort2(a,l1,r);
-}
-
-void qsort3(int a[],int l,int r)
-{
-    int i,j,mid,p;
-    i=l; j=r;
-    mid= a[(l+r)/2];
-    do
-    {
-        while(a[i]<mid) i++;
-        while(a[j]>mid) j--;
-        if(i<=j)
-        {
-            p=a[i]; a[i]=a[j]; a[j]=p;
-            i++;j--;
+        while(a[l1]<mid) l1++;
+        while(a[r1]>mid) r1--;
+        if(l1<=r1){
+            sawp(a,l1,r1);
+            l1++;
+            r1--;
         }
-    } while (i<=j);
-    if(l<j) qsort3(a,l, j);
-    if(i<r) qsort3(a, i, r);
-}
-
-void qsort4(int a[], int l, int r){
-    if(r-l < 2)
-        return;
-    int mid = a[(l+r)/2], r1 = l, r2=r-1;
-    do
-    {
-        while (r1<r2 && a[r1]< mid) r1++;
-        while (r2>r1 && a[r2]> mid) r2--;
-        if(r1<r2){
-            sawp(a,r1,r2);
-            r1++;
-            r2--;
-        }
-    } while (r1 < r2);
-
-    qsort4(a, l, r1);
-    qsort4(a, r1, r);
+    } while (l1<=r1);
+    if(r1 > l) qsort2(a, l, r1+1);
+    if(l1 < r-1) qsort2(a, l1, r);
 }
 
 void msort(int a[],int l, int r)
@@ -155,18 +121,17 @@ int main()
 {   
     int n;
     cin>>n;
-    int a[10000];
+    int a[100100];
     for (int i = 0; i < n; i++){
         cin>>a[i];
     }                 
     
-    msort(a,0, n); 
+    qsort2(a, 0, n); 
     for (int i = 0; i < n; i++){
         cout<<a[i]<<' ';
     }
     cout<<endl;
-    //
-    stable_sort();
+    //stable_sort();
     return 0;
 }
 /*

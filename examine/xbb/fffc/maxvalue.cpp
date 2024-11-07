@@ -1,8 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-#include <cmath>
+#include <vector>
 #include <cstdio>
+
 using namespace std;
 
 int n,a[10000]={0};
@@ -44,7 +45,8 @@ int main(){
         }
         ans += maxvalue(k);
     }
-    cout<<ans<<endl;
+    cout<< endl;
+
     return 0;
 }
 /*
