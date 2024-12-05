@@ -24,7 +24,7 @@ void selectSort(int a[],int n)
         min=a[i];
         mini=i;
         for (int j = i+1;j < n; j++){
-            if(min<a[j]){
+            if(min>a[j]){
                 min=a[j];
                 mini=j;
             }
@@ -33,7 +33,7 @@ void selectSort(int a[],int n)
     }
 }
 
-void isort(int a[],int n){
+void insertSort(int a[],int n){
     for (int i = 1; i < n; i++){
         int p=a[i];
         int j=i;
@@ -45,7 +45,7 @@ void isort(int a[],int n){
     }
 }
 
-void qsort(int a[],int l,int r){
+void qSort(int a[],int l,int r){
     if(r-l<2)
         return;
     int n = r-1, r1 = l, r2=r-2;
@@ -59,13 +59,10 @@ void qsort(int a[],int l,int r){
             r2--;
         }
     } while (r1 < r2);
-    // r1 == r2 时 a[r1] 可能小于 a[n]
     if(r1 < r && a[r1]<a[n]) r1++;
-
     swap(a[r1], a[n]); 
-
-    qsort(a, l, r1 );
-    qsort(a, r1+1, r);
+    qSort(a, l, r1 );
+    qSort(a, r1+1, r);
 }
 
 void qsort2(int a[], int l,int r){
@@ -85,14 +82,13 @@ void qsort2(int a[], int l,int r){
     if(l1 < r-1) qsort2(a, l1, r);
 }
 
-void msort(int a[],int l, int r)
+void mergeSort(int a[],int l, int r)
 {
     if(r-l < 2)
         return;
     int m = (l+r)/2;
-    msort(a, l, m);
-    msort(a, m, r);
-    // merge
+    mergeSort(a, l, m);
+    mergeSort(a, m, r);
     int k[10000];
     int i=l;
     int j=m;
@@ -122,7 +118,7 @@ int main()
         cin>>a[i];
     }                 
     
-    selectSort(a, n); 
+    mergeSort(a, 0, n); 
     for (int i = 0; i < n; i++){
         cout<<a[i]<<' ';
     }
