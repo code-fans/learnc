@@ -1,24 +1,167 @@
-#include <bits/stdc++.h>
-using namespace std;
-int dx[] = { 0, 1, 0, -1 }， dy[] = { 1, 0, -1, 0 }，n, d[300005], f[300005], a[505][1005], b[505][1005], k;
-vector<int> v, g[300005];
-int main() {
-    cin >> n;
-    for (int i = 0; i < n; i++) for (int j = 0; j < 2 * (n - (i % 2)); j++) cin >> b[i][j + (i % 2)], a[i][j + (i % 2)] = k, k += j % 2;
-    for (int x = 0; x < n; x++) for (int y = 0; y < 2 * n; y++) for (int k = 0; k < 4; k++) {
-        int tx = x + dx[k], ty = y + dy[k];
-        if (tx >= 0 && ty >= 0 && tx < n && ty < 2 * n && a[tx][ty] != a[x][y] && b[tx][ty] == b[x][y]) g[a[x][y]].push_back(a[tx][ty]);
-    }
-    memset(d, 0xff, sizeof(d))，d[0] = 0, f[0] = -1;
-    queue<int> q;
-    q.push(0);
-    while (!q.empty()) {
-        int u = q.front();
-        q.pop();
-        for (int v : g[u]) if (d[v] == -1) d[v] = d[u] + 1, f[v] = u, q.push(v);
-    }
-    k = n * n - n / 2 - 1;
-    while (d[k] == -1) k--;
-    for (int i = k; i != -1; i = f[i]) v.push_back(i);
-    cout << v.size() << endl;
+# Toybox 入门教程
+
+`toybox` 是一个给 C/C++ 初学者准备的字符游戏引擎。它的目标很简单：让你用很少的代码，就能在控制台里做出会动、能响应按键的小游戏。
+
+如果你先看过旧版 `README`，你会发现那段代码并不是 `toybox` 的使用示例。为了让这个仓库更适合学习，这里改成一个真正能上手的教程。
+
+## 1. 你要先明白什么是 toybox
+
+`toybox` 只做三件事：
+
+1. 读取键盘输入
+2. 按固定速度调用你的 `update()`
+3. 把你画好的字符一次性显示出来
+
+你只需要写两个函数：
+
+- `update(int w, int h, draw_function draw)`：每一帧都执行一次，负责“画画”
+- `keypress(int key)`：按下按键时执行，负责“记住用户按了什么”
+
+最后再调用：
+
+```cpp
+toybox_run(fps, update, keypress);
+```
+
+## 2. 最小示例
+
+下面这个例子来自仓库里的 `hello.cpp`。它会做两件事：
+
+- 把整个屏幕填满当前按键字符
+- 在左上角画一个转圈动画
+
+```cpp
+#include "toybox.h"
+
+int k = '?', t = 0;
+
+void update(int w, int h, draw_function draw) {
+    for (int x = 0; x < w; x++)
+        for (int y = 0; y < h; y++)
+            draw(x, y, k);
+    draw(0, 0, "-\\|/"[(t++) / 5 % 4]);
 }
+
+void keypress(int ch) {
+    k = ch;
+}
+
+int main() {
+    toybox_run(100, update, keypress);
+}
+```
+
+## 3. 这个例子在做什么
+
+### `#include "toybox.h"`
+
+把引擎的接口引进来。`toybox.h` 里已经帮你准备好了窗口、输入、刷新这些底层事情。
+
+### `int k = '?', t = 0;`
+
+- `k`：当前背景字符
+- `t`：动画计数器，用来让左上角的小字符转起来
+
+### `update()`
+
+这个函数是“每帧都要做的事”。
+
+```cpp
+for (int x = 0; x < w; x++)
+    for (int y = 0; y < h; y++)
+        draw(x, y, k);
+```
+
+这段代码的意思是：把整个屏幕每个位置都画成同一个字符 `k`。
+
+```cpp
+draw(0, 0, "-\\|/"[(t++) / 5 % 4]);
+```
+
+这句是在左上角画一个“转圈字符”。它会在 `- \ | /` 之间切换，看起来像在转动。
+
+### `keypress()`
+
+按下键盘时，`toybox` 会把按键交给这个函数。
+
+```cpp
+k = ch;
+```
+
+意思是：把你刚按下的键保存到 `k` 里。下一帧刷新时，整个背景就会变成这个字符。
+
+### `toybox_run(100, update, keypress)`
+
+这里是启动引擎。
+
+- `100` 表示每秒刷新 100 次
+- `update` 是画面更新函数
+- `keypress` 是按键处理函数
+
+## 4. toybox 的工作流程
+
+你可以把它理解成一个不断重复的循环：
+
+1. 看看有没有键盘输入
+2. 如果有，就调用 `keypress()`
+3. 如果到了下一帧时间，就调用 `update()`
+4. 把 `update()` 画出的内容显示到控制台
+5. 重复以上步骤
+
+这就是为什么 `toybox` 适合做字符小游戏：你不用自己处理复杂的窗口刷新，只要专注于“画什么”和“按键后怎么变”。
+
+## 5. 怎么编译和运行
+
+### Windows / Linux / macOS
+
+只要你的编译器能编译 C++，通常直接这样就能试：
+
+```bash
+g++ -std=c++17 hello.cpp -o hello
+```
+
+然后运行生成的程序：
+
+```bash
+./hello
+```
+
+在 Windows 上可能是：
+
+```bat
+hello.exe
+```
+
+## 6. 你可以怎么改成自己的小游戏
+
+最简单的改法有三种：
+
+1. 把 `k` 改成你自己的角色字符
+2. 在 `update()` 里画出角色、墙壁、敌人、分数
+3. 在 `keypress()` 里记录方向键，让角色移动
+
+比如：
+
+- 按 `A` 左移
+- 按 `D` 右移
+- 按 `W` 跳一下
+- 按 `Q` 退出
+
+## 7. 读代码时要注意的点
+
+- `draw(x, y, ch)` 只是“往画布上放字符”，不是立刻显示
+- `update()` 每一帧都会重新执行，所以里面适合放游戏逻辑
+- `keypress()` 只负责记录输入，不适合做太重的计算
+- 画面大小会跟终端窗口一起变化，所以你写 `update()` 时要根据 `w` 和 `h` 来画
+
+## 8. 适合继续学习的方向
+
+- 做一个贪吃蛇
+- 做一个打砖块
+- 做一个走迷宫游戏
+- 给字符加颜色
+- 让角色支持方向键和连续移动
+
+## 9. 一句话总结
+
+`toybox` 的核心思想就是：**你负责画和写规则，它负责刷新和显示。**
