@@ -33,6 +33,14 @@ int exgcd2(int a, int b, int& x, int& y) {
     return a;
 }
 
+// 求a对于b的逆元（乘法逆元），要求 a和m互素（互质）
+// a * s = 1 (MOD m)
+int inverseElement(int a, int m){
+    int x, y;
+    exgcd2(a, m, x, y);
+    return (x+m)%m; // s
+}
+
 
 int main(){
     int s,t;
