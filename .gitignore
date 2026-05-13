@@ -2,6 +2,7 @@
 *.ilk
 *.obj
 *.pdb
+*.bin
 *.o
 .DS_Store
 *.out
