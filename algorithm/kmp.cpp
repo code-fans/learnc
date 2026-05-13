@@ -27,10 +27,7 @@ void nextval(char t[], int f[], int m) {
         if (t[p] == t[i])
             ++p;
         // 记录修正后的值
-        if (t[i+1] == t[p])
-            f[i+1] = f[p];
-        else
-            f[i+1] = p;
+        f[i+1] = (t[i+1] == t[p]) ? f[p] : p;
         // 但下一次循环还需要原始 next 值，所以不能直接用 f[i+1] 赋值给 p？
         // 实际上标准的严蔚敏写法是维护 i 和 j（即 p），在循环中更新。
     }
@@ -56,7 +53,7 @@ int main() {
     int n = strlen(s);
     int m = strlen(t);
 
-    next(t, f, m);                // f[0..m]
+    nextval(t, f, m);                // f[0..m]
     find(s, t, f, n, m);
 
     // 通常题目要求输出 f[1..m]
